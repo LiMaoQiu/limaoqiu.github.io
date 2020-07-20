@@ -46,11 +46,9 @@ permalink: mqfyq/abab
 		var lkkg = "​／‌／‍"
 		lkkg = lkkg.split("／");
 		var 替换;
-
 		if (输入.indexOf(lkkg[0]) != -1 || 输入.indexOf(lkkg[1]) != -1 || 输入.indexOf(lkkg[2]) != -1) {
-
-			替换 = new RegExp('[\u4e00-\u9fa5_a-zA-Z0-9]', "g");
-			输入 = 输入.replace(替换, '');
+			输入=输入.split(lkkg[2]+lkkg[2])
+		输入=输入[1];
 			替换 = new RegExp(lkkg[0], "g");
 			输入 = 输入.replace(替换, '0');
 			替换 = new RegExp(lkkg[1], "g");
@@ -95,7 +93,7 @@ permalink: mqfyq/abab
 			输入 = 输入.replace(替换, lkkg[1]);
 			替换 = new RegExp('2', "g");
 			输入 = 输入.replace(替换, lkkg[2]);
-			输入 = "阿巴" + 输入 + "阿巴";
+			输入 = "阿巴" + lkkg[2] + lkkg[2] + 输入 + lkkg[2] + lkkg[2] + "阿巴";
 
 		}
 
