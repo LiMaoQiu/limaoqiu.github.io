@@ -3,99 +3,114 @@ layout: page2
 permalink: biji/xinwenbiaoqian
 ---
 <title>新闻事件与特定标签</title><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/><br/>
-<style>h4 {list-style: none;line-height:2.4;color:#006699;cursor:pointer;}a{cursor:pointer;}#输入框 input{ime-mode:inactive;ime-mode:disabled;border:none;font-size:1.4em;padding:.5em .7em;max-width:30em;width:100%;background:#F8F8F8;box-shadow:0 0 0 1px #DDD inset,0 1px 2px rgba(0,0,0,.2);transition: box-shadow .3s ease;border-radius:4px;text-align:center;-webkit-appearance:none;}#输入框 input:focus{box-shadow:	0 0 0 2px #58a4dd inset,0 3px 3px rgba(0,0,0,.2) inset;}.sx{color:#000000;font-size:1px;}small{color:#404040}.heimu2 {background-color: #252525;color: #252525;transition: color 0.2s;}.heimu2:hover {color: #ffffff;}</style>
+<style>th{background:#ffcbbf;}h4 {list-style: none;line-height:2.4;color:#006699;cursor:pointer;}a{cursor:pointer;}#输入框 input{ime-mode:inactive;ime-mode:disabled;border:none;font-size:1.4em;padding:.5em .7em;max-width:30em;width:100%;background:#F8F8F8;box-shadow:0 0 0 1px #DDD inset,0 1px 2px rgba(0,0,0,.2);transition: box-shadow .3s ease;border-radius:4px;text-align:center;-webkit-appearance:none;}#输入框 input:focus{box-shadow:	0 0 0 2px #58a4dd inset,0 3px 3px rgba(0,0,0,.2) inset;}.sx{color:#000000;font-size:1px;}small{color:#404040}.heimu2 {background-color: #252525;color: #252525;transition: color 0.2s;}.heimu2:hover {color: #ffffff;}</style>
 <script src="/js/jquery.min.js"></script>
 <script>$(function () {$("#searchBox").keyup(function () {var wzsc = $("#searchBox").val();wzsc = wzsc.split(" ");$("#dataSet h4").each(function () {$(this).hide();$("#dataSet ul").hide();if ($(this).text().indexOf($.trim(wzsc[0])) >= 0 && $(this).text().indexOf($.trim(wzsc[1])) >= 0 && $(this).text().indexOf($.trim(wzsc[2])) >= 0 && $(this).text().indexOf($.trim(wzsc[3])) >= 0 && $(this).text().indexOf($.trim(wzsc[4])) >= 0 && $(this).text().indexOf($.trim(wzsc[5])) >= 0 && $(this).text().indexOf($.trim(wzsc[6])) >= 0 && $(this).text().indexOf($.trim(wzsc[7])) >= 0 && $(this).text().indexOf($.trim(wzsc[8])) >= 0 && $(this).text().indexOf($.trim(wzsc[9])) >= 0) {$(this).show();}})})})</script>
 <body onload="document.getElementById('searchBox').focus()"><center>　<br/>　<span class="qibiaoti">新闻事件与特定标签</span>　</center>
 <div id='tag_cloud'><form id="输入框" autocomplete="off"><center><input type="text" id="searchBox" placeholder="关键词以空格分隔"/></center></form>
 <ul id="dataSet"><br/><br/>
 
-（媒体报道地名：指事件的报道中，媒体在标题和内容中是否有标注地名，标注的程度如何）
-（略：指区县、街道等）
-（为方便记录，直辖市也记录为“省”，直辖市的区县记录为“市”）
+<div class="menuDiv"><h4>记录说明</h4><ul>
+    　　与一些发表地域黑言论的网友交流，对方会认为自己并不是在地域黑，而是阐述事实，理由是他们认为当地（如东北）就是不好，比如“到处都是黑社会”、“犯罪率高”。<br>
+    　　但是数据显示，这些被地域黑的地区实际并没有这种情况（见“<a href="/zhuanlan/diyuhei/dongbei">地域黑-东北</a>”其中的“刻板印象与真相：东北到处都是黑社会”和“刻板印象与真相：东北犯罪率高”）。<br>
+    　　猜测，虽然东北地区的犯罪率不高，但是会被媒体额外关注，因此开始记录在热榜上见到的各地的恶性事件。<br>
+    　　从记录开始到2020年9月，已经记录的新闻事件并没有对东北地区额外报道的情况，东北地区仅两件，但是两件都有明显的地域黑现象。而江浙沪皖地区有十六件，没有地域黑现象。<br>
+    　　在记录中还发现一个现象，有些地区在媒体报道中会在标题和显著位置标明省份，而有的地区却只标注市名、县名、或者不标注地区，比如“昆山龙哥”，在对网友的问访调查中发现许多人并不知道昆山是哪里。<br>
+    　　猜测，有些地区虽然犯罪率和媒体报道高于其他地区，但是媒体报道弱化了省份，导致网友没有留下印象。而有的地区会被更多的强调地区，让网友印象更深。<br>
+    　　因此增加“媒体报道地名”的记录，指多数媒体在报道这件事中，标题和内容中标注的是省名、市名、不标注、或是其他。<br>
+    <br>
+    <b>参考标签</b><br>
+    群体：师生、环卫工、公司、宠物<br>
+    事件：杀人、盗窃、哄抢、强奸<br>
+    其他：男杀女、女杀男<br>
+    <br>
+    <b>统计说明</b><br>
+    为方便记录，省份按网络上约定俗成的合称，如江浙沪皖、京津冀，其他没有合称的省份按地理方位划分，如中部、西部。<br>
+    事件：指本次统计记录的事件数。<br>
+    歧视：指因事件产生的对当地或当地人的普遍歧视现象。<br>
+    杀人：指发生人员死亡的事件数。<br>
+    盗抢：包括盗窃、抢劫、哄抢。<br>
+    媒体报道地名：指事件的报道中，媒体在标题和内容中是否有标注地名，标注的程度如何。<br>
+    略：指区县、街道等。<br>
+    为方便记录，直辖市也记录为“省”，直辖市的区县记录为“市”。<br>
+    <br>
+</ul></div>
 
-<div class="menuDiv"><h4><small>参考标签</small></h4><ul>
-常见区域和省份：东北、河南、山东、江浙沪<br>
-群体：师生、环卫工、公司、宠物
-事件：杀人、盗窃、哄抢
-其他：男杀女、女杀男
-<br><br>
 <table border="1">
-<tr><td>统计</td><td>事</td><td>歧</td><td colspan="4">标题</td><td colspan="4">内容</td><td>备注</td></tr>
-<tr><td>地区</td><td>件</td><td>视</td>
+<tr><td>统计</td><th rowspan="2" style="background:#ffffff">事<br>件</th><th rowspan="2" style="background:#ffffff">歧<br>视</th><th rowspan="2" style="background:#ffffff">杀<br>人</th><th rowspan="2" style="background:#ffffff">盗<br>抢</th><th rowspan="2" style="background:#ffffff">斗<br>殴</th><th rowspan="2" style="background:#ffffff">强<br>奸</th><th colspan="4" style="background:#ffffff">标题</th><th colspan="4" style="background:#ffffff">内容</th><th style="background:#ffffff">备注</th></tr>
+<tr><th style="background:#ffffff">地区</th>
     <!--地区         事件    歧视
         省        市       略       无         省        市       略       无-->
-    <td>省</td><td>市</td><td>略</td><td>无</td><td>省</td><td>市</td><td>略</td><td>无</td>
-    <td>（为方便记录粗略划分）</td></tr>
+    <th style="background:#ffffff">省</th><th style="background:#ffffff">市</th><th style="background:#ffffff">略</th><th style="background:#ffffff">无</th><th style="background:#ffffff">省</th><th style="background:#ffffff">市</th><th style="background:#ffffff">略</th><th style="background:#ffffff">无</th>
+    <td>(仅粗略划分)</td></tr>
 
-<tr><td>东北</td><td>2</td><td>2</td>
-    <!--地区         事件数    地域黑
+<tr><td>东北</td><td>2</td><th>2</th><td>0</td><td>1</td><td>0</td><td>0</td>
+    <!--地区         事件数    地域黑    杀人      盗抢      斗殴       强奸
         省        市       略       无         省        市       略       无-->
     <td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td>
-    <td>黑龙江、吉林、辽宁</td></tr>
+    <td>黑龙江 吉林 辽宁</td></tr>
 
-<tr><td>江浙沪皖</td><td>15</td><td>0</td>
-    <!--地区            事件数    地域黑
-        省        市       略       无         省        市       略       无-->
-    <td>2</td><td>7</td><td>0</td><td>7</td><td>1</td><td>9</td><td>0</td><td>5</td>
-    <td>江苏、浙江、上海、安徽</td></tr>
+<tr><td>江浙沪皖</td><th>19</th><td>0</td><th>7</th><th>3</th><td>1</td><th>2</th>
+    <!--地区            事件数    地域黑     杀人       盗抢      斗殴       强奸
+        省        市        略        无        省        市        略        无-->
+    <td>2</td><th>8</th><td>0</td><th>10</th><td>2</td><th>10</th><td>0</td><th>7</th>
+    <td>江苏 浙江 上海 安徽</td></tr>
 
-<tr><td>京津冀</td><td>1</td><td>0</td>
-    <!--地区           事件    歧视
+<tr><td>京津冀</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+    <!--地区           事件    歧视       杀人       盗抢      斗殴       强奸
         省        市       略       无         省        市       略       无-->
     <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td>
-    <td>北京、天津、河北</td></tr>
+    <td>北京 天津 河北</td></tr>
 
-<tr><td>两广</td><td>11</td><td>0</td>
-    <!--地区         事件     歧视
+<tr><td>两广</td><th>17</th><td>0</td><td>3</td><td>2</td><th>5</th><td>0</td>
+    <!--地区         事件     歧视       杀人      盗抢      斗殴       强奸
         省        市        略        无         省        市       略        无-->
-    <td>3</td><td>2</td><td>0</td><td>6</td><td>7</td><td>2</td><td>0</td><td>2</td>
-    <td>广东、广西</td></tr>
+    <td>3</td><td>2</td><td>0</td><th>12</th><th>13</th><td>2</td><td>0</td><td>2</td>
+    <td>广东 广西</td></tr>
 
-<tr><td>云贵川</td><td>3</td><td>0</td>
-    <!--地区           事件      歧视
+<tr><td>云贵川</td><td>5</td><td>0</td><td>3</td><td>0</td><td>0</td><td>0</td>
+    <!--地区           事件      歧视      杀人      盗抢      斗殴       强奸
         省        市        略        无         省        市       略        无-->
-    <td>2</td><td>0</td><td>0</td><td>1</td><td>2</td><td>0</td><td>1</td><td>0</td>
-    <td>云南、贵州、川渝（四川、重庆）</td></tr>
+    <td>2</td><td>0</td><td>0</td><th>3</th><th>3</th><td>0</td><td>1</td><td>1</td>
+    <td>云南 贵州 四川 重庆</td></tr>
 
-<tr><td>陕甘宁</td><td>4</td><td>0</td>
-    <!--地区           事件      歧视
+<tr><td>陕甘宁</td><td>4</td><td>0</td><td>3</td><td>0</td><td>1</td><td>1</td>
+    <!--地区           事件      歧视      杀人      盗抢      斗殴       强奸
         省        市       略       无         省        市       略       无-->
-    <td>1</td><td>3</td><td>0</td><td>0</td><td>2</td><td>2</td><td>0</td><td>0</td>
-    <td>陕西、甘肃、宁夏</td></tr>
+    <td>1</td><th>3</th><td>0</td><td>0</td><td>2</td><td>2</td><td>0</td><td>0</td>
+    <td>陕西 甘肃 宁夏</td></tr>
 
-<tr><td>北部</td><td>1</td><td>0</td>
-    <!--地区         事件    歧视
+<tr><td>北部</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td>
+    <!--地区         事件    歧视        杀人      盗抢      斗殴       强奸
         省        市       略       无         省        市       略       无-->
     <td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td>
-    <td>山西、山东、内蒙古</td></tr>
+    <td>山西 山东 内蒙古</td></tr>
 
-<tr><td>中部</td><td>7</td><td>0</td>
-    <!--地区         事件     歧视
+<tr><td>中部</td><td>7</td><td>0</td><td>3</td><td>0</td><td>1</td><td>1</td>
+    <!--地区         事件     歧视       杀人      盗抢      斗殴       强奸
         省        市       略       无         省        市       略       无-->
-    <td>2</td><td>0</td><td>0</td><td>5</td><td>6</td><td>0</td><td>1</td><td>0</td>
-    <td>河南、湖北、湖南</td></tr>
+    <td>2</td><td>0</td><td>0</td><th>5</th><th>6</th><td>0</td><td>1</td><td>0</td>
+    <td>河南 湖北 湖南</td></tr>
 
-<tr><td>西部</td><td>0</td><td>0</td>
-    <!--地区         事件    歧视
+<tr><td>西部</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+    <!--地区         事件    歧视        杀人      盗抢      斗殴       强奸
         省        市       略       无         省        市       略       无-->
     <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-    <td>新疆、青海、西藏</td></tr>
+    <td>新疆 青海 西藏</td></tr>
 
-<tr><td>南部</td><td>1</td><td>0</td>
-    <!--地区         事件    歧视
+<tr><td>南部</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td>
+    <!--地区         事件    歧视        杀人      盗抢      斗殴       强奸
         省        市        略        无         省        市       略       无-->
-    <td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td>
-    <td>江西、福建、海南</td></tr>
+    <td>0</td><td>0</td><td>0</td><th>2</th><th>2</th><td>0</td><td>0</td><td>0</td>
+    <td>江西 福建 海南</td></tr>
 
-<tr><td>港澳台</td><td>0</td><td>0</td>
-    <!--地区         事件    歧视
+<tr><td>港澳台</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+    <!--地区         事件       歧视       杀人      盗抢      斗殴       强奸
         省        市       略       无         省        市       略       无-->
     <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-    <td>香港、澳门、台湾</td></tr>
+    <td>香港 澳门 台湾</td></tr>
 
 </table>
-</ul></div>
 
 <!--
 <div class="menuDiv"><h4><small>年月</small> 
@@ -104,7 +119,20 @@ permalink: biji/xinwenbiaoqian
 
 
 <!-- 2020年 -->
+<div class="menuDiv"><h4><small>2020年9月</small> 女子吃外卖竟吃出癞蛤蟆，可能有毒<span class="sx">浙江 无-无</span></h4><ul></ul></div>
+<div class="menuDiv"><h4><small>2020年8月</small> 榴莲货船侧翻遭哄抢，村民食用后集体食物中毒<span class="sx">广西 防城港 无-省</span></h4><ul></ul></div>
+<div class="menuDiv"><h4><small>2020年8月</small> 喜提新车烧香图吉利，不慎烧掉邻居两台车<span class="sx">江苏 泰安 无-省</span></h4><ul></ul></div>
+<div class="menuDiv"><h4><small>2020年8月</small> 以为被贴罚单，司机当街攻击辅警<span class="sx">江苏 淮安 无-市</span></h4><ul></ul></div>
+<div class="menuDiv"><h4><small>2020年8月</small> 男生伪造清华录取通知书，父亲欲办酒席，结果被人发现有错字<span class="sx">广东 雷州 无-省</span></h4><ul></ul></div>
+<div class="menuDiv"><h4><small>2020年8月</small> 男子被女邻居误认成“前男友”，常被女邻居骚扰殴打<span class="sx">广东 广州 无-省</span></h4><ul></ul></div>
+<div class="menuDiv"><h4><small>2020年8月</small> 女子报警：我捡到钥匙把车开走，别人说我偷怎么办？<span class="sx">广西 柳州 无-省</span></h4><ul>
+一女子见他人电动车钥匙没拔将车骑走，被人说是偷车，女子委屈报警：他们都说我偷车。被抓后称自己电动车曾被偷过，认为人们都默认了捡到钥匙就可以把车骑走，称“是人都有这样的想法”。</ul></div>
+<div class="menuDiv"><h4><small>2020年8月</small> 老人被狗绳绊倒身亡，狗主人见状慌乱逃跑<span class="sx">广东 佛山 无-省</span></h4><ul></ul></div>
+<div class="menuDiv"><h4><small>2020年8月</small> 为博眼球偷拍女邻居取快递，编造“小三”故事导致女邻居遭网暴<span class="sx">浙江 杭州 市-市</span></h4><ul></ul></div>
+<div class="menuDiv"><h4><small>2020年8月</small> 发生命案，五天三人被杀<span class="sx">江西 无-省 杀人</span></h4><ul></ul></div>
+<div class="menuDiv"><h4><small>2020年8月</small> 手术台上提刀加价，一手刀一手POS机<span class="sx">贵州 无-无</span></h4><ul></ul></div>
 <div class="menuDiv"><h4><small>2020年8月</small> 货车遭遇车祸，7吨猪肉遭哄抢<span class="sx">江苏 盐城 省-省</span></h4><ul></ul></div>
+<div class="menuDiv"><h4><small>2020年7月</small> 男子骑摩托车故意阻挡救护车，群众劝说也无动于衷<span class="sx">广东 潮州 无-省</span></h4><ul></ul></div>
 <div class="menuDiv"><h4><small>2020年7月</small> 酒后坐车不戴口罩被劝阻，心生不满拳打司机<span class="sx">广东 广州 市-市</span></h4><ul></ul></div>
 <div class="menuDiv"><h4><small>2020年7月</small> 男子驾摩托车拒让行救护车<span class="sx">广东 潮州 无-省</span></h4><ul></ul></div>
 <div class="menuDiv"><h4><small>2020年7月</small> 垃圾场污水流入自来水<span class="sx">浙江 杭州 市-市</span></h4><ul></ul></div>
@@ -117,7 +145,7 @@ permalink: biji/xinwenbiaoqian
 <div class="menuDiv"><h4><small>2020年7月</small> 小区居民连续6天往楼下仍大便，超市老板被砸一身<span class="sx">湖南 长沙 无-省</span></h4><ul></ul></div>
 <div class="menuDiv"><h4><small>2020年7月</small> 物业私自将业主别墅租给剧组，导致房屋损坏赔三百万<span class="sx">浙江 杭州 市-市</span></h4><ul>舆论：物业的法律责任、业主真有钱</ul></div>
 <div class="menuDiv"><h4><small>2020年7月</small> 暴雨致渔场涨水,市民不顾危险捞鱼，场主损失惨重<span class="sx">安徽 合肥 哄抢 省-无</span></h4><ul>舆论：群体哄抢不道德、场主可怜</ul></div>
-<div class="menuDiv"><h4><small>2020年7月</small> 大学生频繁偷外卖<span class="sx">南京 师生 盗窃 无-无</span></h4><ul>媒体：家庭困难、兄弟姐妹都辍学了、偷外卖是因为贫穷和饥饿<br>舆论：大学生吃不起饭是一个国家的悲哀<br>后续：经查，是他曾经被偷外卖，于是产生报复和占便宜心理，不是因为饿</ul></div>
+<div class="menuDiv"><h4><small>2020年7月</small> 大学生频繁偷外卖<span class="sx">江苏 南京 师生 盗窃 无-无</span></h4><ul>媒体：家庭困难、兄弟姐妹都辍学了、偷外卖是因为贫穷和饥饿<br>舆论：大学生吃不起饭是一个国家的悲哀<br>后续：经查，是他曾经被偷外卖，于是产生报复和占便宜心理，不是因为饿</ul></div>
 <div class="menuDiv"><h4><small>2020年7月</small> 高考考生因题目太难撕毁他人答题卡<span class="sx">河南 平顶山 省-省 师生</span></h4><ul>舆论：不道德、精神有问题、判罚太轻</ul></div>
 <div class="menuDiv"><h4><small>2020年7月</small> 女子离奇失踪在化粪池被找到，系丈夫杀害分尸<span class="sx">浙江 杭州 市-市 杀人 男杀女</span></h4><ul>舆论：恐婚恐男，指责网友用“化粪池”玩梗</ul></div>
 <div class="menuDiv"><h4><small>2020年6月</small> 情侣合办幼儿园 女方亲眼目睹男方猥亵儿童，提分手被泼硫酸报复<span class="sx">广东 阳江 无-省</span></h4><ul></ul></div>
@@ -135,6 +163,7 @@ permalink: biji/xinwenbiaoqian
 <!-- 2018年 -->
 <div class="menuDiv"><h4><small>2018年12月</small>  环卫工驱赶乱排便小狗，被狗主人用木棍抽打头部，致其晕倒<span class="sx">湖南 宠物 无-略 环卫工</span></h4><ul>媒体：标题未报道地区，内容报道略<br>舆论：狗主人群体普遍素质不高</ul></div>
 <div class="menuDiv"><h4><small>2018年12月</small> 十二岁弑母案<span class="sx">湖南 无-省 杀人</span></h4><ul>舆论：未成年人保护法将保护未成年犯罪</ul></div>
+<div class="menuDiv"><h4><small>2018年12月</small> 拒绝与妻子做夫妻生活，丈夫被妻子砍断命根子<span class="sx">四川 无-省</span></h4><ul></ul></div>
 <div class="menuDiv"><h4><small>2018年11月</small> 无证狗多次咬伤居民被抓，狗主人栽赃入室偷五万元报警<span class="sx">浙江 无-无 宠物</span></h4><ul>舆论：狗主人群体普遍素质不高</ul></div>
 <div class="menuDiv"><h4><small>2018年10月</small> 乘客因坐过站与司机争执，导致公交车坠江<span class="sx">重庆 省-省</span></h4><ul>舆论：呼吁保护司机</ul></div>
 <div class="menuDiv"><h4><small>2018年10月</small> 砍伤幼儿园儿童<span class="sx">重庆 省-省</span></h4><ul></ul></div>
@@ -156,7 +185,7 @@ permalink: biji/xinwenbiaoqian
 <!-- 2016年 -->
 <div class="menuDiv"><h4><small>2016年11月</small> 罗一笑事件<span class="sx">广东 无-无</span></h4><ul></ul></div>
 <div class="menuDiv"><h4><small>2016年8月</small> 白银连环杀人案<span class="sx">甘肃 白银 市-市 杀人</span></h4><ul></ul></div>
-<div class="menuDiv"><h4><small>2016年年4月</small> 男子朋友圈直播杀女友<span class="sx">浙江 温州 市-市 男杀女</span></h4><ul></ul></div>
+<div class="menuDiv"><h4><small>2016年4月</small> 男子朋友圈直播杀女友<span class="sx">浙江 温州 市-市 男杀女</span></h4><ul></ul></div>
 <div class="menuDiv"><h4><small>2016年2月</small> 怀疑男友不忠，女护士注射胰岛素杀死男友<span class="sx">江西 南昌 无-省 女杀男</span></h4><ul></ul></div>
 
 <!--
