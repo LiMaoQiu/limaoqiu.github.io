@@ -38,3 +38,8 @@ a {
 .heimu2:hover {
     color: #ffffff;
 }
+@media screen and (max-width: 768px){
+    ul{
+        margin:0px;padding:0px;
+    }
+}
