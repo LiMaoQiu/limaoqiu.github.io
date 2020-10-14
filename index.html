@@ -8,142 +8,193 @@ description: "猫球社长"
 <script src="/js/jquery.min.js"></script>
 <script src="/5/备忘日历/备忘日历.js"></script>
 <style>h4{color:#006699;cursor:pointer;}
-@media screen and (min-width: 768px){
+@media screen and (min-width: 450px){ /*电脑*/
 .sy50{width:50%;}
 .sy25{width:25%;}
 .sy125{width:12.5%;}
+#xttzb{width:300%;}
 }
-@media screen and (max-width: 767px){
+@media screen and (max-width: 449px){ /*手机*/
 .sy50{width:100%}
 .sy25{width:50%;}
 .sy125{width:25%;}
+#xttzb{width:150%;}
 }
-</style>
 
+/* 悬停弹窗 */
+div.xttza{
+    position: relative; 
+    } 
+#xttzb{
+    position: absolute; 
+    top: 60px; 
+    max-height: 400px; /* 设置最大高度，当高度达到此值时出现滚动条 */ 
+    z-index: 10; 
+    background-color: #ffffff; 
+    overflow: auto; /* 自动添加滚动条 */ 
+    box-shadow:0px 0px 10px #000; /* 外阴影 */ 
+    display: none; /* 默认隐藏 */
+    } 
+</style> 
 <small>
 <div>
-<div style="width:15em;float:left;">
-<script>document.write(日期);</script>
+<div class="xttza" style="width:16em;float:left;">
+    <div id="btn" onMouseOver="document.getElementById('xttzb').style.display='block'" onMouseOut="document.getElementById('xttzb').style.display='none'"> 
+        <small><script>document.write(日期);</script></small>
+    </div>
+    <div id="xttzb" onMouseOver="document.getElementById('xttzb').style.display='block'" onMouseOut="document.getElementById('xttzb').style.display='none'"> 
+    <table id="informTable">
+       <script>document.write(节日);</script>
+    </table>
+    </div>
 </div>
-<b>公告</b><br>
+<small><b>公告</b><br>
 暂无公告
-</div>
-<div style="width:15em;position:absolute;left:-240px;">
-<script>document.write(节日);</script>
-</div>
-</small>
+</small></div>
 <br>
 <div style="height:100%;width:100%;float:left;">
 
 <a href="/richang">
-<img class="tubiao sy50" src="/img/标签图标/猫球和二扯的日常.jpg" 
+<img class="tubiao sy50" id="猫球和二扯的日常" src="/img/标签图标/猫球和二扯的日常.jpg" 
 onMouseOver="this.src='/img/标签图标/猫球和二扯的日常3.jpg'" 
 onMouseOut="this.src='/img/标签图标/猫球和二扯的日常3.jpg'" 
+ontouchstart="this.src='/img/标签图标/猫球和二扯的日常3.jpg'" 
+ontouchend="this.src='/img/标签图标/猫球和二扯的日常3.jpg'" 
 alt="猫球和二扯的日常" align="left" ></a>
 
 <a href="/tv">
-<img class="tubiao sy50" src="/img/标签图标/猫球tv.jpg"  
+<img class="tubiao sy50" id="猫球tv" src="/img/标签图标/猫球tv.jpg"  
 onMouseOver="this.src='/img/标签图标/猫球tv3.jpg'" 
 onMouseOut="this.src='/img/标签图标/猫球tv3.jpg'" 
+ontouchstart="this.src='/img/标签图标/猫球tv3.jpg'" 
+ontouchend="this.src='/img/标签图标/猫球tv3.jpg'" 
 alt="猫球tv" align="left" ></a>
 
 <br/>
 
 <a href="/xiaojuchang">
-<img class="tubiao sy50" src="/img/标签图标/小剧场.jpg" 
+<img class="tubiao sy50" id="小剧场" src="/img/标签图标/小剧场.jpg" 
 onMouseOver="this.src='/img/标签图标/小剧场2.jpg'" 
 onMouseOut="this.src='/img/标签图标/小剧场3.jpg'" 
+ontouchstart="this.src='/img/标签图标/小剧场2.jpg'" 
+ontouchend="this.src='/img/标签图标/小剧场3.jpg'" 
 alt="小剧场" align="left" ></a>
 
 <a href="/yimeng">
-<img class="tubiao sy50" src="/img/标签图标/异梦系列.jpg" 
+<img class="tubiao sy50" id="异梦系列" src="/img/标签图标/异梦系列.jpg" 
 onMouseOver="this.src='/img/标签图标/异梦系列3.jpg'" 
 onMouseOut="this.src='/img/标签图标/异梦系列3.jpg'" 
+ontouchstart="this.src='/img/标签图标/异梦系列3.jpg'" 
+ontouchend="this.src='/img/标签图标/异梦系列3.jpg'" 
 alt="异梦系列" align="left" ></a>
 
 <br/>
 
 <a href="/wanyouxi">
-<img class="tubiao sy50" src="/img/标签图标/游戏实况.jpg" 
+<img class="tubiao sy50" id="游戏实况" src="/img/标签图标/游戏实况.jpg" 
 onMouseOver="this.src='/img/标签图标/游戏实况3.jpg'" 
 onMouseOut="this.src='/img/标签图标/游戏实况3.jpg'" 
+ontouchstart="this.src='/img/标签图标/游戏实况3.jpg'" 
+ontouchend="this.src='/img/标签图标/游戏实况3.jpg'" 
 alt="游戏实况" align="left" ></a>
 
 <a href="/wuyonggonglue">
-<img class="tubiao sy50" src="/img/标签图标/无用攻略.jpg" 
+<img class="tubiao sy50" id="无用攻略" src="/img/标签图标/无用攻略.jpg" 
 onMouseOver="this.src='/img/标签图标/无用攻略3.jpg'" 
 onMouseOut="this.src='/img/标签图标/无用攻略3.jpg'" 
+ontouchstart="this.src='/img/标签图标/无用攻略3.jpg'" 
+ontouchend="this.src='/img/标签图标/无用攻略3.jpg'" 
 alt="无用攻略" align="left" ></a>
 
 <br/>
 
 <a href="/xiangce">
-<img class="tubiao sy50" src="/img/标签图标/相册.jpg" 
+<img class="tubiao sy50" id="相册" src="/img/标签图标/相册.jpg" 
 onMouseOver="this.src='/img/标签图标/相册3.jpg'" 
 onMouseOut="this.src='/img/标签图标/相册3.jpg'" 
+ontouchstart="this.src='/img/标签图标/相册3.jpg'" 
+ontouchend="this.src='/img/标签图标/相册3.jpg'" 
 alt="相册" align="left" ></a>
 
 <a href="/zatan">
-<img class="tubiao sy50" src="/img/标签图标/杂谈.jpg" 
+<img class="tubiao sy50" id="杂谈" src="/img/标签图标/杂谈.jpg" 
 onMouseOver="this.src='/img/标签图标/杂谈3.jpg'" 
 onMouseOut="this.src='/img/标签图标/杂谈3.jpg'" 
+ontouchstart="this.src='/img/标签图标/杂谈3.jpg'" 
+ontouchend="this.src='/img/标签图标/杂谈3.jpg'" 
 alt="杂谈" align="left" ></a>
 
 <br/>
 
 <a href="/pvoink">
-<img class="tubiao sy50" src="/img/标签图标/pvo.jpg" 
+<img class="tubiao sy50" id="pvo" src="/img/标签图标/pvo.jpg" 
 onMouseOver="this.src='/img/标签图标/pvo3.jpg'" 
 onMouseOut="this.src='/img/标签图标/pvo3.jpg'" 
+ontouchstart="this.src='/img/标签图标/pvo3.jpg'" 
+ontouchend="this.src='/img/标签图标/pvo3.jpg'" 
 alt="pvo占领世界" align="left" ></a>
 
 <a href="/xiaogongju">
-<img class="tubiao sy50" src="/img/标签图标/小工具.jpg" 
+<img class="tubiao sy50" id="小工具" src="/img/标签图标/小工具.jpg" 
 onMouseOver="this.src='/img/标签图标/小工具3.jpg'" 
 onMouseOut="this.src='/img/标签图标/小工具3.jpg'" 
+ontouchstart="this.src='/img/标签图标/小工具3.jpg'" 
+ontouchend="this.src='/img/标签图标/小工具3.jpg'" 
 alt="小工具" align="left" ></a>
 
 <br/>
 
 <a href="http://space.bilibili.com/515330" target="_blank" rel="noopener">
-<img class="tubiao sy25" src="/img/标签图标/哔哩哔哩.jpg" 
+<img class="tubiao sy25" id="哔哩哔哩" src="/img/标签图标/哔哩哔哩.jpg" 
 onMouseOver="this.src='/img/标签图标/哔哩哔哩3.jpg'" 
 onMouseOut="this.src='/img/标签图标/哔哩哔哩3.jpg'" 
+ontouchstart="this.src='/img/标签图标/哔哩哔哩3.jpg'" 
+ontouchend="this.src='/img/标签图标/哔哩哔哩3.jpg'" 
 alt="哔哩哔哩" align="left" ></a>
 
 <a href="https://weibo.com/pvoink" target="_blank" rel="noopener">
-<img class="tubiao sy125" src="/img/标签图标/新浪微博.jpg" 
+<img class="tubiao sy125" id="新浪微博" src="/img/标签图标/新浪微博.jpg" 
 onMouseOver="this.src='/img/标签图标/新浪微博2.jpg'" 
 onMouseOut="this.src='/img/标签图标/新浪微博3.jpg'" 
+ontouchstart="this.src='/img/标签图标/新浪微博2.jpg'" 
+ontouchend="this.src='/img/标签图标/新浪微博3.jpg'" 
 alt="新浪微博" align="left" ></a>
 
 <a href="https://www.zhihu.com/people/inkde" target="_blank" rel="noopener">
-<img class="tubiao sy125" src="/img/标签图标/知乎.jpg" 
+<img class="tubiao sy125" id="知乎" src="/img/标签图标/知乎.jpg" 
 onMouseOver="this.src='/img/标签图标/知乎2.jpg'" 
 onMouseOut="this.src='/img/标签图标/知乎3.jpg'" 
+ontouchstart="this.src='/img/标签图标/知乎2.jpg'" 
+ontouchend="this.src='/img/标签图标/知乎3.jpg'" 
 alt="知乎" align="left" ></a>
 
 <a href="/tv#音乐频道">
-<img class="tubiao sy125" src="/img/标签图标/网易云音乐.jpg" 
+<img class="tubiao sy125" id="网易云音乐" src="/img/标签图标/网易云音乐.jpg" 
 onMouseOver="this.src='/img/标签图标/网易云音乐2.jpg'" 
 onMouseOut="this.src='/img/标签图标/网易云音乐3.jpg'" 
+ontouchstart="this.src='/img/标签图标/网易云音乐2.jpg'" 
+ontouchend="this.src='/img/标签图标/网易云音乐3.jpg'" 
 alt="网易云音乐" align="left" ></a>
 
 <a href="https://github.com/LiMaoQiu" target="_blank" rel="noopener">
-<img class="tubiao sy125" src="/img/标签图标/github.jpg" 
+<img class="tubiao sy125" id="github" src="/img/标签图标/github.jpg" 
 onMouseOver="this.src='/img/标签图标/github2.jpg'" 
 onMouseOut="this.src='/img/标签图标/github3.jpg'" 
+ontouchstart="this.src='/img/标签图标/github2.jpg'" 
+ontouchend="this.src='/img/标签图标/github3.jpg'" 
 alt="GitHub" align="left" ></a>
 
 <br/>
 <a href="/5/123719932" target="_blank" rel="noopener">
-<img class="tubiao sy125" src="/img/标签图标/QQ.jpg" 
+<img class="tubiao sy125" id="QQ" src="/img/标签图标/QQ.jpg" 
 onMouseOver="this.src='/img/标签图标/QQ2.jpg'" 
 onMouseOut="this.src='/img/标签图标/QQ3.jpg'" 
+ontouchstart="this.src='/img/标签图标/QQ2.jpg'" 
+ontouchend="this.src='/img/标签图标/QQ3.jpg'" 
 alt="QQ：123719932" align="left" ></a>
 
 <div class="sbys">
-　<!-- 这里有一个全角空格 -->
+⠀ <!-- 这里有一个全角空格 -->
 <br/><br/><br/><br/>
 <br/><small>
 电子邮箱：123719932@qq<a onclick="B()">.</a>com<br/>
@@ -159,14 +210,16 @@ function B()
 </div>
 
 <script>
-window.onload=function(){
-var dy0=new Array("小剧场2","新浪微博2","知乎2","github2","QQ2",
-"小剧场3","新浪微博3","知乎3","github3","QQ3",
-"猫球和二扯的日常3","猫球tv3","异梦系列3","游戏实况3","无用攻略3","相册3","杂谈3","pvo3","小工具3","哔哩哔哩3","网易云音乐2")
+var dy0=new Array("猫球和二扯的日常","猫球tv","小剧场","异梦系列","游戏实况","无用攻略",
+"相册","杂谈","pvo","小工具","哔哩哔哩","新浪微博","知乎","网易云音乐","github","QQ")
 var dy1="";
-for (var i = 0; i < dy0.length; i++) {
-        dy1 += '<img width="1px" src="/img/标签图标/' + dy0[i] + '.jpg"/>';
-    };
+
+window.onload=function(){
+    for (var i = 0; i < dy0.length; i++) {
+  document.getElementById(dy0[i]).src = "/img/标签图标/"+dy0[i]+"3.jpg"; 
+  dy1 += '<img width="1px" src="/img/标签图标/' + dy0[i] + '2.jpg"/>';
+}
 dy1='<div style="display:none;">'+dy1+'</div>';
-document.getElementById("dy0").innerHTML=dy1;}
+document.getElementById("dy0").innerHTML=dy1;
+};
 </script>
