@@ -1,0 +1,49 @@
+---
+permalink: i/zk/202010-jsq
+---
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="/css/mq-zkz.css">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/mq-zkz.js"></script>
+<title>计算器</title><p id="上级"></p>
+<script>if(top.location==self.location){var 返回="<div class=\"qbt\">计算器</div><a href=\"/\">limaoqiu.com</a> / <a href=\"/mq\">不存在的页面</a><br/>反对地域黑的过程中需要用其他地区的事件做例子，为防止因此出现新的地域黑，我会将例子中的地名用代号表示，这个页面仅用于方便我个人查询，链接不会公开，如果有人无意中打开这个网页，请关掉它，谢谢。";
+document.getElementById("上级").innerHTML=返回;}</script>
+
+<div>
+    <input id="jsq_zuo" style="width:50px"/> 
+    <select id="jsq_算数" onclick="jsq_算数()">
+        <option value="jsq_除">/</option>
+      </select> 
+    <input id="jsq_you" style="width:50px"/> = <input id="jsq_jg" style="width:50px"/>　
+    <button onclick="jsq_计算()">计算</button> <button onclick="jsq_复制()">复制</button> <button onclick="jsq_清空()">清空</button> <button onclick="jsq_自动()">自动</button>
+    </div>
+    
+    <script>
+    function jsq_计算(){
+        let jsq_左=document.getElementById("jsq_zuo").value;
+        let jsq_右=document.getElementById("jsq_you").value;
+        let jsq_算数=document.getElementById("jsq_算数").value;
+        if (jsq_算数=="jsq_除"){
+        var jsq_结果 = Math.round(jsq_左 / jsq_右 * 10000) / 100.00 + "%";
+    }
+        document.getElementById('jsq_jg').value = jsq_结果;
+    }
+    
+    function jsq_复制(){
+        let url = document.querySelector('#jsq_jg');
+        url.select(); // 选择对象
+        document.execCommand("Copy");
+    }
+    
+    function jsq_清空(){
+        document.getElementById('jsq_jg').value = "";
+        document.getElementById('jsq_zuo').value = "";
+        document.getElementById('jsq_you').value = "";
+    }
+    
+    function jsq_自动(){
+        jsq_计算();
+        jsq_复制();
+        jsq_清空();
+    }
+    </script>
