@@ -1,21 +1,121 @@
 ---
-layout: page2
-description: "无聊按钮"
 permalink: wuliaoanniu
 ---
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
 <title>无聊按钮 - 猫球博客</title>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {margin: 0;padding: 0;top: 50%;}
-.fxk {position: absolute;top: 55%;left: 50%;transform: translate(-50%, 10%);}
-a.xcan {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 200px;height: 60px;text-align: center;line-height: 60px;color: #fff;font-size: 24px;text-decoration: none;font-family: sans-serif;box-sizing: border-box;background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);background-size: 400%;border-radius: 30px;z-index: 1;}
-a.xcan:hover {animation: animate 8s linear infinite;}@keyframes animate {0% {background-position: 0%;}100% {background-position: 400%;}}
-a.xcan:before {content: "";position: absolute;top: -5px;left: -5px;right: -5px;bottom: -5px;z-index: -1;background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);background-size: 400%;border-radius: 40px;opacity: 0;transition: 0.5s;}
-a.xcan:hover:before {filter: blur(20px);opacity: 1;animation: animate 8s linear infinite;}
+    .fxk {
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    #yd {
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        cursor: default;
+        margin-top: -12px;
+        border: 2px solid #969696;
+        padding: 8px;
+        border-radius: 12px;
+    }
+
+    .xcan {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        color: #fff;
+        font-size: 24px;
+        text-decoration: none;
+        font-family: sans-serif;
+        box-sizing: border-box;
+        background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+        background-size: 400%;
+        border-radius: 30px;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    .xcan:hover {
+        animation: animate 8s linear infinite;
+    }
+
+    @keyframes animate {
+        0% {
+            background-position: 0%;
+        }
+
+        100% {
+            background-position: 400%;
+        }
+    }
+
+    .xcan:before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        z-index: -1;
+        background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+        background-size: 400%;
+        border-radius: 40px;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .xcan:hover:before {
+        filter: blur(20px);
+        opacity: 1;
+        animation: animate 8s linear infinite;
+    }
+
+    .toubu {
+        color: #404040;
+        font-weight: 800;
+        height: 50px;
+        padding: 8px 6px;
+        line-height: 20px;
+        text-decoration: none;
+    }
+
+    .toubu:hover {
+        color: #0085A1;
+    }
+
+    .toubuzuo {
+        float: left;
+        font-size: 18px;
+    }
+
+    .toubuyou {
+        display: table;
+        float: right;
+        font-size: 12px;
+    }
 </style>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<div class="fxk"><p><input type="checkbox" name="jxms" checked="checked" id="jxms" /><label for="jxms">　惊喜模式</label></p></div>
-<a class="xcan sbyslj" onclick="按钮()">无聊按钮</a>
+</head>
+<body>
+<a href="/" class="toubu toubuzuo">猫球博客</a>
+<a href="/xiaogongju" class="toubu toubuyou">　小工具</a> <a href="/" class="toubu toubuyou">返回主页　</a>
+<a class="xcan" onclick="按钮()">无聊按钮</a>
+<div class="fxk"><input type="checkbox" name="jxms" checked="checked" id="jxms" /><label for="jxms">　惊喜模式</label></div>
+<div id="yd" style="display:none"></div>
+
 <script>
     let data = new Array(
         "猫球社长的B站主页／https://space.bilibili.com/515330／",
@@ -171,7 +271,21 @@ a.xcan:hover:before {filter: blur(20px);opacity: 1;animation: animate 8s linear 
     if (wz == "1") {
         let 随机数 = Math.floor(Math.random() * data.length);
         let 临时 = data[随机数].split("／");
-        location.href = 临时[1];
+        let dy = 临时[0];
+            if (临时[2] != "") {
+                dy += "<br/>" + 临时[2];
+            }
+            document.getElementById("yd").style.display = "block";
+            let num = 3;
+        window.onload = function(){
+            let s = window.setInterval(function(){
+                document.getElementById("yd").innerHTML = dy+"<br/><br/>将在"+num+"秒后跳转";
+                num--;
+                if(num<=0){
+                    location.href = 临时[1];
+                }
+            }, 1000);
+        }
     }
 
     function 按钮() {
@@ -194,6 +308,14 @@ a.xcan:hover:before {filter: blur(20px);opacity: 1;animation: animate 8s linear 
             let 弹窗 = confirm(显示);
             if (弹窗 == true) { 惊喜模式 = 1 };
         }
+        else {
+            let dy = 临时[0];
+            if (临时[2] != "") {
+                dy += "<br/>" + 临时[2];
+            }
+            document.getElementById("yd").innerHTML = dy;
+            document.getElementById("yd").style.display = "block";
+        }
 
         if (惊喜模式 == 1) {
             window.open(临时[1]);
@@ -201,3 +323,5 @@ a.xcan:hover:before {filter: blur(20px);opacity: 1;animation: animate 8s linear 
 
     }
 </script>
+</body>
+</html>
