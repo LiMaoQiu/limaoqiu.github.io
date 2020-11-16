@@ -4,7 +4,7 @@ layout: default
 <script src="/js/jquery.min.js"></script>
 <script>
     if(top.location!=self.location){
-    $(function () {   //展开的子页面
+       //展开的子页面
 
         var bodyH = $(document).height()+{% if page.zk_height %}{{ page.zk_height }}{% else %}0{% endif %};
         var bodyJ = window.location.href.split('/i/zk/')[1];
@@ -18,7 +18,6 @@ layout: default
         bodyH = $(document).height();
         window.parent.document.getElementById(bodyK).height = bodyH;
         }
-    });
     }
 </script>
 
