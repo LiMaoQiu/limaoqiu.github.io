@@ -40,7 +40,9 @@
 <span class="vsc2">.vsc4</span><span class="vsc3"> { </span><span class="vsc4">color</span><span class="vsc3">:</span><span class="vsc4"> ⬛</span><span class="vsc5">#9CDCDB</span><br/>
 <span class="vsc2">.vsc5</span><span class="vsc3"> { </span><span class="vsc4">color</span><span class="vsc3">:</span><span class="vsc5"> ⬛</span><span class="vsc5">#CE9169</span><br/>
 <span class="vsc2">.vsc6</span><span class="vsc3"> { </span><span class="vsc4">color</span><span class="vsc3">:</span><span class="vsc6"> ⬛</span><span class="vsc5">#6A9855</span><br/>
-<span class="vsc2">.vsc7</span><span class="vsc3"> { </span><span class="vsc4">color</span><span class="vsc3">:</span><span class="vsc7"> ⬛</span><span class="vsc5">#B5CEA8</span>
+<span class="vsc2">.vsc7</span><span class="vsc3"> { </span><span class="vsc4">color</span><span class="vsc3">:</span><span class="vsc7"> ⬛</span><span class="vsc5">#B5CEA8</span><br/>
+<span class="vsc2">.vsc8</span><span class="vsc3"> { </span><span class="vsc4">color</span><span class="vsc3">:</span><span class="vsc8"> ⬛</span><span class="vsc5">#43C9B0</span><br/>
+<span class="vsc2">.vsc9</span><span class="vsc3"> { </span><span class="vsc4">color</span><span class="vsc3">:</span><span class="vsc9"> ⬛</span><span class="vsc5">#9679C0</span>
 </td>
 <td style="border:solid 1px #1E1E1E;"><span class="vsc3">
 ;}　<span class="vsc0">&lt;　&gt;　&lt;/　&gt;</span><br/>
@@ -50,7 +52,10 @@
 ;}　<span class="vsc4">class</span>=　<span class="vsc1">let</span> <span class="vsc4">a</span>;<br/>
 ;}　<span class="vsc5">"内容"</span><br/>
 ;}　<span class="vsc6">//注释</span><br/>
-;}　<span class="vsc7">600px</span></span></td>
+;}　<span class="vsc7">600px</span><br/>
+;}　<span class="vsc1">new</span> <span class="vsc8">Array</span><span class="vsc3">(</span><br/>
+;}　<span class="vsc9">else</span><span class="vsc3">{</span>
+</td>
 </tr>
 </table>
 <br/>
@@ -67,6 +72,50 @@
 
 <input id="复制" style="position:absolute;top:-100px"/>
 <script>let 制;function 复(){document.getElementById('复制').value = 制;let 复制 = document.querySelector('#复制');复制.select();document.execCommand("Copy");}</script>
+
+<br/>
+<hr>
+<br/>
+
+<h2>代码着色</h2>
+<small>（和配色不同，这是自动上色）</small><br/>
+
+<link href="/5/new/highlight/vsc.css" rel="stylesheet"/>
+<script src="/5/new/highlight/highlight.js"></script>
+<pre><code>
+
+&lt;link href="/5/new/highlight/vsc.css" rel="stylesheet"/>
+&lt;script src="/5/new/highlight/highlight.js">&lt;/script>
+
+&lt;pre>&lt;code>
+代码内容
+&lt;/code>&lt;/pre>
+
+&lt;script>
+    hljs.initHighlightingOnLoad();
+    var allpre = document.getElementsByTagName("pre");
+    for(i = 0; i &lt; allpre.length; i++) {
+       var onepre = document.getElementsByTagName("pre")[i];
+       var mycode = document.getElementsByTagName("pre")[i].innerHTML;
+       onepre.innerHTML = '&lt;code id="mycode">'+mycode+'&lt;/code>';
+    }
+&lt;/script>
+
+
+
+</code></pre>
+
+记得把&amp;和&lt;用转义符，否则代码会显示出错（注意顺序，先&amp;后&lt;）。
+
+<script>
+    hljs.initHighlightingOnLoad();
+    var allpre = document.getElementsByTagName("pre");
+    for(i = 0; i < allpre.length; i++) {
+       var onepre = document.getElementsByTagName("pre")[i];
+       var mycode = document.getElementsByTagName("pre")[i].innerHTML;
+       onepre.innerHTML = '<code id="mycode">'+mycode+'</code>';
+    }
+</script>
 
 
 <br/><br/><br/><br/><br/><br/><br/><br/>
