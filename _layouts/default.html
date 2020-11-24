@@ -2,7 +2,7 @@
 <html lang="zh">
 
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
@@ -26,6 +26,13 @@
                 }
             }
         }
+    }
+    if(localStorage.getItem("pv_all")){
+        let pv_all=localStorage.getItem("pv_all")*1+1;
+        localStorage.setItem("pv_all", pv_all)
+    }
+    else{
+        localStorage.setItem("pv_all", "1")
     }
     var _hmt = _hmt || [];
     (function() {
