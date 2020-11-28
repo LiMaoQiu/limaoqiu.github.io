@@ -1,0 +1,73 @@
+---
+layout: page2
+title: 我喜欢的
+nav_text: 我喜欢的
+nav_url: <a href="/maoqiu">关于</a>
+permalink: ilike
+---
+<style>
+@media screen and (min-width: 768px) {div.body {width: 70%;}}
+.cj {background-color: #fff;float: left;margin: 12px;padding: 12px;line-height: 20px;border-width: 2px;border-color: #33669940;border-style: solid;width: 130px;height: 175px;opacity: 0.8;filter: alpha(opacity=80);transition: all 0.3s;position: relative;font-size: 90%;}
+.cj:hover {opacity: 1.0;filter: alpha(opacity=100);transform: scale(1.2);z-index: 10;}
+.cj img {width: 130px;}
+.tsxt {border: 1px solid #c0c0c0;visibility: hidden;width: 157px;background-color: #fff;text-align: center;border-radius: 6px;padding: 5px 0;font-size: 85%;position: absolute;z-index: 1;top: 170px;left: -2px;margin-left: 0px;}
+.cj:hover .tsxt {visibility: visible;transform: translate(0, 20px);transition: all 0.5s;}
+#back-top {display: none;}
+footer {float: left;width: 100%;}
+</style>
+
+<div id="dy"></div>
+
+<script>
+    let 喜欢 = new Array(
+        "653570／二扯／／",
+        "653345／猪又／／",
+        "653357／胡糊／／",
+        "653346／狗球／／",
+        "653351／刺猬猬／／",
+        "653335／傻子／／",
+        "653348／秃子／／",
+        "653364／pvo／／",
+        "653333／彩色烟囱／一处不起眼的角落／",
+        "653365／巫师帽／一套中二的衣服／",
+        "653353／小黄鸭／／",
+        "653354／帽子／不戴帽子不出门星人／",
+        "653355／怨影娃娃／／",
+        "653366／骰子／／",
+        "653368／鼠标球／／"
+    );
+
+    let 不喜欢 = new Array();
+    let 当前 = "喜欢";
+    let data;
+    let dy;
+    let 喜欢_dy = "";
+    let 不喜欢_dy = "";
+    let loading = "<a onclick=\"加载()\"><div class=\"cj\"><img src=\"/img/i/chengjiu/loading.jpg\"/><b>加载更多</b><br/></div></a>";
+    let 次数 = 0;
+
+    function 加载() {
+        if (当前 == "喜欢") { data = 喜欢; dy = 喜欢_dy; }
+        else { data = 不喜欢; dy = 不喜欢_dy; }
+        let 计时 = 24;
+        while (计时 > 0 && data != "") {
+            let 临时 = data[0].split("／");
+            dy += "<div class=\"cj\"><img src=\"/img/i/chengjiu/" + 临时[0] + ".jpg\"/><b>" + 临时[1] + "</b><br/>" + 临时[2];
+            if (临时[3]) {
+                dy += "<span class=\"tsxt\">" + 临时[3] + "</span>";
+            }
+            dy += "</div>";
+            data.splice(0, 1);
+            计时 -= 1;
+        }
+        if (data != "") {
+            document.getElementById("dy").innerHTML = dy + loading;
+        }
+        else {
+            document.getElementById("dy").innerHTML = dy;
+        }
+        if (当前 == "喜欢") { 喜欢 = data; 喜欢_dy = dy; }
+        else { 不喜欢 = data; 不喜欢_dy = dy; }
+    }
+    加载();
+</script>
