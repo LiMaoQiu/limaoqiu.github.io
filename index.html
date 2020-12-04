@@ -47,12 +47,12 @@ div.xttza{
     <div id="xttzb" onMouseOver="document.getElementById('xttzb').style.display='block'" onMouseOut="document.getElementById('xttzb').style.display='none'"> 
     </div>
 </div>
-<b><a href="/notice" target="_blank">公告</a> | <a href="/links" target="_blank">友情链接</a> | <a href="/maoqiu" target="_blank">关于我</a></b><br/>
-暂无公告
+<b><a href="/notice">公告</a> | <a href="/links">友情链接</a> | <a href="/maoqiu">关于我</a></b><br/>
+<div id="gonggao">暂无公告</div>
 </div></small>
 <br>
 
-<a href="/richang" target="_blank">
+<a href="/richang">
 <img class="tubiao sy50" id="maoqiuheerche" src="/img/index/maoqiuheerche.jpg" 
 onMouseOver="this.src='/img/index/maoqiuheerche3.jpg'" 
 onMouseOut="this.src='/img/index/maoqiuheerche3.jpg'" 
@@ -60,7 +60,7 @@ ontouchstart="this.src='/img/index/maoqiuheerche3.jpg'"
 ontouchend="this.src='/img/index/maoqiuheerche3.jpg'" 
 alt="猫球和二扯的日常" /></a>
 
-<a href="/tv" target="_blank">
+<a href="/tv">
 <img class="tubiao sy50" id="maoqiutv" src="/img/index/maoqiutv.jpg"  
 onMouseOver="this.src='/img/index/maoqiutv3.jpg'" 
 onMouseOut="this.src='/img/index/maoqiutv3.jpg'" 
@@ -70,7 +70,7 @@ alt="猫球tv" /></a>
 
 <br/>
 
-<a href="/world" target="_blank">
+<a href="/world">
 <img class="tubiao sy50" id="world" src="/img/index/world.jpg" 
 onMouseOver="this.src='/img/index/world2.jpg'" 
 onMouseOut="this.src='/img/index/world3.jpg'" 
@@ -78,7 +78,7 @@ ontouchstart="this.src='/img/index/world2.jpg'"
 ontouchend="this.src='/img/index/world3.jpg'" 
 alt="猫球的世界" /></a>
 
-<a href="/yimeng" target="_blank">
+<a href="/yimeng">
 <img class="tubiao sy50" id="yimeng" src="/img/index/yimeng.jpg" 
 onMouseOver="this.src='/img/index/yimeng3.jpg'" 
 onMouseOut="this.src='/img/index/yimeng3.jpg'" 
@@ -88,7 +88,7 @@ alt="异梦系列" /></a>
 
 <br/>
 
-<a href="/wanyouxi" target="_blank">
+<a href="/wanyouxi">
 <img class="tubiao sy50" id="playgame" src="/img/index/playgame.jpg" 
 onMouseOver="this.src='/img/index/playgame3.jpg'" 
 onMouseOut="this.src='/img/index/playgame3.jpg'" 
@@ -96,7 +96,7 @@ ontouchstart="this.src='/img/index/playgame3.jpg'"
 ontouchend="this.src='/img/index/playgame3.jpg'" 
 alt="玩游戏" /></a>
 
-<a href="/riji" target="_blank">
+<a href="/riji">
 <img class="tubiao sy50" id="riji" src="/img/index/riji.jpg" 
 onMouseOver="this.src='/img/index/riji3.jpg'" 
 onMouseOut="this.src='/img/index/riji3.jpg'" 
@@ -106,7 +106,7 @@ alt="猫球日记" /></a>
 
 <br/>
 
-<a href="/xiangce" target="_blank">
+<a href="/xiangce">
 <img class="tubiao sy50" id="xiangce" src="/img/index/xiangce.jpg" 
 onMouseOver="this.src='/img/index/xiangce3.jpg'" 
 onMouseOut="this.src='/img/index/xiangce3.jpg'" 
@@ -114,7 +114,7 @@ ontouchstart="this.src='/img/index/xiangce3.jpg'"
 ontouchend="this.src='/img/index/xiangce3.jpg'" 
 alt="相册" /></a>
 
-<a href="/zatan" target="_blank">
+<a href="/zatan">
 <img class="tubiao sy50" id="zatan" src="/img/index/zatan.jpg" 
 onMouseOver="this.src='/img/index/zatan3.jpg'" 
 onMouseOut="this.src='/img/index/zatan3.jpg'" 
@@ -124,7 +124,7 @@ alt="杂谈" /></a>
 
 <br/>
 
-<a href="/pvoink" target="_blank">
+<a href="/pvoink">
 <img class="tubiao sy50" id="pvo" src="/img/index/pvo.jpg" 
 onMouseOver="this.src='/img/index/pvo3.jpg'" 
 onMouseOut="this.src='/img/index/pvo3.jpg'" 
@@ -132,7 +132,7 @@ ontouchstart="this.src='/img/index/pvo3.jpg'"
 ontouchend="this.src='/img/index/pvo3.jpg'" 
 alt="pvo占领世界" /></a>
 
-<a href="/xiaogongju" target="_blank">
+<a href="/xiaogongju">
 <img class="tubiao sy50" id="xiaogongju" src="/img/index/xiaogongju.jpg" 
 onMouseOver="this.src='/img/index/xiaogongju3.jpg'" 
 onMouseOut="this.src='/img/index/xiaogongju3.jpg'" 
@@ -212,4 +212,10 @@ window.onload=function(){   //页面加载完把模糊图换成清晰图、预�
 dy1='<div style="display:none;">'+dy1+'</div>';
 document.getElementById("dy0").innerHTML=dy1;
 };
+
+let back_ref ='';
+if(document.referrer.length > 0){back_ref = document.referrer;}else if(opener.location.href.length > 0){back_ref = opener.location.href;}
+if(back_ref.indexOf("storeweb") != -1){
+    document.getElementById("gonggao").innerHTML="欢迎来自个站商店的朋友";
+}
 </script>
