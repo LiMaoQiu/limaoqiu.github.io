@@ -48,7 +48,7 @@ div.xttza{
     </div>
 </div>
 <b><a href="/notice">公告</a> | <a href="/links">友情链接</a> | <a href="/maoqiu">关于我</a></b><br/>
-<div id="gonggao">暂无公告</div>
+暂无公告
 </div></small>
 <br>
 
@@ -212,10 +212,4 @@ window.onload=function(){   //页面加载完把模糊图换成清晰图、预�
 dy1='<div style="display:none;">'+dy1+'</div>';
 document.getElementById("dy0").innerHTML=dy1;
 };
-
-let back_ref ='';
-if(document.referrer.length > 0){back_ref = document.referrer;}else if(opener.location.href.length > 0){back_ref = opener.location.href;}
-if(back_ref.indexOf("storeweb") != -1){
-    document.getElementById("gonggao").innerHTML="欢迎来自个站商店的朋友";
-}
 </script>
