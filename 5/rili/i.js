@@ -226,7 +226,7 @@ let 获取数据_地址="gyl/"+盖亚月+"."+盖亚日+"／gyl_xq/"+盖亚月+".
 
 for(let i=0;获取数据_地址.length>i;i++){
     let GetJson = $.ajax({
-        url: "/5/rili/"+获取数据_地址[i]+".json",//json文件位置
+        url: "{{ site.mq_d }}/5/rili/"+获取数据_地址[i]+".json",//json文件位置
         type: "GET",
         dataType: "json",
         async: false,
