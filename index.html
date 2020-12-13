@@ -5,6 +5,7 @@ layout: o
 body{margin:0;}
 #i{width:100%;height:100vh;margin:0;}
 </style>
+<a href="{{ site.mq_i }}" style="position:absolute;color:#ffffff;text-shadow: 1px 1px 7px #000;">直接进入猫球博客</a>
 <div id="i"></div>
 <script>
 let a=new Array(
@@ -17,11 +18,12 @@ let b={
 };
 let c=new Date().getMonth()+1+"."+new Date().getDate();
 if(b[c]){a=b[c];}
-b=new Date().getDate()+new Date().getHours();
+b=new Date().getTime();
+b=Math.floor(b/1000/60/60);
 if(localStorage.getItem("door")==b){
 window.location.href="{{ site.mq_i }}";
 }else{localStorage.setItem("door",b);
 b=b%a.length;
-b="<iframe src=\"/i/" + a[b] + "\" frameborder=\"0\" width=\"100%\" height=\"100%\"></iframe>";
+b="<iframe src=\"/i/"+a[b]+"\" frameborder=\"0\" width=\"100%\" height=\"100%\"></iframe>";
 document.getElementById("i").innerHTML=b;}
 </script>
