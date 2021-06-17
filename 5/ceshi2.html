@@ -23,7 +23,7 @@
         function myq_cf(myq_bl){
             let click = document.getElementById(myq_bl);
     
-            let JsonUrl = "/i/sjtk/588747.json";
+            let JsonUrl = "/i/sjtk/588854.json";
         let GetJson = $.ajax({
             url: JsonUrl,
             type: "GET",
@@ -35,6 +35,7 @@
     
         let 临时 = GetJson.responseText;
     
+            document.getElementById("alert").innerHTML = "加载中";
             document.getElementById("alert").innerHTML = 临时;
             click.onmousemove = function (e) {
             alert.style.left = e.clientX + 20 + "px"
