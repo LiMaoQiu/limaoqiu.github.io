@@ -7,7 +7,7 @@ permalink: i/zk/2260916
 ---
 <style>
 [onclick^="复(制"]{cursor:pointer}
-td:first-child{color:#666666}
+.smal{color:#666666}
 </style>
 
 <h3>神奇密码</h3>
@@ -54,7 +54,7 @@ for (let i = 0; data.length > i; i++) {
     if(年>日期[0]){过期=1};
     if(年==日期[0] && 月>日期[1]){过期=1};
     if(年==日期[0] && 月==日期[1] && 日>日期[2]){过期=1};
-    临时="<tr><td><small>" + 临时[2] + "</small></td><td onclick=\"复(制='" + 临时[1] + "')\">" + 临时[1] + "</td></tr>";
+    临时="<tr><td class=\"smal\"><small>" + 临时[2] + "</small></td><td onclick=\"复(制='" + 临时[1] + "')\">" + 临时[1] + "</td></tr>";
     if(过期==0){
         dy1+=临时;
     }else{
@@ -88,6 +88,42 @@ Ganke抽奖（本期奖品：“蓝莓喵喵车”）：<a href="https://www.gan
 
 <h3>推荐网站</h3>
 游戏图鉴：<a href="https://www.gankeapp.com/moleList" target="_blank">https://www.gankeapp.com/moleList</a><br>
+<br>
+
+<h2>帮助手册</h2>
+
+<h3>居民</h3>
+<table>
+    <tr><td>居民</td><td>喜欢</td><td>讨厌</td><td>亲密度奖励</td></tr>
+    <tr><td>洛克</td><td>向日葵 星空鱼 浆果浓汤 椰子</td><td>毛毛豆 怪怪鱼 茄块狗鱼片 炖龙虾</td><td>金豆</td></tr>
+    <tr><td>尼克</td><td>白菜 奇异炸冰虾 鲶鱼 河豚</td><td>百合花</td><td>特殊菜谱</td></tr>
+    <tr><td>杰西</td><td>茄子 小丑鱼 小麦牛奶蛋粥 牛奶</td><td>水蛇 章鱼 葡萄</td><td></td></tr>
+    <tr><td>　</td><td></td><td></td><td></td></tr>
+    <tr><td>丝尔特</td><td>苹果 羊毛 蒲兰花</td><td>大闸蟹 章鱼 鲶鱼</td><td>独特的服装</td></tr>
+    <tr><td>埃里克斯</td><td>金鱼 铜矿石 红木 棉花糖豆浆</td><td>南瓜 西瓜</td><td>家园拜访 兜售进口家具</td></tr>
+    <tr><td>彩虹</td><td>胡萝卜 浆果烧饼 小麦牛奶蛋粥 章鱼</td><td>利齿狗鱼 鲶鱼</td><td>打折</td></tr>
+    <tr><td>花婶</td><td>毛毛花 七色花 葡萄 浆果捞</td><td>金鱼</td><td>月光下的弹奏曲</td></tr>
+    <tr><td>　</td><td></td><td></td><td></td></tr>
+    <tr><td>克劳</td><td>牛奶鱼群汤 冰激淋鼠 百合花</td><td>水蜘蛛 水蛇</td><td>无偿复活拉姆</td></tr>
+    <tr><td>弗礼德</td><td>葫芦 冰川虾 鲶鱼 香煎鳕鱼</td><td>鲤鱼 玉米 香蕉</td><td>兑换券 豆豆扭蛋币</td></tr>
+    <tr><td>琦琦</td><td>小丑鱼 抱抱熊 毛毛爆囧菇</td><td>怪怪鱼</td><td></td></tr>
+    <tr><td>艾尔</td><td>鸡蛋 满天星 罗汉鱼 牛奶鱼群汤</td><td>大闸蟹 小龙虾</td><td>樱花种子</td></tr>
+    <tr><td>艾米</td><td>锦鲤 月亮海螺 棉花糖 胡萝卜盖饭</td><td>水蜘蛛 奇异果</td><td>特殊服装 家具</td></tr>
+    <tr><td>汤米</td><td>铜矿石 夏日解暑冲饮 水蜜桃 茄块狗鱼片</td><td>水煮大闸蟹 章鱼</td><td>亲密度奖励</td></tr>
+    <tr><td>　</td><td></td><td></td><td></td></tr>
+    <tr><td>梅森</td><td>南瓜 草莓 向日葵 葫芦炒茄子</td><td>鲶鱼 带鱼</td><td>稀奇古怪新种子</td></tr>
+    <tr><td>　</td><td></td><td></td><td></td></tr>
+    <tr><td>尤尤</td><td>毛毛花 玫瑰海星 向日葵 奶油玉米浓汤</td><td>蒜头蛙 粑粑海肠 水蜘蛛</td><td>特殊家具</td></tr>
+    <tr><td>　</td><td></td><td></td><td></td></tr>
+    <tr><td>茜茜</td><td>水蜘蛛 樱花蛇 炖龙虾</td><td>带鱼 苹果</td><td>魔法服饰 家具</td></tr>
+    <tr><td>贝琪</td><td>玉米 绿鲤鱼 河童 花香金鱼</td><td>胡萝卜 胡萝卜盖饭 奇异果</td><td>服装 家具</td></tr>
+    <tr><td>　</td><td></td><td></td><td></td></tr>
+    <tr><td>琪琪</td><td>南瓜 初恋海星 炖龙虾 水蜜桃</td><td>水蛇 水蜘蛛</td><td>小丑服饰</td></tr>
+    <tr><td>　</td><td></td><td></td><td></td></tr>
+    <tr><td>菩提</td><td>奇异毛毛豆 奇异果 星空鱼 香蕉</td><td>荔枝 狗鱼</td><td>古董装饰品</td></tr>
+    <tr><td>　</td><td></td><td></td><td></td></tr>
+    <tr><td>凯文</td><td>小丑鱼 抱抱熊 葫芦炒茄子</td><td>水蛇 水蜘蛛 章鱼</td><td></td></tr>
+</table>
 <br>
 
 <h2>新手</h2>
