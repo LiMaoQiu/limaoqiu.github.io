@@ -1,0 +1,42 @@
+---
+layout: zk
+title: 关于东北的推荐
+nav_text: 关于东北的推荐
+nav_url: <a href="/zatan">笔记</a>
+permalink: i/zk/2460968
+---
+（页面内容随机排序，每次刷新都会重新排序。）<br>
+<br>
+<div id="dy"></div>
+<script>
+let data=new Array(
+
+"<a href=\"https://www.bilibili.com/video/BV1C5411T79i\" target=\"_blank\">除了老铁和土味，东北也有摇滚？</a>",
+"<a href=\"https://www.bilibili.com/video/BV1cK4y1D7uS\" target=\"_blank\">被遗忘的三线建设</a>：襄阳人李焕英为啥一口东北话？",
+"<a href=\"https://www.bilibili.com/video/BV1nz4y117Nx\" target=\"_blank\">女性地位全国领先，为什么是东北？</a>",
+"<b>城市航拍</b>：<a href=\"https://www.bilibili.com/video/BV1PJ411K7eq\" target=\"_blank\">哈尔滨</a>、<a href=\"https://www.bilibili.com/video/BV1f54y1W74p\" target=\"_blank\">长春</a>、<a href=\"https://www.bilibili.com/video/BV1FK4y137f4\" target=\"_blank\">沈阳</a>、<a href=\"https://www.bilibili.com/video/BV12E411E7z9\" target=\"_blank\">大连</a>",
+"纪录片<b>《航拍中国》</b>：<a href=\"https://www.bilibili.com/bangumi/play/ep335912\" target=\"_blank\">黑龙江</a>、<a href=\"https://www.bilibili.com/bangumi/play/ep326459\" target=\"_blank\">吉林</a>、辽宁(暂无)",
+"<small>纪录片</small><a href=\"https://www.bilibili.com/video/BV1Av411x7e9\" target=\"_blank\">《大地情书》</a>：讲述黑土地上的人情冷暖。（<a href=\"https://www.bilibili.com/video/BV195411t7KZ\" target=\"_blank\">导演访谈</a>）",
+"<a href=\"https://www.bilibili.com/video/BV1h54y157FM\" target=\"_blank\">抗战为什么8年改14年？</a>：无名英雄在怎样的绝望中，死命攒出新中国的星星之火？",
+
+// "<small>纪录片</small><a href=\"https://www.bilibili.com/video/BV1Si4y1M7TG\" target=\"_blank\">《东北抗联》</a>",
+// 疫情 <a href=\"https://www.bilibili.com/video/BV1QE411K7XP\" target=\"_blank\">东北小伙搭错车误入武汉 成网红志愿者</a>、<a href=\"https://www.bilibili.com/video/BV17E411E7Q8\" target=\"_blank\">被嘲笑的东北人，抗疫情战武汉！</a>
+);
+
+let p = Array.from(data), i, a = [];
+    while (p.length > 0) {
+        i = parseInt(Math.random() * p.length);
+        a.push(p[i]);
+        p.splice(i, 1);
+    }
+
+    data = a;
+
+    let dy="";
+    for(let i=0;data.length>i;i++){
+        let 临时=i+1;
+        dy+=data[i]+"<br><br>";
+}
+
+document.getElementById("dy").innerHTML = dy;
+</script>
