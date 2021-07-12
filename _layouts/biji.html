@@ -69,13 +69,13 @@ layout: default
         </div>
     </div>
 
-    <div class="biaotib">{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</div>
+    <div class="biaotib bukexuanzhong">{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</div>
     <div class="body">
         <form id="输入框" autocomplete="off">
             <input type="text" style="display:none" />
             <input type="text" id="输入" placeholder="多个关键词用空格分隔" /></form>
         <br /><br />
-        <div id="前言"><a onclick="tion(sg='')">展示全部</a>　<a onclick="随机排序()">随机排序</a>　<a onclick="显示未读()">只显示未读</a></div>
+        <div id="前言" class="bukexuanzhong"><a onclick="tion(sg='')">展示全部</a>　<a onclick="随机排序()">随机排序</a>　<a onclick="显示未读()">只显示未读</a></div>
         <hr>
 
         {{ content }}
