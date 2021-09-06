@@ -43,6 +43,7 @@ layout: default
     footer {float: left;width: 100%;}
     hr{width:100%;}
     .hs{color:#404040;}
+    span.dk:after{content:" ◥";top:-.5em;position:relative;font-size:75%;line-height:0;vertical-align:baseline;}
 </style>
 
 </head>
@@ -95,10 +96,11 @@ $("#输入").keyup(function () {
     加载();
 });
 function 加载(){
-    let 次数=32;
+    let 次数=30;
     for(let i=0;次数-i!=0&&datb.length!=0;i++){
         let 临时=datb[0].split("／");
         if(临时[0]=="hr"){
+            次数+=1;
             dy += "<hr><a name=\""+临时[1]+"\"></a><h3>"+临时[1]+"</h3>";
             if(临时[2]){dy+="<p>"+临时[2]+"</p>";}
             right += "<tr><td><a href=\"#" + 临时[1] + "\">" + 临时[1] + "</a></td></tr>";
@@ -106,6 +108,7 @@ function 加载(){
             dy+="<div class=\"cj\">";
             if(临时[4]=="u"){
                 dy += "<a href=\""+临时[5]+"\" target=\"_blank\">";
+                临时[1]=临时[1]+"<span class=\"dk\"></span>";
             }
             if(临时[4]=="o"){
                 dy += "<a onclick=\""+临时[5]+"\">";

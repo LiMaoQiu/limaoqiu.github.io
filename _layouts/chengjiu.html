@@ -46,6 +46,7 @@ layout: default
         footer {float: left;width: 100%;}
         hr{width:100%;}
         .hs{color:#404040;}
+        span.dk:after{content:" ◥";top:-.5em;position:relative;font-size:75%;line-height:0;vertical-align:baseline;}
         </style>
         <div class="biaotib" id="anniu_b"></div>
         <div id="anniu_a"></div>
@@ -99,6 +100,7 @@ layout: default
                 data_jl[当前]+="<div class=\"cj\">";
                 if(临时[4]=="u"){
                     data_jl[当前] += "<a href=\""+临时[5]+"\" target=\"_blank\">";
+                    临时[1]=临时[1]+"<span class=\"dk\"></span>";
                 }
                 if(临时[4]=="o"){
                     data_jl[当前] += "<a onclick=\""+临时[5]+"\">";
