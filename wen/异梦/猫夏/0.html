@@ -1,0 +1,34 @@
+---
+layout: book
+title: 《》
+nav_text: 《》
+nav_url: <a href="/yimeng">异梦系列</a>
+permalink: wen/《》
+wen_auth: 李猫球
+wen_sta: 连载中
+book_item: 《》
+---
+<script src="/js/mq-wzjm.js"></script>
+<input placeholder="解锁码" id="解锁码" style="width:70px" />
+<button onclick="解锁码确定()">确定</button> 
+<div id="contents"></div>
+<script>
+let data = [
+"3647476／无题",
+];
+
+let 本页书名="《》";
+let wzjm_输入 = "";
+let wzjm_密码 = "";
+if(localStorage.getItem(本页书名+"_解锁码")){
+wzjm_密码 = localStorage.getItem(本页书名+"_解锁码");
+wzjm_解密();
+data=wzjm_输入.split("【／】");
+}
+
+function 解锁码确定(){
+    let 解锁码输入 = document.getElementById("解锁码").value;
+    localStorage.setItem(本页书名+"_解锁码",解锁码输入);
+    location.reload();
+}
+</script>
