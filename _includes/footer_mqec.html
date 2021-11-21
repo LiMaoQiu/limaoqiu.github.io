@@ -27,10 +27,11 @@ footer {display:none;}
         <img width="150px" src="/img/i/footer/{% if page.footer_img %}{{ page.footer_img }}{% else %}me{% endif %}3.png" alt="回到顶部" onmouseover="this.src='/img/i/footer/{% if page.footer_img %}{{ page.footer_img }}{% else %}me{% endif %}4.png'" onmouseout="this.src='/img/i/footer/{% if page.footer_img %}{{ page.footer_img }}{% else %}me{% endif %}3.png'"> 
         </a>
     </div>
-<footer><a href="/maoqiu"><img class="tubiao" src="{{ site.mq_d }}/img/i/footer/1.png" onerror="this.src='/img/i/footer/1.png';this.onerror=null;" alt="关于我" title="关于我" width="118px"/></a></footer>
+<footer><a {% if page.footer_fo %}{{ page.footer_fo[3] }}{% else %}href="/maoqiu"{% endif %}><img class="tubiao" src="{{ site.mq_d }}/img/i/footer/{% if page.footer_fo %}{{ page.footer_fo[1] }}{% else %}1.png{% endif %}" onerror="this.src='/img/i/footer/{% if page.footer_fo %}{{ page.footer_fo[1] }}{% else %}1.png{% endif %}';this.onerror=null;" alt="{% if page.footer_fo %}{{ page.footer_fo[0] }}{% else %}关于我{% endif %}" title="{% if page.footer_fo %}{{ page.footer_fo[0] }}{% else %}关于我{% endif %}" width="{% if page.footer_fo %}{{ page.footer_fo[2] }}{% else %}118px{% endif %}"/></a></footer>
 
 <div id="sidebar_fz6m">
     <br><br>
+    <a {% if page.footer_fo %}{{ page.footer_fo[3] }}{% else %}href="/maoqiu"{% endif %}><img class="tubiao" src="{{ site.mq_d }}/img/i/footer/{% if page.footer_fo %}{{ page.footer_fo[1] }}{% else %}1.png{% endif %}" onerror="this.src='/img/i/footer/{% if page.footer_fo %}{{ page.footer_fo[1] }}{% else %}1.png{% endif %}';this.onerror=null;" alt="{% if page.footer_fo %}{{ page.footer_fo[0] }}{% else %}关于我{% endif %}" title="{% if page.footer_fo %}{{ page.footer_fo[0] }}{% else %}关于我{% endif %}" width="{% if page.footer_fo %}{{ page.footer_fo[2] }}{% else %}118px{% endif %}" style="position: absolute;bottom:140px;left:40%;"/></a>
     <a onclick="dw(dwb=分享_fo_m)"><img class="footer_me_m" width="150px" src="/img/i/footer/{% if page.footer_img %}{{ page.footer_img }}{% else %}me{% endif %}2.png" alt="分享"></a>
     <a href="#top"><img class="footer_me_e" width="150px" src="/img/i/footer/{% if page.footer_img %}{{ page.footer_img }}{% else %}me{% endif %}4.png" alt="回到顶部"></a>
 </div>
@@ -49,9 +50,9 @@ let 分享_fo_m=window.location.href;
 分享_fo_m=decodeURI(分享_fo_m);
 
 if(分享_fo_m=="{{ site.mq_url }}/{{ page.permalink }}"){
-    分享_fo_m="<h4 class=\"dn_inline\">分享本页</h4>（点击复制链接）<br><span class=\"jinshouji\"><hr></span><span class=\"jindiannao\">　 </span><a class=\"footer_anniu\" onclick=\"footer分享_b(footer分享_a='{{ site.mq_url }}/{{ page.permalink }}')\">{{ site.mq_url }}/{{ page.permalink }}</a>{% for item in page.redirect_from %}<br><span class=\"jinshouji\"><hr></span><span class=\"jindiannao\">　 </span><a class=\"footer_anniu\" onclick=\"footer分享_b(footer分享_a='{{ site.mq_url }}/{{ item }}')\">{{ site.mq_url }}/{{ item }}</a>{% endfor %}";
+    分享_fo_m="<h3 class=\"dn_inline\">分享本页</h3>（点击复制链接）<br><span class=\"jinshouji\"><hr></span><span class=\"jindiannao\">　 </span><a class=\"footer_anniu\" onclick=\"footer分享_b(footer分享_a='{{ site.mq_url }}/{{ page.permalink }}')\">{{ site.mq_url }}/{{ page.permalink }}</a>{% for item in page.redirect_from %}<br><span class=\"jinshouji\"><hr></span><span class=\"jindiannao\">　 </span><a class=\"footer_anniu\" onclick=\"footer分享_b(footer分享_a='{{ site.mq_url }}/{{ item }}')\">{{ site.mq_url }}/{{ item }}</a>{% endfor %}";
 }else{
-    分享_fo_m="<h4 class=\"dn_inline\">分享本页</h4>（点击复制链接）<br><span class=\"jinshouji\"><hr></span><span class=\"jindiannao\">　 </span><a class=\"footer_anniu\" onclick=\"footer分享_b(footer分享_a='"+分享_fo_m+"')\">"+分享_fo_m+"</a>";
+    分享_fo_m="<h3 class=\"dn_inline\">分享本页</h3>（点击复制链接）<br><span class=\"jinshouji\"><hr></span><span class=\"jindiannao\">　 </span><a class=\"footer_anniu\" onclick=\"footer分享_b(footer分享_a='"+分享_fo_m+"')\">"+分享_fo_m+"</a>";
 }
 
 let footer分享_a;
