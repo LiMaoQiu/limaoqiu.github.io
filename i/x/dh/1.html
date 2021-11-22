@@ -1,0 +1,63 @@
+---
+layout: page2
+title: 小猫球
+nav_url: <a href="/contactus">联系我们</a>
+permalink: xiaomaoqiu
+---
+<link rel="stylesheet" href="/css/avatar_chat.css">
+<style>@media screen and (min-width: 768px){.body{position: relative;width: 80%;top:1em;margin: auto;}}#输入框 input {border: none;font-size: 1.4em;padding: .5em .7em;max-width: 30em;width: 100%;background: #F8F8F8;box-shadow: 0 0 0 1px #DDD inset, 0 1px 2px rgba(0, 0, 0, .2);transition: box-shadow .3s ease;border-radius: 4px;text-align: center;-webkit-appearance: none;}#输入框 input:focus {box-shadow: 0 0 0 2px #58a4dd inset, 0 3px 3px rgba(0, 0, 0, .2) inset;}#对话{border-radius: 20px;}#选择 ul{font-weight: bold;display: block;line-height: 40px;text-decoration: none;color: #58a4dd;cursor:pointer;Margin:5px;}#选择 ul:hover{color: #0085a1;background: #eef6fc;text-decoration: none;}</style>
+<div class="body"><div id="对话" class="avatar_chat"></div><br>
+<meta name="viewport" content="width=device-width, initial-scale=1"><form id="输入框" autocomplete="off"><input type="text" id="输入" placeholder="来聊会儿吧" onkeyup="确定()"/></form>
+<div id="选择"></div></div>
+<script>
+let data=[
+    "0／测试",
+    "1／测试2",
+];
+
+let 可选;
+
+function 确定() {
+    可选="";
+    let 输入 = document.getElementById("输入").value.split(" ");
+    for(let i=0;data.length>i;i++){
+        let 过程="0";
+        for(let i2=0;输入.length>i2;i2++){
+            if (data[i].indexOf(输入[i2]) != -1 && 输入[i2] != "") {}
+            else { 过程 = "1"; }
+        }
+        if(过程=="0"){
+            let 临时=data[i].split("／");
+            可选+="<ul onclick=\"获(取='"+临时[0]+"／"+临时[1]+"')\">"+临时[1]+"</ul>";
+        }
+
+    }
+
+    document.getElementById("选择").innerHTML = 可选;
+}
+
+let 取="";
+let 聊天;
+function 获(){
+    取=取.split("／");
+    聊天="<div><span align=\"right\" class=\"d n1\">"+取[1]+"</span></div>";
+    document.getElementById("对话").innerHTML = 聊天;
+
+    let 地址="/i/x/dh/"+取[0]+".json";
+    let GetJson = $.ajax({
+        url: 地址,//json文件位置
+        type: "GET",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+        }
+    });
+    地址=GetJson.responseText;
+    地址=地址.split("[");
+    for(let i=1;地址.length>i;i++){
+        聊天+="<div><span class=\"a m\">"+地址[i].split("]")[0]+"</span></div>";
+    }
+    
+    document.getElementById("对话").innerHTML = 聊天;
+}
+</script>
