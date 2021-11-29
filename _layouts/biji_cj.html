@@ -15,7 +15,9 @@ layout: default
         div.body {position: relative;top: 50px;width: 96%;margin: auto;}
         #right_anchor{position:relative;}#right_anchor table{width:60%;}
     } /*手机*/
+
     #right_anchor a{display:block;}
+    #right_anchor td{border:1px solid #ccc;}
 
     #输入框 {text-align:center;vertical-align:middle;}
     #输入框 input {
@@ -49,8 +51,12 @@ layout: default
 </head>
 
 <body onload="document.getElementById('输入').focus()">
+
+    {% if page.toutu %}{% include toutu.html %}{% endif %}
+
     <div class="body">
-    <div class="biaotib">{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</div>
+    {% if page.toutu %}{% else %}
+    <div class="biaotib">{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</div>{% endif %}
     <form id="输入框" autocomplete="off">
     <input type="text" style="display:none" />
     <input type="text" id="输入" placeholder="多个关键词用空格分隔" /></form>
@@ -133,6 +139,27 @@ function 加载(){
     document.getElementById("right_anchor").innerHTML = "<table>"+right+"</table>";
 };
 加载();
+
+{% if page.toutu %}
+var windowWidth = $(window).width();
+    if(windowWidth > 767){
+        $(document).ready(function() {
+    $("#right_anchor").hide();
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('#right_anchor').fadeIn();
+            } else {
+                $('#right_anchor').fadeOut();
+            }
+        });
+    });
+    });
+}else{
+    $('#right_anchor').fadeOut();
+}
+{% endif %}
+
 </script>
 
 {% if page.pinglun %}{% include Valine.html %}{% endif %}
