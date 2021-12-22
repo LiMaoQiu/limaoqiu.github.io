@@ -1,4 +1,24 @@
-let datb=[data[0]]; //数字为dw 文字直接显示 超过15字dw
+dy="点击作品名可以复制，点击评分展开评分细则。"+dy; //数字为dw 文字直接显示 超过15字dw
+
+for(let i=0;data.length>i;i++){
+    let 临时=0;
+    let 临时2=data[i][0].replace(/ /g, "").split("+");
+    let 临时3=临时2;
+    for(let i2=0;临时2.length>i2;i2++){
+        if (临时2[i2].indexOf("*") != -1){
+            let 临时4=临时2[i2].split("*");
+            临时4=临时4[0]*临时4[1];
+            临时+=临时4;
+            临时3[i2]=临时4;
+        }else{
+            临时+=临时2[i2]*1;
+        }
+    }
+    data[i][0]=临时;
+    data[i][2]=临时3;
+}
+
+let datb=[data[0]];
 
 for(let i=1;data.length>i;i++){
     let 临时=datb.length;
@@ -27,15 +47,24 @@ for(let i=1;data.length>i;i++){
         dy+="<tr><td>"+临时2+"</td><td onclick=\"复(制='"+datb[i][1].split("／")[0]+"')\">"+datb[i][1]+"</td>";
         临时2=datb[i][0]/10;
         if(临时2>10){临时2="10+";}if(临时2<0){临时2="0-";}
-        dy+="<td>"+临时2+"</td><td>";
-            for(let i2=2;datb[i].length>i2;i2++){
+        dy+="<td onclick=\"dw(dwd='"+datb[i][1].split("／")[0]+"',dwb='<table>";
+        let 临时=datb[i][2];
+            for(let i2=0;临时.length>i2;i2++){
+                if(打分标准[i2]){
+                    dy+="<tr><td>"+打分标准[i2][0]+"</td><td>"+临时[i2]+"/"+打分标准[i2][1]+"</td><td>("+Math.round(临时[i2] / 打分标准[i2][1] * 10000) / 100.00 + "%)</td></tr>";
+                }else{
+                    dy+="<tr><td>额外</td><td>"+临时[i2]+"</td><td></td></tr>";
+                }
+            }
+        dy+="</table>')\">"+临时2+"</td><td>";
+            for(let i2=3;datb[i].length>i2;i2++){
                 临时2=datb[i][i2]+"";
                 if(临时2.length==1){临时2+=".0";}
                 if (datb[i][i2].indexOf("：") != -1){
                     临时2=临时2.split("：");
-                    dy+="<a onclick=\"dw(dwb='"+临时2[1]+"')\">"+临时2[0]+"</a> ";
+                    dy+="<a onclick=\"dw(dwd='"+临时2[0]+"',dwb='"+临时2[1]+"')\">"+临时2[0]+"</a> ";
             }else if(临时2>0||临时2.length>15){
-                dy+="<a onclick=\"dw(dwb='"+临时2+"')\">更多</a> ";
+                dy+="<a onclick=\"dw(dwd='更多',dwb='"+临时2+"')\">更多</a> ";
             }else{
                 dy+=临时2+" ";
             }
@@ -58,3 +87,4 @@ document.getElementById("结果").innerHTML = dy;
     }
     console.log("结束");
 </script>
+<style>td[onclick^="复(制="],td[onclick^="dw(dwd="]{cursor:pointer;}</style>
