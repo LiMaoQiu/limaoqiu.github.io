@@ -18,7 +18,7 @@
 
     {% include popup_dw.html %}
 
-    {% if page.anchor %}<div id="right_anchor"{% endif %}{% if page.anchor =="手机" %} class="shouji"{% endif %}{% if page.anchor %}></div>{% endif %}
+    {% if page.anchor !="电脑" %}<div id="right_anchor"{% endif %}{% if page.anchor =="手机" %} class="shouji"{% endif %}{% if page.anchor !="电脑" %}></div>{% endif %}
 
     {{ content }}
 
@@ -60,5 +60,10 @@
 <textArea id="复制" style="position:absolute;top:-1000px"></textArea><script>let 制;function 复(){制=制.replace(/［换行］/g, "\n");notyf.confirm("已复制");document.getElementById('复制').value = 制;let 复制 = document.querySelector('#复制');复制.select();document.execCommand("Copy");}</script>
 
 {% include menuItem.html %}
+
+<span id="{{ page.permalink }}" class="leancloud_visitors" data-flag-title="{{ page.title }}">
+    <em class="post-meta-item-text"></em>
+    <i class="leancloud-visitors-count"></i>
+</span>
 
 </html>
