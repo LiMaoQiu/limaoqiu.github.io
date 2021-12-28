@@ -53,7 +53,9 @@ for(let i=1;data.length>i;i++){
                 if(打分标准[i2]){
                     dy+="<tr><td>"+打分标准[i2][0]+"</td><td>"+临时[i2]+"/"+打分标准[i2][1]+"</td><td>("+Math.round(临时[i2] / 打分标准[i2][1] * 10000) / 100.00 + "%)</td></tr>";
                 }else{
-                    dy+="<tr><td>额外</td><td>"+临时[i2]+"</td><td></td></tr>";
+                    dy+="<tr><td>额外</td><td>";
+                    if(临时[i2]>0){dy+="+";}
+                    dy+=临时[i2]+"</td><td></td></tr>";
                 }
             }
         dy+="</table>')\">"+临时2+"</td><td>";
