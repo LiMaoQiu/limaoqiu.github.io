@@ -1,5 +1,13 @@
-<script src='/5/new/vcomments/Valine.min.js'></script>
-<script src="/5/new/vcomments/Leancloud.min.js"></script>
+<!-- <script src='/5/new/vcomments/Valine.min.js'></script>
+<script src="/5/new/vcomments/Leancloud.min.js"></script> -->
+
+<!-- do not set the version number -->
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<!-- or set latest -->
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<!-- or Default value -->
+<script src="//unpkg.com/valine"></script>
+
 <br><br><hr>
 <style>
     textarea#veditor{
@@ -8,6 +16,9 @@
         background-image: url('/img/background/pinglun/a1.png'),url('/img/background/pinglun/a2.png');
         background-repeat:no-repeat,no-repeat;
         background-position:bottom left,bottom right;}
+    .vemoji{width:auto;height:auto !important;}
+    p .vemoji{width:56px !important;}
+    .vsys,.markdown{display:none !important;}
 </style>
 <div id="v_pl_s"></div>
 <div id="vcomments" style="width:90%;"></div>
@@ -38,6 +49,7 @@
         Array: ['nick'],
         avatar: 'mp',
         visitor: true,
+        placeholder: "说点啥？",
 
         emojiCDN: '{{ site.mq }}/img/i/em/',
         emojiMaps: {
