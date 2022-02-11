@@ -10,25 +10,25 @@ wen_auth: 李猫球
 wen_sta: 连载中
 book_item: 夏夜空想
 ---
-<script src="/js/mq-wzjm.js"></script>
 <input placeholder="解锁码" id="解锁码" style="width:70px" />
 <button onclick="解锁码确定()">确定</button> 
 <div id="contents"></div>
 <script>
-let data = [
-"3647476／无题",
-"4278045／无题",
+let data=[
+"510326／皮沃与矿工小镇",
+"514706／皮沃与暗月马戏团",
+"514721／Stocking",
+"514729／1 byte",
+"514745／创世纪 亚伟",
+"514746／物品ID：54942885.12",
+"514748／主角游戏 出发了",
+"2263206／纸盒小镇 寻找友人的黑猫",
+"514750／列车上的自杀",
+"514751／超级101",
+"2263341／第一场梦",
 ];
 
-let 本页书名="夏夜空想";//目录
-let wzjm_输入 = "DzQ0EzI3EcNiJcNoIyM4JcNiEcNoEKM4IcNiFoNuJcM5ELhgJLDgFsSgFLSgJMQgIfDgFhQgJLDgFsSgFLh0DeV4DsI1AMNXAMAsALbXAMM2AMG1ALboAMM4AMiXALf1Da==";
-let wzjm_密码 = "";
-if(localStorage.getItem(本页书名+"_解锁码")){
-wzjm_密码 = localStorage.getItem(本页书名+"_解锁码");
-wzjm_解密();
-data=wzjm_输入.split("【／】");
-}
-
+let 本页书名="夏夜空想";
 function 解锁码确定(){
     let 解锁码输入 = document.getElementById("解锁码").value;
     localStorage.setItem(本页书名+"_解锁码",解锁码输入);
