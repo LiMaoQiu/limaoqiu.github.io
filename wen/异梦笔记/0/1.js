@@ -24,17 +24,19 @@ document.title=临时;
 }else{if(typeof(h1)!="undefined"){dy+="<h2>"+h1+"</h2> <a onclick='编辑()'>编辑</a><hr class='hr0'>";}dy+="<style>body{width: 90%;}</style>";}
 
 if(typeof(sjtk)!="undefined"){dy+="<button onclick='sjtk_随机()'>随机</button> <a onclick='sjtk_全部显示()'>全部显示</a>";
-if(typeof(sjtk_s)!="undefined"){dy+=" <input type='text' id='输入' placeholder='搜索' onkeyup='确定()'/>";}
+if(typeof(sjtk_s)!="undefined"){dy+=" <input type='text' id='输入' placeholder='搜索' onkeyup='确定()' autocomplete='off'/>";}
 dy+="<div id='sjtk'></div>";}
 if(typeof(qm)!="undefined"){dy+="<button onclick='打(乱=qm);qm_随机()'>随机</button><input type='text' id='qm_输入' placeholder='抽取次数'/><br><br><div id='qm'></div>";}
-dy+="<div id='dy2'></div><textArea id='复制' style='position:absolute;top:-1000px'></textArea>";
+// dy+="<div id='dy2'></div>"; 忘了这是啥了
+dy+="<textArea id='复制' style='position:absolute;top:-1000px'></textArea>";
 dy+="<div class='dw_zz' id='dw_zz' style='display:none;'><div id='dw_x' onclick='dw_x()' style='display:none;'></div><div class='dw_tk'><div id='dw_hd'><span id='dwd'></span><span id='dwc'></span><div id='dw_hd_r' onclick='dw_x()' class='bukexuanzhong'>×</div></div></div></div>";
 document.getElementById("dy").innerHTML=dy;
 
-function 复(){document.getElementById('复制').value=制;let 复制=document.querySelector('#复制');复制.select();document.execCommand("Copy");}
+function 复(){document.getElementById('复制').value=制;let 复制=document.querySelector('#复制');复制.select();document.execCommand("Copy");notyf.confirm("已复制：<br>"+制);}
 function 博(){window.location.href=博客+客;}
 function 打(){let _乱=乱.slice();for(let i=0;i<_乱.length;i++){let j=getRandomInt(0,i);let t=_乱[i];_乱[i]=_乱[j];_乱[j]=t;}function getRandomInt(min, max){return Math.floor(Math.random()*(max-min+1)+min);}乱=_乱;}
 function 展(){示=示.split("／");document.getElementById("zs"+示[0]).innerHTML="//"+示[1];document.getElementById("zs"+示[0]).style.color="#6A9955";}
+!function(){function n(n,t){for(property in t)t.hasOwnProperty(property)&&(n[property]=t[property]);return n}function t(n,t){var i=document.createElement("div");i.className="notyf";var e=document.createElement("div");e.className="notyf-wrapper";var o=document.createElement("div");o.className="notyf-icon";var a=document.createElement("i");a.className=t;var r=document.createElement("div");r.className="notyf-message",r.innerHTML=n,o.appendChild(a),e.appendChild(o),e.appendChild(r),i.appendChild(e);var c=this;return setTimeout(function(){i.className+=" disappear",i.addEventListener(c.animationEnd,function(n){n.target==i&&c.container.removeChild(i)});var n=c.notifications.indexOf(i);c.notifications.splice(n,1)},c.options.delay),i}function i(){var n,t=document.createElement("fake"),i={transition:"animationend",OTransition:"oAnimationEnd",MozTransition:"animationend",WebkitTransition:"webkitAnimationEnd"};for(n in i)if(void 0!==t.style[n])return i[n]}this.Notyf=function(){this.notifications=[];var t={delay:2e3,alertIcon:"notyf-alert-icon",confirmIcon:"notyf-confirm-icon"};arguments[0]&&"object"==typeof arguments[0]?this.options=n(t,arguments[0]):this.options=t;var e=document.createDocumentFragment(),o=document.createElement("div");o.className="notyf-container",e.appendChild(o),document.body.appendChild(e),this.container=o,this.animationEnd=i()},this.Notyf.prototype.alert=function(n){var i=t.call(this,n,this.options.alertIcon);i.className+=" alert",this.container.appendChild(i),this.notifications.push(i)},this.Notyf.prototype.confirm=function(n){var i=t.call(this,n,this.options.confirmIcon);i.className+=" confirm",this.container.appendChild(i),this.notifications.push(i)}}();let notyf = new Notyf({delay:3000});
 
 function 确定(){
 let 结果="",输入=document.getElementById("输入").value.toLowerCase().split(" ");
@@ -45,7 +47,7 @@ for(let i=0;sjtk_s.length>i;i++){
 }document.getElementById("sjtk").innerHTML=结果;}
 
 function sjtk_随机(){
-    if(次数==0){打(乱=sjtk);}
+    if(次数==0){乱=sjtk;打();}
     if(乱.length==次数){document.getElementById("sjtk").innerHTML="题库已空";次数=0;
     }else{document.getElementById("sjtk").innerHTML="<a onclick='删除码(制="+乱[次数]+")'>删除码</a><br><iframe src='1/"+乱[次数]+".html' height=100% width=100%></iframe>";次数+=1;}
 }
@@ -53,6 +55,7 @@ function sjtk_全部显示(){
     次数="";
     for(let i=0;sjtk.length>i;i++){次数+="<br><b><a onclick=\"复(制='"+sjtk[i]+"')\">"+sjtk[i]+"（删除码）</a></b>"+"<iframe src='1/"+sjtk[i]+".html' height=100% width=100%></iframe><br>";}
     document.getElementById("sjtk").innerHTML=次数;
+    次数=0;
 }
 function 删除码(){复(制="\""+制+"\"");}
 
@@ -152,7 +155,7 @@ for(let i=0;2>i;i++){
             else if(临时3[0]=="随机题库"){客="sjtk?t="+临时3[2];if(临时3[3]){客+="&c="+临时3[3];}if(临时3[4]){客+="&f="+临时3[4];}if(临时3[5]){客+="&m="+临时3[5];}else{客+="&m="+localStorage.getItem("sjtk_异梦笔记");}dy+="<a onclick=\"博(客='"+客+"')\">"+临时3[1]+"</a>";}
             else if(临时3[0]=="t"){if(typeof(ts)!="undefined"){if(ts[临时3[1]]!=""&&临时3[2]!="1"){dy+="<div class='提'>"+临时3[1]+"<span class='示'>"+ts[临时3[1]]+"</span></div>";}else if(临时3[2]=="1"){dy+=ts[临时3[1]];}else{dy+=临时3[1];}}else{dy+=临时3[1];}}
             else if(临时3[0]=="跳转"){if(临时3[1]=="br"){index_dy+="<br>";}else if(临时3[2]){dy+="<a name='"+临时3[1]+"'>"+临时3[2]+"</a>";index_dy+="<a href='#"+临时3[1]+"'>"+临时3[2]+"</a><br>";}else{dy+="<a name='"+临时3[1]+"'></a>";index_dy+="<a href='#"+临时3[1]+"'>"+临时3[1]+"</a><br>";}}
-            else if(临时3[0]=="h1"||临时3[0]=="h2"||临时3[0]=="h3"||临时3[0]=="h4"||临时3[0]=="h5"||临时3[0]=="h6"){dy+="<a name='"+临时3[1]+"'></a><"+临时3[0]+">"+临时3[1]+"</"+临时3[0]+">";index_dy+="<a href='#"+临时3[1]+"'>";if(临时3[0]=="h2"){index_dy+="<h3>"+临时3[1]+"</h3>";}else if(临时3[0]=="h3"){index_dy+="<b>"+临时3[1]+"</b>";}else if(临时3[0]=="h4"){index_dy+="　"+临时3[1];}else if(临时3[0]=="h5"){index_dy+="　<small>"+临时3[1]+"</small>";}else{index_dy+=临时3[1];}index_dy+="</a><br>";}
+            else if(临时3[0]=="h1"||临时3[0]=="h2"||临时3[0]=="h3"||临时3[0]=="h4"||临时3[0]=="h5"||临时3[0]=="h6"){if(临时3[2]){}else{临时3[2]=临时3[1];}dy+="<a name='"+临时3[2]+"'></a><"+临时3[0]+">"+临时3[1]+"</"+临时3[0]+">";index_dy+="<a href='#"+临时3[2]+"'>";if(临时3[0]=="h2"){index_dy+="<h3>"+临时3[1]+"</h3>";}else if(临时3[0]=="h3"){index_dy+="<b>"+临时3[1]+"</b>";}else if(临时3[0]=="h4"){index_dy+="　"+临时3[1];}else if(临时3[0]=="h5"){index_dy+="　<small>"+临时3[1]+"</small>";}else{index_dy+=临时3[1];}index_dy+="</a><br>";}
             else if(临时3[0]=="zk"){dy+="<a onclick=\"dw(dwb='"+临时3[2]+"',dwd='"+临时3[3]+"')\">"+临时3[1]+"</a>";}
             else{
                 if(临时3[1].indexOf("#")!=-1){临时3[1]=临时3[1].split("#");dy+="<a href='";if(临时3[1][0]==""){dy+="#"+临时3[1][1];}else{dy+=临时3[1][0]+".html#"+临时3[1][1];}dy+="'>"+临时3[0]+"</a>";
