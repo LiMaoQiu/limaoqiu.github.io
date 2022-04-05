@@ -167,7 +167,7 @@ permalink: i/zk/406889
     let dy2="";
     for(let i=1;临时.length>i;i++){
         let 临时2=临时[i].split("〉");
-        dy+="<sup onclick=\"dw(dwb='"+参考[临时2[0]]+",dwd='数据来源'')\">["+i+"]</sup>"+临时2[1];
+        dy+="<sup onclick=\"dw(dwb='"+参考[临时2[0]]+"',dwd='数据来源')\">["+i+"]</sup>"+临时2[1];
         dy2+=i+"."+参考[临时2[0]]+"<br>";
     }
     document.getElementById("a").innerHTML = dy;
