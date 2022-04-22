@@ -12,7 +12,7 @@ layout: null
         <item>
             <title>月薪要赚多久</title>
             <description>输入你的月薪，看看你距离富豪榜还差多远。</description>
-            <pubDate>Fri, 22 Apr 2022 19:15:00 CCT</pubDate>
+            <pubDate>Fri, 22 Apr 2022 19:15:00 +0800</pubDate>
             <link>{{ site.mq }}/app/yxyzdj</link>
             <guid isPermaLink="true">{{ site.mq }}/app/yxyzdj</guid>
             </item>
