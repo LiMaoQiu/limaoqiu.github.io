@@ -11,13 +11,14 @@ pinglun: 1
 
 
 输入你的<b>月收入</b>：
-<input type="number" id="输入" autocomplete="off" onkeyup="a()" onclick="a()" min="0">元(人民币)<br>
+<input type="number" id="输入" autocomplete="off" onkeyup="a(d=1)" onclick="a(d=1)" min="0">元(人民币)<br>
 <br>
 
 <h3>选择一个：</h3>
 <div id="dy1"></div>
 <br>
 
+<a name="换算结果"></a>
 <div id="dy2"></div>
 
 <br><br><br><br><br>
@@ -121,6 +122,7 @@ pinglun: 1
     }
     document.getElementById("dy1").innerHTML = dy1;
     let c="";
+    let d=0;
     function a(){     
         if(c!=""){
         let dy2="<h3>换算结果：</h3>";
@@ -143,7 +145,14 @@ pinglun: 1
             dy2+="请输入<b>正整数</b>。";
         }
         document.getElementById("dy2").innerHTML = dy2;
-    }}
+    }
+    if(d==1){
+        d=0;
+    }else{
+        window.location.href="#换算结果";
+    }
+
+}
 
     function 整数(){
         if(数>100000000){数=数/100000000;数=数+"";
