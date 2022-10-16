@@ -8,13 +8,18 @@ pinglun: 1
 ---
 <link rel="stylesheet" href="/css/all.css">
 <style>
-	.分a,.总分{color:#fd9b07;}
+	.分a,.总分,.分条,.个评价{color:#fd9b07;}
 	.分b{color:#cccccc;}
 	.分c{color:#ffffff;}
+	.分a,.分b,.分c{font-size:1.3em;letter-spacing:.14em;line-height:0.8em;}
 	.总分{font-size:2em;}
+	.分条{background-color:#fd9b07;font-size:0.8em;}
 </style>
 
-点击<a href="#此处">此处</a>跳转到评价区域。（其实就是留言板，在1-5给猫球打个分，可以留具体评价也可以不留）<br>
+点击<a href="#此处">此处</a>跳转到评价区域。<br>
+（其实就是留言板，手动输入1-5给猫球打个分，可以留具体评价也可以不留）<br>
+
+<br><br>
 
 <div id="dy"></div>
 
@@ -63,19 +68,20 @@ pinglun: 1
 		dy+="</fieldset>"
 	}
 
-	let dy2="<span class='总分'>★"+(总分/人数*10+"").split(".")[0]/10+"</span> &nbsp;<span class='分a'>"+人数+"个评价</span>";
+	let dy2="<table><tr style='background-color:#ffffff;'><td style='text-align:center;width:30%'><br><br><span class='总分'>★"+(总分/人数*10+"").split(".")[0]/10+"</span><br><span class='个评价'>"+人数+"个评价</span></td><td>　</td><td>";
 	for(let i=5;i>0;i--){
 		dy2+="<br><span class='分c'>"+星["-"+(5-i)]+"</span><span class='分b'>"+星[i]+"</span>";
 		let 临时=分[i]/人数*10+"".split(".")[0]-1;
 		if(临时<0){临时=0;}
-		dy2+="　<span class='heimu'>";
+		dy2+="　<span class='分条'>";
 		for(let i2=临时;i2>0;i2--){
-			dy2+="—";
+			dy2+="——";
 		}
 		dy2+="</span>";
 	}
+	dy2+="<br><br></td></tr></table>";
 
 
 
-	document.getElementById("dy").innerHTML=dy2+dy;
+	document.getElementById("dy").innerHTML=dy2+"<br><br>"+dy;
 </script>
