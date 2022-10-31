@@ -2,7 +2,8 @@ let 页面=document.getElementById("游戏厅").innerHTML.split("／");
 let 页面dy="<h1 style='display:inline;'>"+页面[0]+"</h1>";
 if(页面[0]!="猫球游戏厅"){页面dy+=" <a href='开始游戏.html'>返回游戏厅</a>";}else{页面dy+=" <a href='/'>猫球博客</a>";}
 页面dy+=
-    "<br><link rel='stylesheet' href='/css/all.css'>"+
+    "<br><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"+
+    "<title>"+页面[0]+"</title><link rel='stylesheet' href='/css/all.css'>"+
     "<style>body{position: relative;width: 60%;top: 1em;margin: auto auto 100px;user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;}"+
     "[onclick]{cursor:pointer;}"+
     "img{image-rendering:optimizeSpeed;image-rendering:-moz-crisp-edges;image-rendering:-o-crisp-edges;image-rendering:-webkit-optimize-contrast;image-rendering:pixelated;-ms-interpolation-mode:nearest-neighbor;}"+
