@@ -4,7 +4,7 @@ if(页面[0]!="猫球游戏厅"){页面dy+=" <a href='开始游戏.html'>返回�
 页面dy+=
     "<br><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"+
     "<title>"+页面[0]+"</title><link rel='stylesheet' href='/css/all.css'>"+
-    "<style>body{position: relative;width: 60%;top: 1em;margin: auto auto 100px;user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;}"+
+    "<style>@media screen and (min-width:768px){body{position: relative;width: 60%;top: 1em;margin: auto auto 100px;}}body{user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;}"+
     "[onclick]{cursor:pointer;}"+
     "img{image-rendering:optimizeSpeed;image-rendering:-moz-crisp-edges;image-rendering:-o-crisp-edges;image-rendering:-webkit-optimize-contrast;image-rendering:pixelated;-ms-interpolation-mode:nearest-neighbor;}"+
     ".dui{background:#ffffff00;animation:duib 0.7s linear 1;-webkit-animation:duib 0.7s linear 1;}@keyframes duib{from{background-color:#00ff00;}to{background-color:#ffffff00;}}@-webkit-keyframes duib{from{background-color:#00ff00;}to{background-color:#ffffff00;}}.cuo{background:#ffffff00;animation:cuob 1s linear 1;-webkit-animation:cuob 0.7s linear 1;}@keyframes cuob{from{background-color:#ff0000;}to{background-color:#ffffff00;}}@-webkit-keyframes cuob{from{background-color:#ff0000;}to{background-color:#ffffff00;}}</style>"+
