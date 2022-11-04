@@ -473,7 +473,18 @@ AsamiAkise的［https［］zhuanlan.zhihu.com/p/447860817［］原神往事II］
 
 如果不喜欢我这个风格，还有其他“史官”可选：<br>
 “我想看支持原神的” → 〈https|www.bilibili.com/read/cv5189274|原神往事〉、〈https|zhuanlan.zhihu.com/p/447860817|原神往事II〉<br>
-“我想看反对原神的” → 〈https|space.bilibili.com/3196602/article|原神玩家集体记忆名录〉<small>（大</small><span class="redX"><small>翻译运动）</small></span><small>（〈https|space.bilibili.com/1054756248|小号1〉.〈https|space.bilibili.com/300827055|小号2〉.〈https|space.bilibili.com/4806579|小号3〉）</small><br>
+“我想看反对原神的” → 〈https|space.bilibili.com/3196602/article|原神玩家集体记忆名录〉<small>（大</small><span class="redX"><small>翻译运动）</small></span><small>（〈https|space.bilibili.com/1054756248|小号1〉.〈https|space.bilibili.com/300827055|小号2〉.〈https|space.bilibili.com/4806579|小号3〉）</small> 〈del|
+    （反原势力并非讨厌原神或者反对原神的普通网友，而是会有组织有预谋的发动各种“袭击”，比如制造谣言、发动网暴，这里记录一些反原势力的头目和聚集地。）<br>
+    <br>
+    百度贴吧：<br>
+    ［https［］tieba.baidu.com/f?ie=utf-8&kw=mihoyo［］mihoyo吧］［注［］介绍写着“反米哈游”，贴吧讨论内容都是反原［］“mihoyo是原神制作公司的名字，不是反原”］<br>
+    ［https［］tieba.baidu.com/f?ie=utf-8&kw=反原神［］反原神吧］<br>
+    ［https［］tieba.baidu.com/f?ie=utf-8&kw=OP［］OP吧］［注［］头像是原神角色改图，介绍写着“猿批”，贴吧讨论内容都是反原［］“OP是主题曲的意思，不是反原”］<br>
+    ［https［］tieba.baidu.com/f?ie=utf-8&kw=原批笑话［］原批笑话吧］<br>
+    <br>
+    微博：<br>
+    ［https［］weibo.com/p/100808008a3af21022573d0e5a31ed6f629cb5/super_index［］米哈游反黑站］［注［］置顶都是反原内容，超话粉丝叫“派蒙猎人”，派蒙是原神玩家都很喜欢的角色［］“叫反黑站怎么是反原”］
+|其他反原势力〉<br>
 “我想保持中立” → 暂时没见到完全中立的史官<br>
 <br>
 <b>只看特定内容</b>：<small id="只看已选">（可多选）</small><br>
@@ -1178,6 +1189,7 @@ AsamiAkise的［https［］zhuanlan.zhihu.com/p/447860817［］原神往事II］
 |<small>版本备忘</small>〉
 <ol>
     〈li|抄袭〉散兵BOSS战 → 主角身旁的小型物体射击敌人 → “<i>抄袭《尼尔：机械纪元》辅助机器人</i>”</li>
+    〈li|抄袭〉流浪者 → 风系，浮空攻击，向前方发射远程攻击 → “<i>抄袭《幻塔》凛夜</i>”</li>
 </ol>
 
 
@@ -1203,7 +1215,6 @@ AsamiAkise的［https［］zhuanlan.zhihu.com/p/447860817［］原神往事II］
 <br>〈dy|粉丝〉
 <br>〈dy|获奖〉
 <br>〈dy|相关〉
-
 
 <hr><h3>〈标题|舆情调查〉</h3>
 〈隐藏|
@@ -1529,11 +1540,6 @@ AsamiAkise的［https［］zhuanlan.zhihu.com/p/447860817［］原神往事II］
 
 
 
-
-
-
-
-
 </div>
 
 <script>
@@ -1643,14 +1649,14 @@ function 加载(o){
             dy+="<table><tr><td colspan='3'><b>粉丝数</b></td></tr>";
             for(let i2=0;粉丝.length>i2;i2++){
                 dy+="<tr><td><small>"+粉丝[i2][2]+"</small></td><td>";
-                    if(粉[粉丝[i2][0]]+"万"==粉丝[i2][1]){dy+="<b>";
-                        if(官号[粉丝[i2][0]]){dy+="<a href='"+官号[粉丝[i2][0]]+"' target='_blank'>"+粉丝[i2][0]+"</a>";}else{dy+=粉丝[i2][0];}
-                        dy+="</b>";}
-                    else{dy+=粉丝[i2][0];}
-                dy+="</td><td>"+粉丝[i2][1]+"</td></tr>";
+                if(粉[粉丝[i2][0]]+"万"==粉丝[i2][1]&&官号[粉丝[i2][0]]){
+                    dy+="<a href='"+官号[粉丝[i2][0]]+"' target='_blank'>"+粉丝[i2][0]+"</a>";}else{dy+=粉丝[i2][0];}
+                dy+="</td><td>";
+                if(粉[粉丝[i2][0]]+"万"==粉丝[i2][1]){dy+="<b>"+粉丝[i2][1]+"</b>";}else{dy+=粉丝[i2][1];}
+                dy+="</td></tr>";
             }
             粉["粉丝数"]=0;
-            for(let i2=0;丝.length>i2;i2++){
+            for(let i2=1;丝.length>i2;i2++){
                 粉["粉丝数"]+=粉[丝[i2]]*1;
             }
             dy+="<tr><td colspan='3' style='text-align:right'><small>各平台 共</small> <b>"+粉["粉丝数"]+"万</b></td></tr></table>";
