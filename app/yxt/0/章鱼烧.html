@@ -16,8 +16,6 @@
 <br>
 <span id="玩家桌"></span>　<span id="玩家新"></span><br>
 
-<div id="预加载" style="display:none;"></div>
-
 <script>
     let 单卡="<img src='img/背.png' width='50px'> ";
     let 卡堆="<img src='img/背2.png' width='50px'> ";
@@ -38,11 +36,7 @@
     let 玩家数;
     let 封印;
 
-    dy="";
-    for(let i=0;牌[3].length>i;i++){
-        dy+="<img src='img/"+牌[3][i]+".png' width='1px'>";
-    }
-    document.getElementById("预加载").innerHTML=dy;
+    预加载(3);
 
     function 开始游戏(){
         document.getElementById("卡背").innerHTML=卡堆;
