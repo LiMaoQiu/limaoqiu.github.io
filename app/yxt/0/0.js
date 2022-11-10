@@ -28,19 +28,19 @@ if(页面[0]!="猫球游戏厅"){页面dy+=" <a href='0.html'>返回游戏厅</a
 document.getElementById("游戏厅").innerHTML=页面dy;
 
 let 钱=0;if(localStorage.getItem("猫球游戏厅")){钱=localStorage.getItem("猫球游戏厅")*1;}
-let 变化=钱;
+let 页面变化=钱;
 function 余额(o){
     钱=localStorage.getItem("猫球游戏厅")*1;
     if(o){钱=钱+o*1;}
     localStorage.setItem("猫球游戏厅",钱);
     页面dy="余额："+(钱+"").split(".")[0]+"币";
-    if(钱>变化){
-        页面dy+=" <small class='dui ycql' style='color:#00ff00'>+"+(钱-变化)+"</small>";
-    }else if(钱<变化){
-        页面dy+=" <small class='cuo ycql' style='color:#ff0000'>"+(钱-变化)+"</small>";
+    if(钱>页面变化){
+        页面dy+=" <small class='dui ycql' style='color:#00ff00'>+"+(钱-页面变化)+"</small>";
+    }else if(钱<页面变化){
+        页面dy+=" <small class='cuo ycql' style='color:#ff0000'>"+(钱-页面变化)+"</small>";
     }
     document.getElementById("余额").innerHTML=页面dy;
-    变化=钱;
+    页面变化=钱;
 }
 余额();
 
@@ -52,8 +52,6 @@ let 牌={
 牌[0]=牌[2].concat(["大王","小王"]);
 牌[3]=牌[1].concat(["大王","小王"]);
 let 牌堆;
-
-let 输入=[1,2,3,4,5,6,7,8,9];
 
 let arr;
 function 随机(){
