@@ -274,7 +274,7 @@ let 官号={
 }
 </script>
 <style>
-    .相关{font-weight:normal;color:var(--a-color);cursor:pointer;}
+    .注{font-weight:normal;color:var(--a-color);cursor:pointer;}
     #right_anchor,#right_anchor2{display:none !important;}
     i{font-style:italic;}
     .分{color:#BBBBBB;}
@@ -1622,7 +1622,7 @@ function 加载(o){
         dy+="<span id='隐藏"+o+i+"' style='display:none;'><fieldset><legend>"+临时2[2]+"</legend>"+临时2[1]+"</fieldset></span><a id='显示"+o+i+"' onclick=\"显示('"+o+i+"')\">"+临时2[2]+"▿</a>";//🔻▼▾▽
     }
     if(临时2[0]=="相关"){
-        dy+="<small id='相关"+o+i+"' class='相关' onclick=\"相关('"+临时2[1]+"相关／"+o+i;
+        dy+="<small id='相关"+o+i+"' class='注' onclick=\"相关('"+临时2[1]+"相关／"+o+i;
         if(临时2[2]){dy+="／"+临时2[2];
             if(注[临时2[1]+"相关"]){
                 if(注[临时2[1]+"相关"].indexOf(临时2[2])!=-1){}else{注[临时2[1]+"相关"][注[临时2[1]+"相关"].length]=临时2[2];}
