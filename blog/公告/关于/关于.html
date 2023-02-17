@@ -50,7 +50,7 @@ function zwjs(zwjs_当前){
     if(zwjs_当前=="网上冲浪版"){
         zwjs_dy="你也在网上冲浪啊，你是<span style=\"color:blue\">GG</span>还是<span style=\"color:red\">MM</span>？<br>"+
         "欢迎光临<span style=\"background-color: yellow;\">我的博客</span>，有空常来坐坐<img src=\"/img/i/em/BBS/loveliness.gif\"><br>"+
-        "我叫李猫球，今年**岁，<ruby><rb>不抽烟</rb><rt>戒了</rt></ruby>，<ruby><rb>不喝酒</rb><rt>过敏</rt></ruby>，爱好广泛，其中坚持最久的是写小说和玩游戏。<br>"+
+        "我叫李猫球，今年**岁，<ruby><rb>不抽烟</rb><rt>戒了</rt></ruby>，<ruby><rb>偶尔喝酒</rb><rt>但过敏</rt></ruby>，爱好广泛，其中坚持最久的是写小说和玩游戏。<br>"+
         "希望能和年轻人多交朋友，不要out。<br>"+
         "最后，祝福朋友们健康快乐！<img src=\"/img/i/em/BBS/lol.gif\">";
     }
@@ -106,7 +106,7 @@ function 粉丝数(fss){
 
 <hr>
 
-<tags-default-style mqgjc="猫球关键词" scale="0.8" width="100%" height="300px" icon="⤴️" inorder="true"><my-tags>
+<tags-default-style mqgjc="猫球关键词" scale="0.8" width="100%" height="400px" icon="⤴️" inorder="true"><my-tags>
     <div style="display: none" slot="text">
         游戏/2/爱好//pingfen/youxi
         音乐/2/爱好//pingfen/gequ
@@ -124,7 +124,16 @@ function 粉丝数(fss){
         可乐/2/(ˉ﹃ˉ)
         烤冷面/2/(ˉ﹃ˉ)
         锅包肉/2/(ˉ﹃ˉ)
-        小像素点/2/作品//https://像素点.cn
+        小像素点/2/作品/https://像素点.cn
+        猫球仓买/2/愿望
+        环球旅行/2/愿望
+        睡衣派对/2/愿望
+        夏日入侵企划/2/喜欢的东西
+        «原神»/2/喜欢的东西
+        «魔兽世界»/2/喜欢的东西
+        «武林外传»/2/喜欢的东西
+        «我的世界»/2/喜欢的东西
+        «JOJO的奇妙冒险»/2/喜欢的东西
     </div>
     </my-tags>
     </tags-default-style>
@@ -201,26 +210,38 @@ const pieChart = new chartXkcd.Pie(svg, {
         }],},
     options: {innerRadius: 0.5,legendPosition: chartXkcd.config.positionType.upRight,},});
 
-$("html,body").on("click",function(e){anp(e);}) //鼠标点击弹字 组成猫球的成分
-let anp_data=new Array(
-    "pvo","二扯","猪又","胡糊","汽水","烤冷面",":O","猫薄荷"
-);
-let anp_color=new Array("#FB364D","#E64156","#D14D60","#B85B6B","#A36775","#92727D","#7F7D87","#688A91","#5C9197","#4B9A9E","#33A8AA",
-"#4B9A9E","#5C9197","#688A91","#7F7D87","#92727D","#A36775","#B85B6B","#D14D60","#E64156","#FB364D");
+$("html,body").on("click",function(e){anp(e);}) //鼠标点击弹字
+let anp_data=[
+    "pvo占领世界",
+    "愿风指引你的道路","要记得旅途本身的意义",
+    "又怂又菜 但爱玩","可能是假东北人","网瘾少年",
+    "人生的意义就是旅行、电影、音乐、游戏","“越过长城，走向世界”",
+    
+];
+let anp_color=["#FB364D","#E64156","#D14D60","#B85B6B","#A36775","#92727D","#7F7D87","#688A91","#5C9197","#4B9A9E","#33A8AA",
+"#4B9A9E","#5C9197","#688A91","#7F7D87","#92727D","#A36775","#B85B6B","#D14D60","#E64156","#FB364D"];
 let anp_i=0;
+
+let arr;function 随机(){let _arr=arr.slice();for(let i=0;i<_arr.length;i++){let j=getRandomInt(0,i);let t=_arr[i];_arr[i]=_arr[j];_arr[j]=t;}function getRandomInt(min,max){return Math.floor(Math.random()*(max-min+1)+min);}arr=_arr;}
+arr=anp_data;
+随机();
+anp_data=arr;
+arr=0;
+
 function anp(e){
-	let 随机数 = Math.floor(Math.random()*anp_data.length);
-	let n=anp_data[随机数];
+	if(arr==anp_data.length){arr=0;}
+	let n=anp_data[arr];
 	let $i=$("<b class='bukexuanzhong'>").text(n);
 	let x=e.pageX,y=e.pageY;
 	$i.css({top:y-20,left:x,position:"absolute",color:anp_color[anp_i]});
 	anp_i+=1;
 	if(anp_color.length==anp_i){anp_i=0;}
 	$("body").append($i);
-	$i.animate({top:y-180,opacity:0,"font-size":"1.4em"},1500,function(){
+	$i.animate({top:y-180,opacity:0,"font-size":"1.4em"},4000,function(){
 		$i.remove();
 	});
 	e.stopPropagation();
+    arr+=1;
 }
 </script>
 
