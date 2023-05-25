@@ -1,7 +1,7 @@
 ---
 layout: page2
 title: 超神
-nav_text: 超神
+nav_text: 超神 <small>0.1</small>
 permalink: game/chaoshen
 nav_url: <a href="/youxiji">游戏机</a>
 ---
@@ -26,7 +26,7 @@ nav_url: <a href="/youxiji">游戏机</a>
 
 <script>
     let dy,剧情=[],批量;
-    let 通关="恭喜通关。<br>继续游戏请购买DLC稻妻、须弥。<br>敬请期待新作«元神：枫丹»。";
+    let 通关="恭喜通关。<br>继续游戏请购买DLC稻妻、须弥。<br>敬请期待新作«超神：枫丹»。";
 
     let 选项={
         // ／选项1,1／选项2,2
@@ -137,7 +137,7 @@ nav_url: <a href="/youxiji">游戏机</a>
     document.getElementById("更新日志").innerHTML=dy;
 
     function 跳过(){
-        document.getElementById("游戏").innerHTML="恭喜通关。";
+        document.getElementById("游戏").innerHTML=通关;
     }
 
     function 自由(o){
