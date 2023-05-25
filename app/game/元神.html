@@ -1,0 +1,92 @@
+---
+layout: page2
+title: 元神
+nav_text: 元神
+permalink: game/ys
+nav_url: <a href="/youxiji">游戏机</a>
+---
+众所周知«原神»是一款非常差的游戏，它有着许多缺点，而官方却不重视，因此我决定尊重<b>真正的玩家们</b>的<b>真实意见</b>将«原神»改造成了«元神»，希望大家喜欢。<br>
+<br>
+
+<link rel="stylesheet" href="/css/all2.css">
+
+<style>
+    #游戏{padding:20px;border: 1px solid #000;}
+</style>
+
+<div id="游戏" class="bukexuanzhong">
+<div id="剧情"></div>
+</div>
+
+<br>
+
+<div id="更新日志"></div>
+
+<script>
+    let dy,剧情=[];
+    let 通关="恭喜通关。<br>继续游戏请购买DLC稻妻、须弥。<br>敬请期待新作«元神：枫丹»。";
+
+    let 选项={ // ／选项1,1／选项2,2
+        0:["自称“天理维系者”的陌生神明拦在你的面前。","一番战斗之后，你失去意识陷入黑暗。","不知多久你醒了过来，你发现自己被封印了力量，你在这个被称为“提瓦特大陆”的世界流浪。","你来到蒙德，在这里结识了安柏、琴、丽莎、凯亚、迪卢克等人。","一头巨龙袭击了城市。","／击败它,1／不管,2"],
+        1:["你成功的击败了巨龙，并解决了其中的一系列阴谋。","／前往下一个城市,3"],
+        2:["你没有理会巨龙，任由它将城市毁灭。","在城市的废墟中，你看到无数平民残破的尸体。","／去下一个城市,3"],
+        3:["你来到璃月，在这里见证了神明的陨落。","你解决了这里的阴谋。",通关],
+    }
+
+    let 日志=[
+        "«原神»没有跳过键。／增加了跳过键",
+        "«原神»剧情又臭又长。／简化了剧情",
+        "«原神»剧情幼稚。／增加了黑深残的剧情",
+        "«原神»给玩家的选项不会影响剧情。／选项有不同走向",
+        "真正的好游戏从来不靠画面。／删除了画面",
+        "媚宅恶心。／删除了媚宅要素",
+        "不喜欢派蒙。／删除了派蒙",
+        "我们要买断制。／从免费更新游戏改为了卖DLC和续作。",
+        // "／",
+    ];
+
+    剧情=选项[0];
+
+    function 继续(o){
+        if(剧情[o]){
+            dy=剧情[o];
+            if(剧情[o+1]){
+                if(剧情[o+1][0]=="／"){
+                    let 临时=剧情[o+1].split("／");
+                    for(let i=1;临时.length>i;i++){
+                        临时[i]=临时[i].split(",");
+                        dy+="<br><a onclick=\"剧情=选项['"+临时[i][1]+"'];继续(0)\">"+临时[i][0]+"</a>";
+                    }
+                }else{
+                    dy+="<br><a onclick='继续("+(o+1)+")'>继续</a>";
+                }
+                dy="<a onclick='跳过()'>跳过</a><br><br>"+dy;
+            }
+            document.getElementById("剧情").innerHTML=dy;
+        }else{
+            document.getElementById("游戏").innerHTML=通关;
+        }
+    }
+    继续(0);
+
+    function 选择(o){
+        o=o.split(",");
+        document.getElementById("剧情").innerHTML="你选择了“"+o[0]+"”<br><a onclick='继续(0)'>继续</a>";
+        剧情=选项[o[1]];
+    }
+
+    dy="<b>更新日志</b><ol>";
+    for(let i=0;日志.length>i;i++){
+        日志[i]=日志[i].split("／");
+        dy+="<li>"+日志[i][1]+"<small>（收到反馈：“"+日志[i][0]+"”）</small></li>";
+    }
+    dy+="</ol>";
+    document.getElementById("更新日志").innerHTML=dy;
+
+    function 跳过(){
+        document.getElementById("游戏").innerHTML="恭喜通关。";
+    }
+</script>
+
+
+
