@@ -19,7 +19,7 @@ nav_url: <a href="/youxiji">游戏机</a>
 </style>
 
 <div id="游戏" class="bukexuanzhong">
-<div id="剧情"></div>
+<div id="剧情"><a onclick="清理缓存()">清理缓存</a></div>
 <hr>
 <a onclick="抽卡(1)">抽一发</a> <a onclick="抽卡(10)">十连</a> <small>剩余抽卡次数:<span id="剩余抽卡">加载中</span></small>
 <div id="抽卡"></div>
@@ -30,7 +30,10 @@ nav_url: <a href="/youxiji">游戏机</a>
 <div id="更新日志"></div>
 
 <script>
-// localStorage.removeItem("超神");localStorage.removeItem("超神数值");
+    function 清理缓存(){
+        localStorage.removeItem("超神");localStorage.removeItem("超神数值");
+    }
+
 
     let dy,剧情=[],批量,数值={};
     let 抽卡次数=9990,抽卡4=0,抽卡5=0,关卡=0,回合=0;
