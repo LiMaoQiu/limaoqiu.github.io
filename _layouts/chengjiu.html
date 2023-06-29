@@ -45,6 +45,7 @@ hr{width:100%;}
 <div id="right_anchor2" style="z-index: 102;"></div>
 
 <div id="dy"></div>
+<a onclick="加载()"><div id="loadink" class="cj"><img class="loading" src="{{ site.mq_d }}/i/cj/loading.jpg" onerror="this.src='/i/cj/loading.jpg';this.onerror=null;"/><b>加载更多</b><br></div></a>
 
 {{ content }}
 
@@ -64,10 +65,10 @@ if(cj_data_b.length>1){
 }
 document.getElementById("anniu_b").innerHTML = 当前;
 
-
-let loading = "<a onclick=\"加载()\"><div class=\"cj\"><img src=\"{{ site.mq_d }}/i/cj/loading.jpg\" onerror=\"this.src='/i/cj/loading.jpg';this.onerror=null;\"/><b>加载更多</b><br></div></a>";
 let data_jl={};
 let right={};
+
+let obink=document.querySelector('.loading');
 
 function 加载(){
 data_jl[当前]+="";
@@ -79,7 +80,7 @@ if(right[当前]=="undefined"){
     right[当前]="";
 }
 
-let 计时 = 30;
+let 计时 = 20;
 while (计时 > 0 && cj_data[当前].length != 0) {
 let 临时=cj_data[当前][0].split("／");
 if(临时[0]=="hr"){
@@ -107,13 +108,15 @@ cj_data[当前].splice(0, 1);
 
 }
 
-if (cj_data[当前] != "") {
-    document.getElementById("dy").innerHTML = data_jl[当前] + loading;
-} else {
-    document.getElementById("dy").innerHTML = data_jl[当前];
+if(cj_data[当前]=="") {
+    document.getElementById("loadink").style="display:none;";
+}else if(document.querySelector('.loading')){
+    obink=document.querySelector('.loading');
 }
+document.getElementById("dy").innerHTML = data_jl[当前];
 document.getElementById("right_anchor2").innerHTML = "<table>"+right[当前]+"</table>";
 }
+
 加载();
 
 function 切换() {
@@ -139,6 +142,18 @@ document.getElementById("anniu_a").innerHTML = "<a class=\"anniu\" onclick=\"切
 document.getElementById("anniu_b").innerHTML = 当前;
 加载();
 }
+
+let ob=new IntersectionObserver(
+    function (o){
+        if(o[0].isIntersecting){
+            加载();
+        }
+    },{
+        thresholds:0.5,
+    }
+);
+ob.observe(obink);
+
 </script>
 
 {% if page.pinglun %}{% include Valine.html %}{% endif %}
