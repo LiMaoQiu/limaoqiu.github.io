@@ -44,7 +44,7 @@ let 关键词=[];
 
 function dw2(o){
     let 谁复特=1;
-    if(o=="0"){关键词=[]}else if(o=="1"){}else if(o.indexOf(",")!=-1){关键词=o.split(",");}else if(关键词.length==0||谁复特==1){关键词[关键词.length]=o;}else{关键词=[o]}
+    if(o=="0"){关键词=[]}else if(o=="1"){}else if(o.indexOf(",")!=-1){关键词=o.split(",");}else if(关键词.length==0||谁复特==1){关键词[关键词.length]=o}else{关键词=[o]}
     dy=dy2;
 
     if(o==0){datb=data;}else{
@@ -52,6 +52,7 @@ function dw2(o){
         for(let i=0;关键词.length>i;i++){
             if(i!=0){临时+=",";}
             临时+="<a onclick=\"取消('"+关键词[i]+"')\">"+关键词[i]+"</a>";
+            if(说明[关键词[i]]){临时+="<sup><a onclick=\"dw(dwb='"+说明[关键词[i]]+"',dwd='"+关键词[i]+"')\">[注]</a></sup>"}
         }
         dy="<h2 style='display:inline;'>"+临时+"</h2> <a onclick=\"dw2('0')\">显示全部</a>"+dy;
         datb=[];
@@ -78,7 +79,7 @@ function dw2(o){
             并列[1]=datb[i][0];
             排名+=1;
         }
-        if(标准[hr]&&标准[hr][0]*10+10>datb[i][0]){
+        if(o==0&&标准[hr]&&标准[hr][0]*10+10>datb[i][0]){
             dy+="<tr><td></td><td colspan='4'><b><small>"+标准[hr][0]+"+</small> "+标准[hr][1]+"</b></td></tr>"
             hr+=1;
         }
@@ -149,7 +150,6 @@ for(let i=0;datb.length>i;i++){
             查重列表+=datb[i]+"／";
         }
     }
-    console.log("结束");
 }
 
 let 排名的方式=0;
