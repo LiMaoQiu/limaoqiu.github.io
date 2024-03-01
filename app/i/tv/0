@@ -1600,11 +1600,8 @@ AXN台,http://ali.hlspull.yximgs.com/live/twlivezezcxlvofbzbvbzzzfzvzhslcfybzssx
 东森戏剧台,http://ali.hlspull.yximgs.com/live/twliveyvzozmfdycvbzcxlzdzfxdcvnzvdwspzcophzfvztycxzpzzmendsxd.flv
 
 
-AdultIPTV.net,#genre#
-不知道是啥1,http://adultiptv.net/chs.m3u
-不知道是啥2,http://adultiptv.net/videos.m3u8
+AdultIPTV,#genre#
 Live Cams,http://live.adultiptv.net/livecams.m3u8
-MILF,http://live.adultiptv.net/milf.m3u8
 Big Dick,http://live.adultiptv.net/bigdick.m3u8
 Big Tits,http://live.adultiptv.net/bigtits.m3u8
 Fetish,http://live.adultiptv.net/fetish.m3u8
@@ -1628,3 +1625,10 @@ Brunette,http://live.adultiptv.net/brunette.m3u8
 Blonde,http://live.adultiptv.net/blonde.m3u8
 Gay,http://live.adultiptv.net/gay.m3u8
 Asian,http://live.adultiptv.net/asian.m3u8
+MILF,http://live.adultiptv.net/milf.m3u8
+
+测试,#genre#
+测试1,https://vod.mycamtv.net/1.m3u8
+测试2,https://vod.mycamtv.net/2.m3u8
+测试3,https://vod.mycamtv.net/3.m3u8
+测试4,https://vod.mycamtv.net/180.m3u8
