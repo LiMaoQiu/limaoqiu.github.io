@@ -1,23 +1,28 @@
 ---
 layout: page2
 title: 二扯奶茶店
-nav_text: <span class='redX'>绝密</span>配方
+nav_text: <small><span class='redX'>绝密</span>配方</small>
 nav_url: <a href="/zatan">笔记</a>
 permalink: biji/erchenaichadian
 ---
 <link rel="stylesheet" href="/css/all2.css">
 <input type="text" placeholder="搜索" autocomplete="off" id="搜索框">
 <div id="dy_分类"></div>
+<div id="dy_输入"></div>
 <style id="style_分类"></style>
+<style id="style_配料"></style>
 
 <style>
-#搜索框{line-height:36px;font-size:1.4em;text-align:center;padding:.5em .7em;max-width:30em;width:80%;background:#F8F8F8;border-style:solid;border-width:5px;border-color:#00a2ff;border-radius:20px;outline:none;}
-#搜索框:focus{box-shadow:0 1px 0 1px #DDD inset,0 2px 5px #00000033;border-color:#0095eb;}
+#搜索框{line-height:36px;font-size:1.4em;text-align:center;padding:.5em .7em;max-width:30em;width:80%;background:#F8F8F8;border-style:solid;border-width:5px;border-color:#00a2ff50;border-radius:20px;outline:none;}
+#搜索框:focus{box-shadow:0 1px 0 1px #DDD inset,0 2px 5px #00000033;border-color:#0095eb75;}
+.按钮{background-color:#ffffff;color:#00a2ff;text-decoration:none;transition-duration:.3s;transition-property:transform;display:inline-block;vertical-align:middle;padding:10px 20px;margin:.4em;cursor:pointer;border-radius:120px;border:2px solid #aaa;transform:translateZ(0);box-shadow:0 0 1px #000;}
+.输入:hover{text-decoration:line-through;color:#000000;}
 
 .符合1{background-color:#00ff0025;}
 .符合2{background-color:#FFff0025;}
 .符合3{background-color:#ff000025;}
 fieldset{background-color:#ffffff;}
+[id^="数值"]{border-bottom:1.5px dashed #00a2ff;}
 </style>
 
 <hr>
@@ -25,8 +30,8 @@ fieldset{background-color:#ffffff;}
 <div id="dy"></div>
 <script>
     let d=[
-        ["招牌薄荷汽水","汽水 果饮","气泡水 薄荷糖浆 柠檬","共［360］ml：［50］ml薄荷榨汁+［10］ml柠檬+［300］ml〈招牌薄荷汽水〉〈https://ceshi.com〉"],
-        ["招牌薄荷汽水1","汽水 果饮","气泡水 薄荷糖浆 柠檬","共［360］ml：［50］ml薄荷榨汁+［10］ml柠檬+［300］ml〈招牌薄荷汽水〉〈https://ceshi.com〉"],
+        ["招牌薄荷汽水","汽水 果饮","气泡水 薄荷糖浆 柠檬","共［360］ml：［50］ml薄荷榨汁+［10］ml柠檬+［300］ml〈招牌薄荷汽水1〉〈https://ceshi.com〉"],
+        ["招牌薄荷汽水1","汽水 果饮","气泡水 薄荷糖浆 柠檬","共［360］ml：［50］ml薄荷榨汁+［10］ml柠檬+［300］ml〈招牌薄荷汽水2〉〈https://ceshi.com〉"],
         ["招牌薄荷汽水2","汽水 果饮","气泡水 薄荷糖浆 柠檬","共［360］ml：［50］ml薄荷榨汁+［10］ml柠檬+［300］ml〈招牌薄荷汽水〉〈https://ceshi.com〉"],
     ];
 
@@ -37,7 +42,7 @@ fieldset{background-color:#ffffff;}
         if(分类表[i][0]=="."){
             dy+=分类表[i];
         }else{
-            dy+="<a class='anniu 分类_"+分类表[i]+"' onclick=\"分类('"+分类表[i]+"')\">"+分类表[i]+"</a> ";
+            dy+="<span class='按钮 分类_"+分类表[i]+"' onclick=\"分类('"+分类表[i]+"')\">"+分类表[i]+"</span> ";
         }
     }
     document.getElementById("dy_分类").innerHTML=dy;
@@ -49,16 +54,17 @@ fieldset{background-color:#ffffff;}
             选中分类[选中分类.length]=o;
         }
         if(选中分类[0]){
-            document.getElementById("style_分类").innerHTML=".分类_"+选中分类.join(",.分类_")+"{font-weight:bold;color:#ff0000;}";
+            document.getElementById("style_分类").innerHTML=".分类_"+选中分类.join(",.分类_")+"{font-weight:bold;}";
         }else{
             document.getElementById("style_分类").innerHTML="";
         }
         打印()
     }
 
+    let 数值记录={}
     for(let i=0;d.length>i;i++){
         let 临时=d[i][3].split("〈");
-        dy="<fieldset><legend><b>"+d[i][0]+"</b> <small>"+d[i][1]+" | ";
+        dy="<fieldset><legend><small>No."+i+"</small> <b>"+d[i][0]+"</b> <small>"+d[i][1]+" | ";
         d[i][2]=d[i][2].split(" ");
         for(let i2=0;d[i][2].length>i2;i2++){
             if(i2!=0){dy+=" ";}
@@ -76,7 +82,17 @@ fieldset{background-color:#ffffff;}
             }
             dy+=临时[i2][1];
         }
-        dy+="</fieldset>"
+        dy+="</fieldset>";
+
+        临时=dy.split("［");
+        dy=临时[0];
+        数值记录[i]=[];
+        for(let i2=1;临时.length>i2;i2++){
+            临时[i2]=临时[i2].split("］");
+            数值记录[i][i2]=临时[i2][0];
+            dy+="<span id='数值"+i+"_"+i2+"'><span onclick='数值("+i+","+i2+")'>"+临时[i2][0]+"</span></span>"+临时[i2][1];
+        }
+
         d[i][3]=dy;
     }
 
@@ -131,12 +147,11 @@ function removeDuplicates(array){//去重
 
     打印();
 
-
     let isComposition=false;
     let 搜索框=document.getElementById("搜索框");
     搜索框.addEventListener('input',function(){
         if(!isComposition){
-            打印(搜索框.value)
+            输入();
         }
     })
     搜索框.addEventListener('compositionstart',()=>{
@@ -144,8 +159,40 @@ function removeDuplicates(array){//去重
     })
     搜索框.addEventListener('compositionend',()=>{
         isComposition=false;
-        打印(搜索框.value)
+        输入();
     })
+
+    function 输入(){
+        搜索框.value=搜索框.value.replace(new RegExp('^ ',"g"),"")
+        let 临时=搜索框.value;
+        if(临时){
+            临时=临时.split(" ");
+            dy="";
+            let dy2="[onclick^=\"配料\"]{color:#ff0000;}[onclick^=\"配料('全部')\"]";
+            for(let i=0;临时.length>i;i++){
+                if(临时[i]){
+                    dy+="<span class='按钮 输入' onclick=\"输入_删除('"+临时[i]+"')\">"+临时[i]+"</span> ";
+                    dy2+=",[onclick^=\"配料('"+临时[i]+"')\"]";
+                }
+            }
+            document.getElementById("dy_输入").innerHTML=dy;
+
+            dy2+="{color:#00a2ff;}"
+            document.getElementById("style_配料").innerHTML=dy2;
+        }else{
+            document.getElementById("dy_输入").innerHTML="";
+            document.getElementById("style_配料").innerHTML="";
+        }
+
+        打印(搜索框.value);
+    }
+
+    function 输入_删除(o){
+        let 临时=搜索框.value.split(" ");
+        临时=临时.filter(item=>item!==o);
+        搜索框.value=临时.join(" ");
+        输入();
+    }
 
     function 弹窗(o){
         for(let i=0;d.length>i;i++){
@@ -156,6 +203,30 @@ function removeDuplicates(array){//去重
             }
         }
         if(o!=0){try{notyf.alert("未找到");}catch(e){alert("未找到");}}
+    }
+
+    function 配料(o){
+        let 临时=搜索框.value.split(" ");
+        if(临时.indexOf(o)!=-1){
+            临时=临时.filter(item=>item!==o);
+        }else{
+            if(临时[0]==""){临时[0]=o}else{临时[临时.length]=o;}  
+        }
+        搜索框.value=临时.join(" ");
+        输入();
+    }
+
+    function 数值(o,k){
+        document.getElementById("数值"+o+"_"+k).innerHTML="<input type='text' placeholder='"+数值记录[o][k]+"' autocomplete='off' id='数值输入"+o+"_"+k+"'><a onclick=\"数值输入("+o+","+k+")\">确认</a>";
+    }
+
+    function 数值输入(o,k){
+        let 临时=document.getElementById("数值输入"+o+"_"+k).value;
+        if(临时>-1){}else{临时=数值记录[o][k];try{notyf.alert("取消");}catch(e){alert("取消");}}
+        临时=临时/数值记录[o][k];
+        for(let i=1;数值记录[o].length>i;i++){
+            document.getElementById("数值"+o+"_"+i).innerHTML="<span onclick='数值("+o+","+i+")'>"+(数值记录[o][i]*临时*10+"").split(".")[0]/10+"</span>";
+        }
     }
 
     // let url=window.location.href;
