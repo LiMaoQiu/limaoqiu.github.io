@@ -14,12 +14,13 @@ permalink: biji/erchenaichadian
 
 <style>
 #搜索框{
-    line-height:36px;font-size:1.4em;text-align:center;padding:.5em .7em;max-width:30em;width:80%;background:#F8F8F8;border-style:solid;border-width:5px;border-color:#00a2ff50;border-radius:20px;outline:none;
-    position:sticky;top:0
+    line-height:36px;font-size:1.4em;text-align:center;padding:.5em .7em;width:100%;background:#F8F8F8;border-style:solid;border-width:5px;border-color:#00a2ff50;border-radius:20px;outline:none;
+    position:sticky;top:0;
+    z-index:1000;
 }
 #搜索框:focus{box-shadow:0 1px 0 1px #DDD inset,0 2px 5px #00000033;border-color:#0095eb75;}
 
-.按钮{background-color:#ffffff;color:#00a2ff;text-decoration:none;transition-duration:.3s;transition-property:transform;display:inline-block;vertical-align:middle;padding:10px 20px;margin:.4em;cursor:pointer;border-radius:120px;border:2px solid #aaa;transform:translateZ(0);box-shadow:0 0 1px #000;}
+.按钮{background-color:#ffffff;color:#00a2ff;text-decoration:none;transition-duration:.3s;transition-property:transform;display:inline-block;vertical-align:middle;padding:8px 16px;margin:.3em;cursor:pointer;border-radius:120px;border:2px solid #aaa;transform:translateZ(0);box-shadow:0 0 1px #000;}
 .输入:hover{text-decoration:line-through;color:#000000;}
 
 .符合1{background-color:#00ff0025;}
@@ -33,7 +34,7 @@ input[id^="数值输入"]{width:3em;}
 
 <hr>
 
-<div id="dy"></div>
+<div id="dy"></div><br><br><br><br><br>
 <script>
     let d=[
         // ["饮品名字","分类 分类2","配料 配料2","具体做法［50］克，〈另一个饮品〉〈https://xx〉"],
@@ -43,7 +44,6 @@ input[id^="数值输入"]{width:3em;}
         ["海底椰冰柠茶","果茶","香水柠檬 冰糖浆 椰树牌椰汁 脆波波","共［600］ml：香水柠檬［55］g加几颗冰块捶打30下 + 冰糖浆［30］g + 椰树牌椰汁［300］g + 冰块［210］g摇匀，出品杯放脆波波后倒入搅拌好的椰汁"],
         // ["","","",""],
         // ["","","",""],
-
     ];
 
     let 分类表=["奶茶","果茶","果汁","汽水","咖啡","酒"];
