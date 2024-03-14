@@ -1,13 +1,13 @@
 ---
 layout: page2
 title: 二扯奶茶店
-nav_text: <small><span class='redX'>绝密</span>配方</small>
+nav_text: <span class='redX'>绝密</span>配方
 nav_url: <a href="/zatan">笔记</a>
 permalink: biji/erchenaichadian
 ---
 <link rel="stylesheet" href="/css/all2.css">
-<input type="text" placeholder="搜索" autocomplete="off" id="搜索框">
 <div id="dy_分类"></div>
+<input type="text" placeholder="搜索" autocomplete="off" id="搜索框">
 <div id="dy_输入"></div>
 <style id="style_分类"></style>
 <style id="style_配料"></style>
@@ -22,7 +22,9 @@ permalink: biji/erchenaichadian
 .符合2{background-color:#FFff0025;}
 .符合3{background-color:#ff000025;}
 fieldset{background-color:#ffffff;}
-[id^="数值"]{border-bottom:1.5px dashed #00a2ff;}
+span[id^="数值"]{border-bottom:1.5px dashed #00a2ff;}
+input[id^="数值输入"]{width:3em;}
+#nav{display:none;}
 </style>
 
 <hr>
@@ -30,19 +32,24 @@ fieldset{background-color:#ffffff;}
 <div id="dy"></div>
 <script>
     let d=[
-        ["招牌薄荷汽水","汽水 果饮","气泡水 薄荷糖浆 柠檬","共［360］ml：［50］ml薄荷榨汁+［10］ml柠檬+［300］ml〈招牌薄荷汽水1〉〈https://ceshi.com〉"],
-        ["招牌薄荷汽水1","汽水 果饮","气泡水 薄荷糖浆 柠檬","共［360］ml：［50］ml薄荷榨汁+［10］ml柠檬+［300］ml〈招牌薄荷汽水2〉〈https://ceshi.com〉"],
-        ["招牌薄荷汽水2","汽水 果饮","气泡水 薄荷糖浆 柠檬","共［360］ml：［50］ml薄荷榨汁+［10］ml柠檬+［300］ml〈招牌薄荷汽水〉〈https://ceshi.com〉"],
+        // ["饮品名字","分类 分类2","配料 配料2","具体做法［50］克，〈另一个饮品〉〈https://xx〉"],
+        ["伯牙绝弦","奶茶","冰博朗 厚奶 咖奶 鲜奶 冰糖浆 茉莉绿茶","冰博朗/厚奶/咖奶［30］g + 鲜奶［80］g + 冰糖浆［30］g + 冰块［140］g + 茶汤（茉莉绿茶［10］g + 热水［190］g闷泡10分钟后过滤）搅匀"],
+        ["冰鲜柠檬水","果汁","黄柠檬片 果蜜","共［650］ml：黄柠檬片［40］g压汁 + 果蜜［20］g + 冰块（随意） + 水补满杯子搅匀"],
+        ["西瓜冰柠茶","果茶","香水柠檬 西瓜 冰糖浆 绿茶","共［600］ml：香水柠檬［35］g加几颗冰块捶打30下左右 + 西瓜［220］g（碾碎） + 冰糖浆［40］g + 冷泡绿茶［50］g + 冰块和水［260］g后雪克摇匀"],
+        ["海底椰冰柠茶","果茶","香水柠檬 冰糖浆 椰树牌椰汁 脆波波","共［600］ml：香水柠檬［55］g加几颗冰块捶打30下 + 冰糖浆［30］g + 椰树牌椰汁［300］g + 冰块［210］g摇匀，出品杯放脆波波后倒入搅拌好的椰汁"],
+        // ["","","",""],
+        // ["","","",""],
+
     ];
 
-    let 分类表=["奶茶","果茶","汽水","咖啡","酒"];
+    let 分类表=["奶茶","果茶","果汁","汽水","咖啡","酒"];
     let 选中分类=[];
     let dy="";
     for(let i=0;分类表.length>i;i++){
         if(分类表[i][0]=="."){
             dy+=分类表[i];
         }else{
-            dy+="<span class='按钮 分类_"+分类表[i]+"' onclick=\"分类('"+分类表[i]+"')\">"+分类表[i]+"</span> ";
+            dy+="<span class='按钮 分类_"+分类表[i]+"' onclick=\"分类('"+分类表[i]+"')\">"+分类表[i]+"</span>";
         }
     }
     document.getElementById("dy_分类").innerHTML=dy;
@@ -100,50 +107,71 @@ function removeDuplicates(array){//去重
   return [...new Set(array)];
 }
 
-    function 打印(o){
-        let dy1={
-            1:"",//名字完全符合
-            2:"",//材料完全符合
-            3:"",//材料部分符合
-        }
+function 打印(o){
+    let dy1={
+        1:"",//名字完全符合
+        2:"",//材料完全符合
+        3:"",//材料部分符合
+    }
 
-        if(!o){o=0}
-        else{
-            o=o.split(" ");
-            o=removeDuplicates(o);
-        }
+    if(!o){o=0}
+    else{
+        o=o.replace(new RegExp(' $',"g"),"");
+        o=o.split(" ");
+        o=removeDuplicates(o);
+    }
 
-        for(let i=0;d.length>i;i++){
-            let 继续=1;
-            if(选中分类[0]){
-                for(let i2=0;选中分类.length>i2;i2++){
-                    if(d[i][1].indexOf(选中分类[i2])==-1){继续=0;break;}
-                }
+    for(let i=0;d.length>i;i++){
+        let 继续=1;
+        if(选中分类[0]){
+            for(let i2=0;选中分类.length>i2;i2++){
+                if(d[i][1].indexOf(选中分类[i2])==-1){继续=0;break;}
             }
-            if(继续==1){
-                if(o==0){//无搜索
-                    继续=1;
-                }else{
-                    if(o.indexOf(d[i][0])!=-1){继续=1;}//名字完全符合
-                    else{
-                        for(let i2=0;o.length>i2;i2++){
-                            if(d[i][0].indexOf(o[i2])!=-1||d[i][2].indexOf(o[i2])!=-1){//名字或材料包含搜索内容
-                                if(继续==1){继续=2}
-                                if(继续==4){继续=3}
-                            }else{
-                                if(继续==1){继续=4}
-                                if(继续==2){继续=3}
-                            }
+        }
+        if(继续==1){
+            if(o==0){//无搜索
+                继续=1;
+            }else{
+                if(o.indexOf(d[i][0])!=-1){继续=1;}//名字完全符合
+                else{
+                        继续=0;
+                    for(let i2=0;o.length>i2;i2++){
+                        if(d[i][0].indexOf(o[i2])!=-1||d[i][2].indexOf(o[i2])!=-1){//名字或材料包含搜索内容
+                            if(继续==0){继续=1}
+                            if(继续>2){继续=2}
+                        }else{
+                            if(继续==0){继续=4}
+                            if(继续==1){继续=2}
+                            if(继续==4&&d[i][2].join(" ").indexOf(o[i2])!=-1){继续=3;}
                         }
+
+
+                        // if(d[i][0].indexOf(o[i2])!=-1||d[i][2].indexOf(o[i2])!=-1){//名字或材料包含搜索内容
+                        //     if(继续==0){继续=1}
+                        //     if(继续==3){继续=2}
+                        // }else{
+                        //     if(继续==0){继续=3}
+                        //     if(继续==1){继续=2}
+                        // }
+
+
+                        // if(d[i][0].indexOf(o[i2])!=-1||d[i][2].indexOf(o[i2])!=-1){//名字或材料包含搜索内容
+                        //     if(继续==1){继续=2}
+                        //     if(继续==4){继续=3}
+                        // }else{
+                        //     if(继续==1){继续=4}
+                        //     if(继续==2){继续=3}
+                        // }
                     }
                 }
-                dy1[继续]+="<div class='符合"+继续+"'>"+d[i][3]+"</div><br>";
             }
+            dy1[继续]+="<div class='符合"+继续+"'>"+d[i][3]+"</div><br>";
         }
-
-        document.getElementById("dy").innerHTML=dy1[1]+dy1[2]+dy1[3];
- 
     }
+
+    document.getElementById("dy").innerHTML=dy1[1]+dy1[2]+dy1[3];
+
+}
 
     打印();
 
@@ -171,7 +199,7 @@ function removeDuplicates(array){//去重
             let dy2="[onclick^=\"配料\"]{color:#ff0000;}[onclick^=\"配料('全部')\"]";
             for(let i=0;临时.length>i;i++){
                 if(临时[i]){
-                    dy+="<span class='按钮 输入' onclick=\"输入_删除('"+临时[i]+"')\">"+临时[i]+"</span> ";
+                    dy+="<span class='按钮 输入' onclick=\"输入_删除('"+临时[i]+"')\">"+临时[i]+"</span>";
                     dy2+=",[onclick^=\"配料('"+临时[i]+"')\"]";
                 }
             }
@@ -217,12 +245,12 @@ function removeDuplicates(array){//去重
     }
 
     function 数值(o,k){
-        document.getElementById("数值"+o+"_"+k).innerHTML="<input type='text' placeholder='"+数值记录[o][k]+"' autocomplete='off' id='数值输入"+o+"_"+k+"'><a onclick=\"数值输入("+o+","+k+")\">确认</a>";
+        document.getElementById("数值"+o+"_"+k).innerHTML="<input type='text' placeholder='"+数值记录[o][k]+"' autocomplete='off' id='数值输入"+o+"_"+k+"'><button onclick=\"数值输入("+o+","+k+")\">确认</button> ";
     }
 
     function 数值输入(o,k){
         let 临时=document.getElementById("数值输入"+o+"_"+k).value;
-        if(临时>-1){}else{临时=数值记录[o][k];try{notyf.alert("取消");}catch(e){alert("取消");}}
+        if(临时&&临时>-1){}else{临时=数值记录[o][k];try{notyf.alert("取消");}catch(e){alert("取消");}}
         临时=临时/数值记录[o][k];
         for(let i=1;数值记录[o].length>i;i++){
             document.getElementById("数值"+o+"_"+i).innerHTML="<span onclick='数值("+o+","+i+")'>"+(数值记录[o][i]*临时*10+"").split(".")[0]/10+"</span>";
