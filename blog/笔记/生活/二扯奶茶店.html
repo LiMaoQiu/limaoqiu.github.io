@@ -1,0 +1,73 @@
+---
+layout: zk
+title: 二扯奶茶店配方
+nav_text: 二扯奶茶店<span class="redX">绝密</span>配方
+nav_url: <a href="/zatan">笔记</a>
+permalink: biji/erchenaichadian
+---
+<link rel="stylesheet" href="/css/all2.css">
+<input type="text" placeholder="搜索" autocomplete="off" id="搜索框">
+
+<div id="dy"></div>
+<script>
+    let 分类=["奶茶","果饮","汽水","咖啡","酒"];
+    let 选中分类=[];
+    let dy;
+
+    let d=[
+        ["招牌薄荷汽水","汽水 果饮","气泡水 薄荷糖浆 柠檬","共［360］ml：［50］ml薄荷榨汁+［10］ml柠檬+［300］ml〈招牌薄荷汽水〉〈https://ceshi.com〉"],
+    ];
+
+    for(let i=0;d.length>i;i++){
+        let 临时=d[i][3].split("〈");
+        dy=临时[0];
+        for(let i2=1;临时.length>i2;i2++){
+            临时[i2]=临时[i2].split("〉");
+            if(临时[i2][0].indexOf("://")!=-1){
+                dy+="<a href='"+临时[i2][0]+"' target='_blank'>链接</a>";
+            }else{
+                dy+="<a href='?"+临时[i2][0]+"' target='_blank'>"+临时[i2][0]+"</a>";
+            }
+            dy+=临时[i2][1];
+        }
+        d[i][3]=dy;
+    }
+
+    function 打印(o){
+        document.getElementById("dy").innerHTML=d[0][3];
+    }
+
+    打印()
+
+
+    let isComposition=false;
+    let 搜索框=document.getElementById("搜索框");
+    搜索框.addEventListener('input',function(){
+        if(!isComposition){
+            打印(搜索框.value)
+        }
+    })
+    搜索框.addEventListener('compositionstart',()=>{
+        isComposition=true;
+    })
+    搜索框.addEventListener('compositionend',()=>{
+        isComposition=false;
+        打印(搜索框.value)
+    })
+
+    let url=window.location.href;
+    if(url.indexOf("?")!=-1){
+        url=url.split("?")[1].split("#")[0];
+        url=decodeURI(url);
+        for(let i=0;d.length>i;i++){
+            if(d[i][0]==url){
+                document.body.innerHTML=d[i][3];
+                url=0;
+                break;
+            }
+        }
+        if(url!=0){
+            document.body.innerHTML="未找到"+url;
+        }
+    }
+</script>
