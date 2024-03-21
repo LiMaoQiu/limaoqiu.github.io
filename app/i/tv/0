@@ -1671,7 +1671,7 @@ FashionTV HD,p3p://108.181.20.159:71421/64577742000d1a6986e1aac95b701e8b
 FashionTV HD,p3p://fccsen.dyndns.tv:29706/615276c1000841769af1921e0239571f
 Fashion TV,p3p://fccsen.dyndns.tv:29706/5a43e5ea0002d22c54e2300409a71dad
 
-测试1,#genre#
+新-国内,#genre#
 BRTV新闻,http://live.funhillrm.com/5/sd/live.m3u8
 CCTV-12社会与法,http://dbiptv.sn.chinamobile.com/PLTV/88888888/224/3221226190/1.m3u8
 CCTV-16奥林匹克,http://dbiptv.sn.chinamobile.com/PLTV/88888888/224/3221226921/1.m3u8
@@ -1812,7 +1812,7 @@ EZTV6台,http://vvlive.eztv.vip:80/huawen6/huawen6.m3u8?auth_key=1660814676-0-0-
 镇江新闻综合,http://zjtv-wshls.homecdn.com/live/2aa50.m3u8
 重庆卫视,https://sjlivecdn9.cbg.cn/202906282314/app_2/_definst_/ls_2.stream/chunklist.m3u8
 
-测试2,#genre#
+新-国外,#genre#
 [BA]malta,http://webtvstream.bhtelecom.ba/malta.m3u8
 [BA]RTV BPK (720p),https://webtvstream.bhtelecom.ba/gorazde_cam2.m3u8
 [BY;RU]БелРос (576p),http://live2.mediacdn.ru/sr1/tro/playlist.m3u8
@@ -1900,61 +1900,61 @@ EZTV6台,http://vvlive.eztv.vip:80/huawen6/huawen6.m3u8?auth_key=1660814676-0-0-
 [德国]Tide TV (1080p),https://5889e7d0d6e28.streamlock.net/tide-live/smil:livestream.smil/playlist.m3u8
 [多明尼加共和国]LVM (480p),https://uni01rtmp.tulix.tv/playout2multi9/lavozdemaria.stream/playlist.m3u8
 [多明尼加共和国]RNN (720p),https://ss2.domint.net:3202/rnn_str/canal27/playlist.m3u8
-[俄罗斯联邦]TRK 555,http://trk555.tv:8888/live
-[俄罗斯联邦]Астрахань 24,https://streaming.astrakhan.ru/astrakhan24/tracks-v2a1/index.m3u8
-[俄罗斯联邦]Астрахань 24 (720p),http://streaming.astrakhan.ru/astrakhan24/index.m3u8
-[俄罗斯联邦]Астрахань 24 +1,http://streaming.astrakhan.ru/astrakhan24/tracks-v1a1/index.m3u8
-[俄罗斯联邦]Астрахань 24 HD,https://streaming.astrakhan.ru/astrakhan24/tracks-v1a1/mono.m3u8
-[俄罗斯联邦]Астрахань.Ru Sport,http://streaming.astrakhan.ru/astrakhanrusporthd/tracks-v5a1/index.m3u8
-[俄罗斯联邦]Астрахань.Ru Sport,https://streaming.astrakhan.ru/astrakhanrusporthd/tracks-v1a1/index.m3u8
-[俄罗斯联邦]Астрахань.Ru TV,http://streaming.astrakhan.ru/astrakhanrulivehd/tracks-v5a1/index.m3u8
-[俄罗斯联邦]Астрахань.Ru TV,https://streaming.astrakhan.ru/astrakhanrulivehd/tracks-v1a1/index.m3u8
-[俄罗斯联邦]Ветта 24 (Пермь) (576p),http://serv24.vintera.tv:8081/vetta/vetta_office/playlist.m3u8
-[俄罗斯联邦]Вместе-РФ HD,http://uiptv.do.am/1ufc/118056781/playlist.m3u8
-[俄罗斯联邦]Дом кино,http://spacetv.in/stream/DVB2D6AE8CU/108.m3u8
-[俄罗斯联邦]Дом кино 16,http://spacetv.in/stream/DVB2D6AE8CU/236.m3u8
-[俄罗斯联邦]Дом Кино 17,https://iptvdom.my1.ru/load/0-0-1-264-20
-[俄罗斯联邦]Жар Птица (1080p),http://streamer.rtcommufa.ru:1935/ptica/ptica1/playlist.m3u8
-[俄罗斯联邦]Комедийное HD,http://spacetv.in/stream/DIPK8H19CP8/74.m3u8
-[俄罗斯联邦]Конный Мир,http://cdn-01.bonus-tv.ru:80/konnyimir/playlist.m3u8
-[俄罗斯联邦]ЛДПР ТВ (1080p),http://46.46.143.222:1935/live/mp4:ldpr.stream/playlist.m3u8
-[俄罗斯联邦]ЛДПР ТВ (480p),http://46.46.143.222:1935/live/mp4:ldpr.stream_480p/playlist.m3u8
-[俄罗斯联邦]ЛДПР ТВ (720p),http://46.46.143.222:1935/live/mp4:ldpr.stream_720p/playlist.m3u8
-[俄罗斯联邦]Миллет,http://live.trkmillet.ru/millet/index.m3u8
-[俄罗斯联邦]Мир,http://uiptv.do.am/1ufc/113500247/playlist.m3u8
-[俄罗斯联邦]Мир 24,http://uiptv.do.am/1ufc/112234126/playlist.m3u8
-[俄罗斯联邦]Наша Сибирь (1080p),https://strm.yandex.ru/kal/sibir/sibir0.m3u8
-[俄罗斯联邦]Наша Сибирь / Кемерово,https://strm.yandex.ru/kal/sibir/sibir0_169_480p.json/index-v1-a1.m3u8
-[俄罗斯联邦]Небеса ТВ7 (720p),http://vod.tv7.fi:1935/tv7-ru/_definst_/smil:tv7-ru.smil/playlist.m3u8
-[俄罗斯联邦]Небеса ТВ7 (RU) (720p),http://vod.tv7.fi:1935/tv7-ru/tv7-ru.stream_720p/playlist.m3u8
-[俄罗斯联邦]Новый,http://spacetv.in/stream/DVB2D6AE8CU/157.m3u8
-[俄罗斯联邦]НТМ (Народное телевидение Мордовии) (720p),https://live-ntm13.cdnvideo.ru/ntm13/smil:ntm13.smil/playlist.m3u8
-[俄罗斯联邦]Остросюжетное HD (576p),http://s1.only4.tv/0122/video.m3u8
-[俄罗斯联邦]Первый Тульский,http://5.164.24.83/tula/1tv_low/index.m3u8
-[俄罗斯联邦]Радио Говорит Москва (405p),http://video.govoritmoskva.ru:8080/live/rufmbk-1/index.m3u8
-[俄罗斯联邦]РБК,http://92.50.128.180/utv/1358/index.m3u8
-[俄罗斯联邦]РБК,http://e2.online.video.rbc.ru/online2/rbctv_576p/index.m3u8
-[俄罗斯联邦]РБК,http://e3.online.video.rbc.ru/online2/rbctv_576p/index.m3u8
-[俄罗斯联邦]РБК,http://e6.online.video.rbc.ru/online2/rbctv_480p/index.m3u8
-[俄罗斯联邦]РБК,http://online-video.rbc.ru/online/rbctv_480p/index.m3u8
-[俄罗斯联邦]РЕН ТВ,http://uiptv.do.am/1ufc/102323759/playlist.m3u8
-[俄罗斯联邦]РЕН ТВ (576p),http://ad-hls-rentv.cdnvideo.ru/ren/smil:ren.smil/playlist.m3u8
-[俄罗斯联邦]С1 (Сургут) [Not 24/7],https://sitv.ru/hls/stv.m3u8
-[俄罗斯联邦]Самара ГИС [Not 24/7],http://45.67.57.9:8080/new/new/playlist.m3u8
-[俄罗斯联邦]Саратов 24 (576p),http://saratov24.tv:80/online/playlist.php
-[俄罗斯联邦]Селенга ТВ,http://90.188.37.86/live/playlist.m3u8
-[俄罗斯联邦]Союз (576p),http://hls-tvsoyuz.cdnvideo.ru/tvsoyuz/soyuz/playlist.m3u8
-[俄罗斯联邦]Союз (576p),http://hls-tvsoyuz.cdnvideo.ru/tvsoyuz/soyuz/playlist.m3u8?version=2
-[俄罗斯联邦]Спас,http://spas.mediacdn.ru/cdn/spas/playlist.m3u8
-[俄罗斯联邦]Страна FM (720p),http://live.stranafm.cdnvideo.ru/stranafm/stranafm_hd.sdp/playlist.m3u8
-[俄罗斯联邦]Страшное HD,http://spacetv.in/stream/DIPK8H19CP8/226.m3u8
-[俄罗斯联邦]СТРК,http://sochinskayatrk.ru/hdtv/hls/strc_hd/playlist.m3u8
-[俄罗斯联邦]СТС,http://spacetv.in/stream/DVB2D6AE8CU/138.m3u8
-[俄罗斯联邦]ТВ Центр,http://uiptv.do.am/1ufc/000000009/playlist.m3u8
-[俄罗斯联邦]Телплюс ТВ (Астрахань),http://streaming.astrakhan.ru/telplushd/playlist.m3u8
-[俄罗斯联邦]ТКР (Рязань) (720p),http://live.tkr.cdnvideo.ru/tkr/tkr.sdp/playlist.m3u8
-[俄罗斯联邦]Шансон ТВ,http://uiptv.do.am/1ufc/602079679/playlist.m3u8
-[俄罗斯联邦]Шокирующее HD,http://spacetv.in/stream/DIPK8H19CP8/75.m3u8
+[俄罗斯]TRK 555,http://trk555.tv:8888/live
+[俄罗斯]Астрахань 24,https://streaming.astrakhan.ru/astrakhan24/tracks-v2a1/index.m3u8
+[俄罗斯]Астрахань 24 (720p),http://streaming.astrakhan.ru/astrakhan24/index.m3u8
+[俄罗斯]Астрахань 24 +1,http://streaming.astrakhan.ru/astrakhan24/tracks-v1a1/index.m3u8
+[俄罗斯]Астрахань 24 HD,https://streaming.astrakhan.ru/astrakhan24/tracks-v1a1/mono.m3u8
+[俄罗斯]Астрахань.Ru Sport,http://streaming.astrakhan.ru/astrakhanrusporthd/tracks-v5a1/index.m3u8
+[俄罗斯]Астрахань.Ru Sport,https://streaming.astrakhan.ru/astrakhanrusporthd/tracks-v1a1/index.m3u8
+[俄罗斯]Астрахань.Ru TV,http://streaming.astrakhan.ru/astrakhanrulivehd/tracks-v5a1/index.m3u8
+[俄罗斯]Астрахань.Ru TV,https://streaming.astrakhan.ru/astrakhanrulivehd/tracks-v1a1/index.m3u8
+[俄罗斯]Ветта 24 (Пермь) (576p),http://serv24.vintera.tv:8081/vetta/vetta_office/playlist.m3u8
+[俄罗斯]Вместе-РФ HD,http://uiptv.do.am/1ufc/118056781/playlist.m3u8
+[俄罗斯]Дом кино,http://spacetv.in/stream/DVB2D6AE8CU/108.m3u8
+[俄罗斯]Дом кино 16,http://spacetv.in/stream/DVB2D6AE8CU/236.m3u8
+[俄罗斯]Дом Кино 17,https://iptvdom.my1.ru/load/0-0-1-264-20
+[俄罗斯]Жар Птица (1080p),http://streamer.rtcommufa.ru:1935/ptica/ptica1/playlist.m3u8
+[俄罗斯]Комедийное HD,http://spacetv.in/stream/DIPK8H19CP8/74.m3u8
+[俄罗斯]Конный Мир,http://cdn-01.bonus-tv.ru:80/konnyimir/playlist.m3u8
+[俄罗斯]ЛДПР ТВ (1080p),http://46.46.143.222:1935/live/mp4:ldpr.stream/playlist.m3u8
+[俄罗斯]ЛДПР ТВ (480p),http://46.46.143.222:1935/live/mp4:ldpr.stream_480p/playlist.m3u8
+[俄罗斯]ЛДПР ТВ (720p),http://46.46.143.222:1935/live/mp4:ldpr.stream_720p/playlist.m3u8
+[俄罗斯]Миллет,http://live.trkmillet.ru/millet/index.m3u8
+[俄罗斯]Мир,http://uiptv.do.am/1ufc/113500247/playlist.m3u8
+[俄罗斯]Мир 24,http://uiptv.do.am/1ufc/112234126/playlist.m3u8
+[俄罗斯]Наша Сибирь (1080p),https://strm.yandex.ru/kal/sibir/sibir0.m3u8
+[俄罗斯]Наша Сибирь / Кемерово,https://strm.yandex.ru/kal/sibir/sibir0_169_480p.json/index-v1-a1.m3u8
+[俄罗斯]Небеса ТВ7 (720p),http://vod.tv7.fi:1935/tv7-ru/_definst_/smil:tv7-ru.smil/playlist.m3u8
+[俄罗斯]Небеса ТВ7 (RU) (720p),http://vod.tv7.fi:1935/tv7-ru/tv7-ru.stream_720p/playlist.m3u8
+[俄罗斯]Новый,http://spacetv.in/stream/DVB2D6AE8CU/157.m3u8
+[俄罗斯]НТМ (Народное телевидение Мордовии) (720p),https://live-ntm13.cdnvideo.ru/ntm13/smil:ntm13.smil/playlist.m3u8
+[俄罗斯]Остросюжетное HD (576p),http://s1.only4.tv/0122/video.m3u8
+[俄罗斯]Первый Тульский,http://5.164.24.83/tula/1tv_low/index.m3u8
+[俄罗斯]Радио Говорит Москва (405p),http://video.govoritmoskva.ru:8080/live/rufmbk-1/index.m3u8
+[俄罗斯]РБК,http://92.50.128.180/utv/1358/index.m3u8
+[俄罗斯]РБК,http://e2.online.video.rbc.ru/online2/rbctv_576p/index.m3u8
+[俄罗斯]РБК,http://e3.online.video.rbc.ru/online2/rbctv_576p/index.m3u8
+[俄罗斯]РБК,http://e6.online.video.rbc.ru/online2/rbctv_480p/index.m3u8
+[俄罗斯]РБК,http://online-video.rbc.ru/online/rbctv_480p/index.m3u8
+[俄罗斯]РЕН ТВ,http://uiptv.do.am/1ufc/102323759/playlist.m3u8
+[俄罗斯]РЕН ТВ (576p),http://ad-hls-rentv.cdnvideo.ru/ren/smil:ren.smil/playlist.m3u8
+[俄罗斯]С1 (Сургут) [Not 24/7],https://sitv.ru/hls/stv.m3u8
+[俄罗斯]Самара ГИС [Not 24/7],http://45.67.57.9:8080/new/new/playlist.m3u8
+[俄罗斯]Саратов 24 (576p),http://saratov24.tv:80/online/playlist.php
+[俄罗斯]Селенга ТВ,http://90.188.37.86/live/playlist.m3u8
+[俄罗斯]Союз (576p),http://hls-tvsoyuz.cdnvideo.ru/tvsoyuz/soyuz/playlist.m3u8
+[俄罗斯]Союз (576p),http://hls-tvsoyuz.cdnvideo.ru/tvsoyuz/soyuz/playlist.m3u8?version=2
+[俄罗斯]Спас,http://spas.mediacdn.ru/cdn/spas/playlist.m3u8
+[俄罗斯]Страна FM (720p),http://live.stranafm.cdnvideo.ru/stranafm/stranafm_hd.sdp/playlist.m3u8
+[俄罗斯]Страшное HD,http://spacetv.in/stream/DIPK8H19CP8/226.m3u8
+[俄罗斯]СТРК,http://sochinskayatrk.ru/hdtv/hls/strc_hd/playlist.m3u8
+[俄罗斯]СТС,http://spacetv.in/stream/DVB2D6AE8CU/138.m3u8
+[俄罗斯]ТВ Центр,http://uiptv.do.am/1ufc/000000009/playlist.m3u8
+[俄罗斯]Телплюс ТВ (Астрахань),http://streaming.astrakhan.ru/telplushd/playlist.m3u8
+[俄罗斯]ТКР (Рязань) (720p),http://live.tkr.cdnvideo.ru/tkr/tkr.sdp/playlist.m3u8
+[俄罗斯]Шансон ТВ,http://uiptv.do.am/1ufc/602079679/playlist.m3u8
+[俄罗斯]Шокирующее HD,http://spacetv.in/stream/DIPK8H19CP8/75.m3u8
 [法国]BIP TV,http://biptv.tv:80/live/biptvstream_orig/index.m3u8
 [法国]BipTV,https://biptv.tv/live/biptvstream_orig/index.m3u8
 [法国]TV7 Colmar,http://tv7.hdr-tv.com:1935/live/tv7/livestream/playlist.m3u8
@@ -2375,7 +2375,4 @@ EZTV6台,http://vvlive.eztv.vip:80/huawen6/huawen6.m3u8?auth_key=1660814676-0-0-
 港澳台 耀才财经台,http://202.69.67.66:443/webcast/bshdlive-pc/playlist.m3u8
 中台灣生活網,http://58.99.33.16:1935/liveedge17/live_020_3.stream/chunklist.m3u8
 
-测试3,#genre#
-黑龙江影视,http://39.134.67.108/PLTV/88888888/224/3221225973/1.m3u8
-黑龙江文体,http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221226239/index.m3u8
-黑龙江少儿,http://[2409:8087:1a01:df::4077]/ottrrs.hl.chinamobile.com/PLTV/88888888/8/3221226304/index.m3u8
+测试,#genre#
