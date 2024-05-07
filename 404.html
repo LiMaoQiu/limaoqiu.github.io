@@ -22,7 +22,7 @@ pinglun: 1
 </ol></small>
 
 <script>
-let 缓存=localStorage.getItem("404");
+let 缓存=localStorage.getItem("404")||"";
 let url=window.location.href.split("limaoqiu.com/")[1];
 let 跳转="";
 if(url!=缓存){
@@ -40,8 +40,8 @@ if(url!=缓存){
 if(跳转==""){
 	document.title="这里什么都没有 - {{ site.title }}";
 }else{
-	localStorage.setItem("404",url)
-	window.location.href="/"+url;
+	localStorage.setItem("404",跳转)
+	window.location.href="/"+跳转;
 }
 
 </script>
