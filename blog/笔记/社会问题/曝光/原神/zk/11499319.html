@@ -7,6 +7,7 @@ permalink: i/zk/11499319
 redirect_from:
  - i/zk/8647330
 ---
+<a href="/i/zk/11586445">角色性别记录</a><br>
 注意1：以下仅记录相关节奏，不代表我的看法。<br>
 注意2：其中包含许多侮辱角色等负面言论，很影响心情，不建议继续阅读。<br>
 注意3：主要记录玩家群体的评价，反米势力带的角色相关节奏不记录在内。<br>
@@ -15,9 +16,14 @@ redirect_from:
 <style>
     .差评{color:#df0202;}
     .好评{color:#00bf00;}
-    .强度{background-color:#ffe8e8;border: 1px solid #ff4141;}
+    /* .强度{background-color:#ffe8e8;border: 1px solid #ff4141;}
     .美术{background-color:#e8f6ff;border: 1px solid #395dff;}
-    .剧情{background-color:#e8ffe6;border: 1px solid #2dff4c;}
+    .剧情{background-color:#e8ffe6;border: 1px solid #2dff4c;} */
+    .强度:before,.美术:before,.剧情:before,.其他:before{font-size:0.8em;color:#b4b4b4;}
+    .强度:before{content:"💪 ";}
+    .美术:before{content:"🖌️ ";}
+    .剧情:before{content:"🎥 ";}
+    .其他:before{content:"📄 ";}
 </style>
 <style id="看"></style>
 
@@ -25,9 +31,9 @@ redirect_from:
 <script>
 let d=[//美术、强度、剧情 | 好评、差评 | ["角色","评价,内容","评价,内容"],
 ["说明",["　　好评","好评,用绿字"],["　　差评","差评,用红字"],
-    ["强度相关","强度,用淡红色背景"],
-    ["美术相关","美术,用淡蓝色背景（包括pv、配音）"],
-    ["剧情相关","剧情,用淡绿色背景（包括文案、名字）"],
+    ["强度相关","强度,"],
+    ["美术相关","美术,包括pv、配音"],
+    ["剧情相关","剧情,包括文案、名字"],
     ["　　只看",",<a onclick='只看(1)'>强度</a> . <a onclick='只看(2)'>美术</a> . <a onclick='只看(3)'>剧情</a> . <a onclick='只看(0)'>全部展示</a>"],
 ],
 ["«原神»",
