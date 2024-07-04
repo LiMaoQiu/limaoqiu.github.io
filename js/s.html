@@ -51,7 +51,8 @@ let d={
 "测试":"／编辑",
 
 //博客
-"博客":["https://limaoqiu.com/i","https://limaoqiu.com/【】"],
+"博客":["js","if(!url[1]){window.location.href='https://limaoqiu.com/i'}else{url[1]=url[1].replace(new RegExp('%2F','g'),'/');if(url[1][0]!='/'){url[1]='/'+url[1]}window.location.href='https://limaoqiu.com'+url[1]}"],
+// "博客":["https://limaoqiu.com/i","https://limaoqiu.com/【】"],
 "limaoqiu":"／博客","鱼刺猫":"／李猫球","yucimao":"／李猫球",
 "李猫球":["https://李猫球.com/i","https://李猫球.com/【】"],
 "打赏":["选择","编辑|编辑打赏","B站充电记录","包月|B站充电记录_包月"],
@@ -129,6 +130,8 @@ let d={
 // 传给手机，用via打开一下就行了（名字s.html），它会自动跑到via的文件夹里
 
 // "":["",""],
+"LOFTER":["https://www.lofter.com/"],
+"豆瓣":["https://www.douban.com","https://www.douban.com/search?source=suggest&q=【】"],
 "HENTAI_编辑":["打开","目录","子/关键词/"],
 "HENTAI":["https://limaoqiu.com/i/11971293?ShenshiHentai"],
 "打分":"／点评",
@@ -322,7 +325,9 @@ function 开始(){
 
 	if(跳转!=0){location.replace("?"+跳转);return;}
 
-	if(d[搜索]&&d[搜索][0]=="选择"){//选择
+	if(d[搜索]&&d[搜索][0]=="js"){
+		eval(d[搜索][1])
+	}else if(d[搜索]&&d[搜索][0]=="选择"){//选择
 		let dy="<small class='链接' onclick=\"location.replace('"+默认+搜索+"')\">搜索</small><br>";
 		if(url[1]){dy+="<div id='搜索'>"+url[1]+" <sub><button onclick='取消()'>取消</button></sub></div>";}
 		dy+="<br>";
