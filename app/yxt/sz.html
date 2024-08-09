@@ -79,7 +79,7 @@
     <small>将关卡代码粘贴到输入框，点击“确定”。<br><br>
     如何自制关卡代码？<br>
     <ol>
-        <li><a href="数织_绘制.html">点击此处</a>跳转到绘制页面。</li>
+        <li><a href="sz_hz.html">点击此处</a>跳转到绘制页面。</li>
         <li>调整棋盘的大小，点击“确认”，默认为10x10。</li>
         <li>通过点击在棋盘上绘制。</li>
         <li>点击“导出”。</li>
@@ -98,7 +98,7 @@
     <a id="保存进度" onmouseout="document.getElementById('保存进度').classList.remove('dui');" onclick="保存进度()">保存进度</a>　<a onclick="读档()" id="读档" class="灰">读档</a>　<small>(临时保存，返回和关闭页面不保留)</small><br>
     <small>当前关卡：</small><span id="当前关卡">无</span><br>
     <br>
-    <a onclick="重新开始()">重新开始</a>　<a onclick="选择关卡()">选择关卡</a>　<span class='提示' data-msg='花费100币，下一次点击自动显示正确答案'><a onclick="买答案()">买答案</a> <small>[?]</small></span>
+    <a onclick="重新开始()">重新开始</a>　<a onclick="选择关卡()">选择关卡</a>　<span class='提示' data-msg='花费100币，下一次点击自动显示正确答案'><a id="买答案" onclick="买答案()">买答案</a> <small>[?]</small></span>
 </div>
 
 <br>
@@ -147,7 +147,7 @@ let 关={ //编号:[横,竖,"地图","额外说明"],
 37:[10,10,"1GRLpktD6kJWWJAv5vtDpZL1G1"],
 38:[10,10,"16xT16ZJLJD5ZLD6ZJJJD5ZL1j"],
 39:[10,10,"vJxWxARvpZUJvAL1AL1GL1LxL1"],
-40:[11,12,"vKRq1Lq1Lq1TRUtq1tkWR1svEA1qbGd"],
+40:[11,11,"vKRq1Lq1Lq1TRUtq1tkWR1svEA1qbGd"],
 41:[8,8,"Z61J6Lkh1W1Lk61J6RRRRRRRv"],
 42:[9,8,"1JW1ts1tvtRLxLxLxLRRRRRZ"],
 43:[8,8,"J1AvL1JvqvLqvVqxJRRRRRRR1"],
@@ -206,7 +206,7 @@ let 关卡={//
 /*麻烦*/29,80,
 /*有点难*/27,81,82,
 ],"困难":["",
-/*还行*/30,
+/*还行*/30,39,
 /*中等*/34,
 /*难*/
 ],"字符":["",
@@ -331,6 +331,7 @@ function 按(a,b){
     if(作弊!=0){
         let 临时=作弊;
         作弊=0;
+        document.getElementById("买答案").className="";
         if(答案[a][b]==1){
             手=1;
         }else{
@@ -469,7 +470,7 @@ function 分享(){
     }
     dy=棋盘a+"."+棋盘b+"."+dy;
     // url=url.split("?")[0].split("#")[0];
-    复(制="https://limaoqiu.com/app/yxt/0/%E6%95%B0%E7%BB%87.html"+"?"+dy)
+    复(制="https://limaoqiu.com/app/yxt/sz.html"+"?"+dy)
 }
 
 function 保存进度(){
@@ -508,6 +509,7 @@ function 买答案(){
     }else if(钱>=100){
         余额(-100);
         notyf.confirm("已购买");
+        document.getElementById("买答案").className="已保存";
         作弊=手;
     }else{
         notyf.alert("钱不够");
