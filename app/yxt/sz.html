@@ -237,6 +237,11 @@ function 打印(a,b,c){//a横有多少格 b竖 c模式(数字为黑色数量随�
         随机();
         棋盘=arr;
         关卡模式=c;
+
+        // 棋盘=棋盘.join('');
+        // console.log(棋盘)
+        // 棋盘=棋盘.split('');
+
         document.getElementById("当前关卡").innerHTML="随机"+a+"✖︎"+b+" <small><a onclick='分享()'>分享</a></small>";
     }else{//有图的棋盘
         c=c.split("_");//0_地图xxx(重新开始) 1_地图xxx(导入) 关卡名_关卡数字
