@@ -13,7 +13,11 @@
 <div id="账02" style="display:none;">
 <b>设置</b><br>
 <a onclick="余额(-钱)">余额清零</a>
-<a onclick="余额(100)">充值</a>
+
+
+<div id="测试菜单" style="display:none;">
+<a onclick="余额(100)">充值+100</a>
+</div>
 </div>
 
 
@@ -99,5 +103,8 @@
         }
     }
     document.getElementById("游戏列表").innerHTML=dy+"</div>";
+
+    function 测试菜单(){localStorage.setItem("yxt_测试菜单",1)}
+    if(localStorage.getItem("yxt_测试菜单")){document.getElementById("测试菜单").style="";}
 </script>
 

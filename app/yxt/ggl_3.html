@@ -15,7 +15,7 @@
 
 <br>
 
-<a id="兑奖" onclick="兑奖()" class="anniu">买一张</a><a id="继续爬楼" onclick="继续爬楼()" class="anniu" style="display:none;">继续爬楼</a>
+<a id="兑奖" onclick="兑奖()" class="anniu">买一张</a>
 
 
 <script>
@@ -37,7 +37,6 @@ function 买票(){
         随机();
         钥匙=arr;
         已有=[钥匙[0],钥匙[1]];
-        // 已有=[钥匙[0],钥匙[1],钥匙[2]];
         随机();
         for(let i=5;10>i;i++){
             if(已有.indexOf(arr[i])!=-1&&Math.floor(Math.random()*3)!=0){
@@ -46,7 +45,6 @@ function 买票(){
         }
 
         let dy="<b>钥匙</b><div id='钥匙' class='hm'><fieldset id='钥匙"+已有[0]+"'>"+已有[0]+"</fieldset><fieldset id='钥匙"+已有[1]+"'>"+已有[1]+"</fieldset></div><br>";
-        // let dy="<b>钥匙</b><div id='钥匙' class='hm'><fieldset id='钥匙"+已有[0]+"'>"+已有[0]+"</fieldset><fieldset id='钥匙"+已有[1]+"'>"+已有[1]+"</fieldset><fieldset id='钥匙"+已有[2]+"'>"+已有[2]+"</fieldset></div><br>";
 
         dy+="<table style='text-align:center;'><tr style='font-weight:bold'><td>楼层</td><td>门牌号</td><td>奖金</td></tr>";
             for(let i=0;10>i;i++){
@@ -66,19 +64,12 @@ function 刮开(o){
     }else if(o==当前楼层+1){
         当前楼层+=1;
         document.getElementById("兑奖").style="";
-        document.getElementById("继续爬楼").style="display:none;";
         if(已有.indexOf(arr[o])!=-1){
             document.getElementById("钥匙"+arr[o]).style="color:#dddddd;";
             document.getElementById("楼"+o).style="color:#ff9900;";
             notyf.confirm("恭喜你打开了这扇门");
             爬楼锁=1;
-            document.getElementById("继续爬楼").style="";
             document.getElementById("兑奖").innerText="兑奖";
-            // let newElement = document.createElement('fieldset');
-            // newElement.setAttribute('id','钥匙'+钥匙[已有.length]);
-            // newElement.innerHTML=钥匙[已有.length];
-            // document.getElementById('钥匙').appendChild(newElement);
-            // 已有[已有.length]=钥匙[已有.length];
         }else{
             document.getElementById("兑奖").innerText="重买一张";
         }
@@ -103,15 +94,9 @@ function 兑奖(){
         }
         当前楼层=-1;
         document.getElementById("兑奖").innerText="重买一张";
-        document.getElementById("继续爬楼").style="display:none;";
     }else{
         买票();
     }
-}
-
-function 继续爬楼(){
-    document.getElementById("继续爬楼").style="display:none;";
-    爬楼锁=0;
 }
 
 
