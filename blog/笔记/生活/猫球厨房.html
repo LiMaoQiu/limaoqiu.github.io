@@ -143,7 +143,7 @@ del{color:#00000070}
                 document.getElementById("清单").style="display:none;";
             }else{
                 document.getElementById("清单").style="display:block;";
-                document.getElementById("清单").innerHTML=`<legend><b>清单</b>&nbsp;&nbsp;<small><a onclick="截图()">保存图片</a></small></legend>`+清单.map(x=>`<span onclick="清单d('${x}')"><b>${x}</b><small>：`+清单记录[x].map(y=>`${data[y][0]} `).join('')+`</small></span><br>`).join('')+"<br>"+清单del.map(x=>`<del onclick="清单d('${x}')"><b>${x}</b><small>：`+清单记录[x].map(y=>`${data[y][0]} `).join('')+`</small></del><br>`).join('');
+                document.getElementById("清单").innerHTML=`<legend><b>清单</b>&nbsp;&nbsp;<small><a onclick="截图()">保存图片</a></small></legend><div id="存图">`+清单.map(x=>`<span onclick="清单d('${x}')"><b>${x}</b><small>：`+清单记录[x].map(y=>`${data[y][0]} `).join('')+`</small></span><br>`).join('')+"<br>"+清单del.map(x=>`<del onclick="清单d('${x}')"><b>${x}</b><small>：`+清单记录[x].map(y=>`${data[y][0]} `).join('')+`</small></del><br>`).join('')+"</div>";
             }
         }
     }
@@ -160,7 +160,7 @@ del{color:#00000070}
     }
 
 function 截图(){
-const element=document.getElementById('清单');
+const element=document.getElementById('存图');
 const devicePixelRatio=window.devicePixelRatio||1;
 const scale=Math.min(2,devicePixelRatio);
 
