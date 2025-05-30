@@ -14,6 +14,7 @@ redirect_from:
 <br>
 <link rel="stylesheet" href="/css/all2.css">
 <style>
+    table{font-weight:bold;margin:6px}
     .差评{color:#df0202;}
     .好评{color:#00bf00;}
     /* .强度{background-color:#ffe8e8;border: 1px solid #ff4141;}
@@ -211,7 +212,7 @@ let d=[//美术、强度、剧情 | 好评、差评 | ["角色","评价,内容",
     ["波提欧","美术 好评,鲨鱼牙太可爱了","美术 差评,锯齿牙太恶心了","皮套 差评,刘伟说「把琪亚娜当女儿」，琪亚娜的父亲是齐格飞，齐格飞的配音是彭博，波提欧的配音也是彭博，而且头发上有一撮白毛和刘伟一样,——米八团"],
     ["流萤","剧情 差评,小女友，媚男","皮套 差评,烧鸡的前女友,曾留过相似发型，喜欢烟花","皮套 差评,星見結月的秘书,,/i/11462451#星見結月"],
     ["椒丘",""],
-    ["云璃","剧情 差评,没礼貌"],
+    ["云璃","剧情 差评,没礼貌","剧情 差评,彦卿夫人"],
     // ["",""],
     // ["",""],
 ],
@@ -242,10 +243,10 @@ let d=[//美术、强度、剧情 | 好评、差评 | ["角色","评价,内容",
 let dy="";
 let dy2="";
 for(let i=0;d.length>i;i++){
-    dy+="<a name='"+d[i][0]+"'></a><h3>"+d[i][0]+"</h3><table style='font-weight:bold'>";
+    dy+="<a name='"+d[i][0]+"'></a><h3>"+d[i][0]+"</h3>";
         dy2+="<a href='#"+d[i][0]+"'>"+d[i][0]+"</a><br>";
     for(let j=1;d[i].length>j;j++){
-        dy+="<tr><td rowspan='"+(d[i][j].length-1)+"'><a name='"+d[i][j][0]+"'></a>"+d[i][j][0]+"</td>";
+        dy+="<table><tr><td rowspan='"+(d[i][j].length-1)+"'><a name='"+d[i][j][0]+"'></a>"+d[i][j][0]+"</td>";
             for(let k=1;d[i][j].length>k;k++){
                 if(k!=1){dy+="<tr>"}
                     let l=d[i][j][k].split(",");
@@ -255,9 +256,9 @@ for(let i=0;d.length>i;i++){
                 dy+="<td class='"+l[0]+"'>"+l[1]+"</td>";
                 if(k!=1){dy+="</tr>"}
             }
-        dy+="</tr>";
+        dy+="</tr></table>";
     }
-    dy+="</table><br>";
+    dy+="<br>";
 }
 document.getElementById("dy").innerHTML=dy2+dy;
 
