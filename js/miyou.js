@@ -577,7 +577,7 @@ div.body{box-shadow: 2px 4px 8px #ddd;padding:20px;background-color:#fff;border-
 加载('');加载('b');加载('c');
 
 function 显示(o){document.getElementById("隐藏"+o).style="";document.getElementById("显示"+o).style="display:none"}
-function 显示图片(o){o=o.split(",");o[1]="/i/o/yuanshen/"+o[1];document.getElementById("显示"+o[0]).innerHTML="<a href='"+o[1]+"' target='_blank'><img src='"+o[1]+"' width='"+o[2]+"'></a>"}
+function 显示图片(o){o=o.split(",");o[1]="/i/o/ys/"+o[1];document.getElementById("显示"+o[0]).innerHTML="<a href='"+o[1]+"' target='_blank'><img src='"+o[1]+"' width='"+o[2]+"'></a>"}
 
 let 我只看="o";
 function 只看(o){if(o==0){我只看="o"}else{只看删除(o);我只看+=","+o;只看b()}只看a()}
