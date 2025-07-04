@@ -326,6 +326,7 @@ let d={
 "UID","评论_B站","弹幕_B站","看直播和弹幕_B站","看直播和弹幕2_B站","用户名记录_B站",
 "／<br><br><hr><h3>贴吧</h3>","发言_贴吧","关注的贴吧_贴吧","查资料_贴吧","／<br>","查贴吧资料_贴吧","查贴吧吧务_贴吧",
 "／<br><br><hr><h3>微博</h3>","发言_微博",
+"／<br><br><hr>","／查用户名的互联网足迹／https://whatsmyname.me"
 ],
 "发言_微博":["https://peachring.com","https://peachring.com/n/【】","用户名：灰白"],
 "发言_贴吧":["https://tieba.82cat.com/tieba/reply/","https://tieba.82cat.com/tieba/reply/【】/1"],
@@ -517,7 +518,7 @@ if(d[搜索]&&d[搜索][0]=="js"){
 	eval(d[搜索][1])
 }else if(d[搜索]&&d[搜索][0]=="选择"){//选择
 	let dy="<small class='链接 提示' data-msg='快捷键：句号键' onclick=\"location.replace('"+默认+localStorage.getItem("s_html")+"')\">搜索</small><br>";
-	if(url[1]){dy+="<div id='搜索'>"+url[1]+" <sub><button onclick='取消()'>取消</button></sub></div>"}
+	if(url[1]){dy+="<div id='搜索'>"+url.slice(1).join(" ")+" <sub><button onclick='取消()'>取消</button></sub></div>"}
 	dy+="<br>";
 	let 临时2="";
 	for(let i=1;d[搜索].length>i;i++){
