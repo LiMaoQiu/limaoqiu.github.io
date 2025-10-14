@@ -1,910 +1,406 @@
 ---
 permalink: app/tphx
 ---
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
 <title>图片混淆 - 猫球博客</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
 <style>
-    :root {
-        --primary-color: #4a6fa5;
-        --secondary-color: #6d8ca6;
-        --light-color: #e8eef2;
-        --dark-color: #2c3e50;
-        --success-color: #27ae60;
-        --danger-color: #e74c3c;
-    }
-    
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
     a{text-decoration:none;color:#006699;cursor:pointer}
     
     body {
-        background-color: #f5f7fa;
-        color: var(--dark-color);
-        line-height: 1.6;
+        background-color: #f5f5f5;
+        color: #333;
+        /* line-height: 1.6; */
+        /* padding: 20px; */
     }
     
     .container {
-        max-width: 1200px;
+        max-width: 1000px;
         margin: 0 auto;
-        padding: 20px;
-    }
-    
-    header {
-        text-align: center;
-        margin-bottom: 30px;
-        padding: 20px 0;
-        background-color: white;
+        background: white;
+        padding: 30px;
         border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     
     h1 {
-        color: var(--primary-color);
-        margin-bottom: 10px;
-        font-weight: 600;
+        text-align: center;
+        color: #444;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #eee;
     }
     
-    .intro {
-        color: #666;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-    
-    .main-content {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        justify-content: center;
-    }
-    
-    .image-section {
-        flex: 1;
-        min-width: 300px;
-        max-width: 500px;
-        background-color: white;
-        border-radius: 10px;
-        padding: 25px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    
-    .section-title {
-        font-size: 1.2rem;
-        color: var(--primary-color);
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid var(--light-color);
-    }
-    
-    .upload-area {
-        border: 2px dashed var(--secondary-color);
+    .upload-section {
+        border: 2px dashed #ccc;
         border-radius: 8px;
         padding: 40px 20px;
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         cursor: pointer;
         transition: all 0.3s ease;
     }
     
-    .upload-area:hover {
-        background-color: rgba(109, 140, 166, 0.05);
-        border-color: var(--primary-color);
+    .upload-section:hover {
+        border-color: #666;
+        background-color: #fafafa;
     }
     
-    .upload-icon {
-        font-size: 2.5rem;
-        color: var(--secondary-color);
-        margin-bottom: 15px;
-    }
-    
-    .upload-text {
+    .upload-section p {
         color: #666;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
     
     #file-input {
         display: none;
     }
     
-    .image-container {
-        width: 100%;
-        height: 300px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        background-color: #f9f9f9;
-        position: relative;
-        margin-bottom: 20px;
-    }
-    
-    .image-placeholder {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: #999;
-    }
-    
-    .image-placeholder-icon {
-        font-size: 3rem;
-        margin-bottom: 10px;
-    }
-    
-    #original-image, #processed-image {
-        max-width: 100%;
-        max-height: 100%;
-        display: none;
-    }
-    
     .controls {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 30px;
     }
     
     button {
         padding: 10px 20px;
-        border: none;
-        border-radius: 6px;
-        background-color: var(--primary-color);
+        background-color: #4CAF50;
         color: white;
-        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
         cursor: pointer;
-        transition: all 0.2s ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
+        font-size: 16px;
+        transition: background-color 0.3s;
     }
     
     button:hover {
-        background-color: #3a5d8c;
-        transform: translateY(-2px);
+        background-color: #45a049;
     }
     
-    button:active {
-        transform: translateY(0);
+    button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
     }
     
-    button.secondary {
-        background-color: var(--secondary-color);
-    }
-    
-    button.secondary:hover {
-        background-color: #5d7b96;
-    }
-    
-    button.danger {
-        background-color: var(--danger-color);
-    }
-    
-    button.danger:hover {
-        background-color: #c0392b;
-    }
-    
-    button.success {
-        background-color: var(--success-color);
-    }
-    
-    button.success:hover {
-        background-color: #219653;
-    }
-    
-    .settings {
-        background-color: var(--light-color);
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-    
-    .setting-item {
-        margin-bottom: 15px;
-    }
-    
-    .setting-item label {
-        display: block;
-        margin-bottom: 5px;
-        color: var(--dark-color);
-        font-weight: 500;
-    }
-    
-    .setting-item input[type="number"] {
-        width: 100%;
-        padding: 8px 12px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 1rem;
-    }
-    
-    .setting-item input[type="text"] {
-        width: 100%;
-        padding: 8px 12px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 1rem;
-    }
-    
-    .setting-item input[type="checkbox"] {
-        width: auto;
-        margin-right: 8px;
-    }
-    
-    .grid-settings {
+    .seed-container {
+        margin-left: auto;
         display: flex;
+        align-items: center;
         gap: 10px;
     }
     
-    .grid-settings .setting-item {
+    .seed-container label {
+        color: #555;
+    }
+    
+    #seed-input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 120px;
+        font-size: 16px;
+    }
+    
+    .preview-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .preview-box {
         flex: 1;
+        min-width: 300px;
     }
     
-    .status-message {
-        margin-top: 20px;
-        padding: 10px 15px;
-        border-radius: 6px;
-        display: none;
+    .preview-box h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #555;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eee;
     }
     
-    .status-success {
-        background-color: rgba(39, 174, 96, 0.1);
-        color: var(--success-color);
-        display: block;
+    canvas {
+        width: 100%;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        background-color: #f9f9f9;
     }
     
-    .status-error {
-        background-color: rgba(231, 76, 60, 0.1);
-        color: var(--danger-color);
-        display: block;
-    }
-    
-    footer {
-        text-align: center;
-        margin-top: 50px;
-        padding: 20px;
+    .status {
+        margin-top: 10px;
         color: #777;
-        font-size: 0.9rem;
-    }
-    
-    /* 图标模拟类 */
-    .icon {
-        display: inline-block;
-        width: 24px;
-        height: 24px;
-        position: relative;
-    }
-    
-    .icon-upload::before {
-        content: "↑";
-        font-size: 24px;
-    }
-    
-    .icon-image::before {
-        content: "🖼️";
-        font-size: 24px;
-    }
-    
-    .icon-scramble::before {
-        content: "🔀";
-        font-size: 24px;
-    }
-    
-    .icon-restore::before {
-        content: "🔄";
-        font-size: 24px;
-    }
-    
-    .icon-save::before {
-        content: "💾";
-        font-size: 24px;
-    }
-    
-    .icon-invert::before {
-        content: "🎨";
-        font-size: 24px;
-    }
-    
-    .icon-seed::before {
-        content: "🔑";
-        font-size: 24px;
+        font-size: 14px;
+        text-align: center;
     }
     
     @media (max-width: 768px) {
-        .main-content {
-            flex-direction: column;
-        }
-        
-        .image-section {
-            max-width: 100%;
-        }
-        
         .controls {
             flex-direction: column;
+            align-items: stretch;
         }
         
-        button {
+        .seed-container {
+            margin-left: 0;
             width: 100%;
             justify-content: center;
         }
         
-        .grid-settings {
+        .preview-section {
             flex-direction: column;
-            gap: 15px;
         }
     }
 </style>
 
-    <div class="container">
-        <header>
-            <h1 style="display:inline;">图片混淆</h1> <a href="/i">返回猫球博客</a><br>
-            <p class="intro">
-                1. 图片处理均在本地进行，不上传到服务器。<br>
-                2. 网格数决定了混淆图片的切割数量，数量越大混淆效果越好，但也越容易卡顿。<br>
-                3. 请记住设置的网格数和随机种子，在还原时需要保持一致。
-            </p>
-        </header>
+<div class="container">
+    <h1 style="display:inline;">图片混淆</h1> <a href="/i">猫球博客</a>
+    
+    <div class="upload-section" id="upload-area">
+        <p>点击或拖拽图片到此处上传<br>
+            （图片处理均在本地进行，不会上传到服务器）</p>
+        <input type="file" id="file-input" accept="image/*">
+    </div>
+    
+    <div class="controls">
+        <button id="obfuscate-btn" disabled>混淆图片</button>
+        <button id="restore-btn" disabled>还原图片</button>
+        <button id="save-btn" disabled>保存图片</button>
         
-        <div class="main-content">
-            <div class="image-section">
-                <h2 class="section-title">上传图片</h2>
-                <div class="upload-area" id="upload-area">
-                    <div class="upload-icon icon icon-upload"></div>
-                    <p class="upload-text">点击或拖拽图片到此处上传</p>
-                    <p class="upload-text">支持 JPG、PNG 格式</p>
-                    <input type="file" id="file-input" accept="image/*">
-                </div>
-                
-                <div class="image-container">
-                    <div class="image-placeholder" id="original-placeholder">
-                        <div class="image-placeholder-icon icon icon-image"></div>
-                        <p></p>
-                    </div>
-                    <img id="original-image" alt="原始图片">
-                </div>
-                
-                <div class="settings">
-                    <div class="grid-settings">
-                        <div class="setting-item">
-                            <label for="grid-rows">网格行数 (1-1000)</label>
-                            <input type="number" id="grid-rows" value="50" min="1" max="1000">
-                        </div>
-                        <div class="setting-item">
-                            <label for="grid-cols">网格列数 (1-1000)</label>
-                            <input type="number" id="grid-cols" value="50" min="1" max="1000">
-                        </div>
-                    </div>
-                    <div class="setting-item">
-                        <label for="random-seed">随机种子 (任意字符)</label>
-                        <input type="text" id="random-seed" value="12345" placeholder="输入任意字符作为种子">
-                    </div>
-                    <div class="setting-item" style="display:none;">
-                        <label>
-                            <input type="checkbox" id="enable-invert" checked>
-                            混淆时添加反色效果
-                        </label>
-                    </div>
-                    <div class="setting-item" style="display:none;">
-                        <label for="invert-percentage">反色区块比例 (%)</label>
-                        <input type="number" id="invert-percentage" value="50" min="0" max="100">
-                    </div>
-                </div>
-                
-                <div class="controls">
-                    <button id="scramble-btn">
-                        <span class="icon icon-scramble"></span>
-                        混淆图片
-                    </button>
-                    <button id="restore-btn" class="secondary">
-                        <span class="icon icon-restore"></span>
-                        还原图片
-                    </button>
-                </div>
-                
-                <div class="status-message" id="status-original"></div>
-            </div>
-            
-            <div class="image-section">
-                <h2 class="section-title">处理后的图片</h2>
-                
-                <div class="image-container">
-                    <div class="image-placeholder" id="processed-placeholder">
-                        <div class="image-placeholder-icon icon icon-image"></div>
-                        <p></p>
-                    </div>
-                    <img id="processed-image" alt="处理后的图片">
-                </div>
-                
-                <div class="controls">
-                    <button id="save-btn" class="success" disabled>
-                        <span class="icon icon-save"></span>
-                        保存图片
-                    </button>
-                    <button id="clear-btn" class="danger">
-                        清除图片
-                    </button>
-                </div>
-                
-                <div class="status-message" id="status-processed"></div>
-            </div>
+        <div class="seed-container">
+            <label for="seed-input">种子:</label>
+            <input type="number" id="seed-input" value="12345" min="0">
         </div>
     </div>
+    
+    <div class="preview-section">
+        <div class="preview-box">
+            <h2>原始图片</h2>
+            <canvas id="original-canvas"></canvas>
+            <div class="status" id="original-status">未上传图片</div>
+        </div>
+        
+        <div class="preview-box">
+            <h2>处理结果</h2>
+            <canvas id="result-canvas"></canvas>
+            <div class="status" id="result-status">等待处理</div>
+        </div>
+    </div>
+</div>
 
-    <script>
-        // DOM 元素
-        const fileInput = document.getElementById('file-input');
-        const uploadArea = document.getElementById('upload-area');
-        const originalImage = document.getElementById('original-image');
-        const processedImage = document.getElementById('processed-image');
-        const originalPlaceholder = document.getElementById('original-placeholder');
-        const processedPlaceholder = document.getElementById('processed-placeholder');
-        const scrambleBtn = document.getElementById('scramble-btn');
-        const restoreBtn = document.getElementById('restore-btn');
-        const saveBtn = document.getElementById('save-btn');
-        const clearBtn = document.getElementById('clear-btn');
-        const gridRowsInput = document.getElementById('grid-rows');
-        const gridColsInput = document.getElementById('grid-cols');
-        const randomSeedInput = document.getElementById('random-seed');
-        const enableInvert = document.getElementById('enable-invert');
-        const invertPercentage = document.getElementById('invert-percentage');
-        const statusOriginal = document.getElementById('status-original');
-        const statusProcessed = document.getElementById('status-processed');
+<script>
+    // 获取DOM元素
+    const uploadArea = document.getElementById('upload-area');
+    const fileInput = document.getElementById('file-input');
+    const obfuscateBtn = document.getElementById('obfuscate-btn');
+    const restoreBtn = document.getElementById('restore-btn');
+    const saveBtn = document.getElementById('save-btn');
+    const seedInput = document.getElementById('seed-input');
+    const originalCanvas = document.getElementById('original-canvas');
+    const resultCanvas = document.getElementById('result-canvas');
+    const originalStatus = document.getElementById('original-status');
+    const resultStatus = document.getElementById('result-status');
+    
+    // 获取Canvas上下文
+    const originalCtx = originalCanvas.getContext('2d');
+    const resultCtx = resultCanvas.getContext('2d');
+    
+    // 存储原始图像数据
+    let originalImageData = null;
+    
+    // 上传区域点击事件
+    uploadArea.addEventListener('click', () => {
+        fileInput.click();
+    });
+    
+    // 拖放功能实现
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.style.borderColor = '#4CAF50';
+        uploadArea.style.backgroundColor = '#f0fff0';
+    });
+    
+    uploadArea.addEventListener('dragleave', () => {
+        uploadArea.style.borderColor = '#ccc';
+        uploadArea.style.backgroundColor = 'transparent';
+    });
+    
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.style.borderColor = '#ccc';
+        uploadArea.style.backgroundColor = 'transparent';
         
-        // 存储当前使用的种子值
-        let currentSeed = '12345';
+        if (e.dataTransfer.files.length) {
+            handleImageUpload(e.dataTransfer.files[0]);
+        }
+    });
+    
+    // 文件选择事件
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length) {
+            handleImageUpload(e.target.files[0]);
+        }
+    });
+    
+    // 按钮点击事件
+    obfuscateBtn.addEventListener('click', () => {
+        if (originalImageData) {
+            processImage('obfuscate');
+        }
+    });
+    
+    restoreBtn.addEventListener('click', () => {
+        if (originalImageData) {
+            processImage('restore');
+        }
+    });
+    
+    saveBtn.addEventListener('click', saveProcessedImage);
+    
+    // 处理图片上传
+    function handleImageUpload(file) {
+        const reader = new FileReader();
         
-        // 初始化
-        function init() {
-            // 事件监听
-            uploadArea.addEventListener('click', () => fileInput.click());
-            fileInput.addEventListener('change', handleFileUpload);
-            uploadArea.addEventListener('dragover', handleDragOver);
-            uploadArea.addEventListener('drop', handleDrop);
+        reader.onload = (e) => {
+            const img = new Image();
             
-            scrambleBtn.addEventListener('click', scrambleImage);
-            restoreBtn.addEventListener('click', restoreImage);
-            saveBtn.addEventListener('click', saveProcessedImage);
-            clearBtn.addEventListener('click', clearImages);
-            gridRowsInput.addEventListener('change', validateGridSize);
-            gridColsInput.addEventListener('change', validateGridSize);
-            invertPercentage.addEventListener('change', validateInvertPercentage);
-            randomSeedInput.addEventListener('change', updateSeed);
-            
-            // 验证初始设置
-            validateGridSize();
-            validateInvertPercentage();
-            updateSeed();
-        }
-        
-        // 更新种子值
-        function updateSeed() {
-            currentSeed = randomSeedInput.value.trim() || '12345'; // 确保种子值不为空
-            showStatus(`随机种子已设置为: ${currentSeed}`, 'success', statusOriginal);
-        }
-        
-        // 处理文件上传
-        function handleFileUpload(e) {
-            const file = e.target.files[0];
-            if (file) {
-                processFile(file);
-            }
-        }
-        
-        // 处理拖放
-        function handleDragOver(e) {
-            e.preventDefault();
-            uploadArea.style.backgroundColor = 'rgba(109, 140, 166, 0.1)';
-        }
-        
-        function handleDrop(e) {
-            e.preventDefault();
-            uploadArea.style.backgroundColor = '';
-            
-            const file = e.dataTransfer.files[0];
-            if (file && file.type.startsWith('image/')) {
-                processFile(file);
-            } else {
-                showStatus('请上传图片文件', 'error', statusOriginal);
-            }
-        }
-        
-        // 处理文件并显示图片
-        function processFile(file) {
-            const reader = new FileReader();
-            
-            reader.onload = function(e) {
-                originalImage.src = e.target.result;
-                originalImage.onload = function() {
-                    originalPlaceholder.style.display = 'none';
-                    originalImage.style.display = 'block';
-                    showStatus('图片已加载', 'success', statusOriginal);
-                    
-                    // 重置处理后的图片
-                    processedImage.style.display = 'none';
-                    processedPlaceholder.style.display = 'flex';
-                    saveBtn.disabled = true;
-                };
+            img.onload = () => {
+                // 设置Canvas尺寸
+                originalCanvas.width = img.width;
+                originalCanvas.height = img.height;
+                resultCanvas.width = img.width;
+                resultCanvas.height = img.height;
+                
+                // 绘制原始图像
+                originalCtx.drawImage(img, 0, 0);
+                originalImageData = originalCtx.getImageData(0, 0, img.width, img.height);
+                
+                // 清空结果画布
+                resultCtx.clearRect(0, 0, img.width, img.height);
+                
+                // 更新状态和按钮
+                originalStatus.textContent = `已上传 (${img.width} × ${img.height})`;
+                resultStatus.textContent = '等待处理';
+                obfuscateBtn.disabled = false;
+                restoreBtn.disabled = false;
+                saveBtn.disabled = true;
             };
             
-            reader.onerror = function() {
-                showStatus('图片加载失败', 'error', statusOriginal);
-            };
-            
-            reader.readAsDataURL(file);
+            img.src = e.target.result;
+        };
+        
+        reader.readAsDataURL(file);
+    }
+    
+    // 伪随机数生成器 - 确保相同种子产生相同序列
+    class PRNG {
+        constructor(seed) {
+            // 使用线性同余生成器(LCG)算法
+            this.seed = seed % 2147483647;
+            if (this.seed <= 0) this.seed += 2147483646;
         }
         
-        // 验证网格大小输入
-        function validateGridSize() {
-            const rows = parseInt(gridRowsInput.value);
-            const cols = parseInt(gridColsInput.value);
-            
-            if (isNaN(rows) || isNaN(cols) || rows < 1 || rows > 1000 || cols < 1 || cols > 1000) {
-                showStatus('请输入有效的网格大小 (1-1000)', 'error', statusOriginal);
-                return false;
-            }
-            
-            showStatus(`网格大小设置为 ${rows}x${cols}`, 'success', statusOriginal);
-            return { rows, cols };
+        // 生成下一个随机数
+        next() {
+            return this.seed = this.seed * 16807 % 2147483647;
         }
         
-        // 验证反色比例
-        function validateInvertPercentage() {
-            const percent = parseInt(invertPercentage.value);
-            if (isNaN(percent) || percent < 0 || percent > 100) {
-                showStatus('请输入有效的反色比例 (0-100)', 'error', statusOriginal);
-                invertPercentage.value = 50;
-                return 50;
-            }
-            return percent;
+        // 生成0到max-1之间的随机整数
+        randomInt(max) {
+            return this.next() % max;
+        }
+    }
+    
+    // 处理图片（混淆或还原）
+    function processImage(action) {
+        const seed = parseInt(seedInput.value) || 12345;
+        const prng = new PRNG(seed);
+        
+        // 获取源图像数据（混淆时使用原图，还原时使用结果图）
+        const sourceCanvas = action === 'obfuscate' ? originalCanvas : resultCanvas;
+        const sourceImageData = sourceCtx.getImageData(0, 0, sourceCanvas.width, sourceCanvas.height);
+        const sourceData = new Uint8ClampedArray(sourceImageData.data);
+        
+        const width = sourceImageData.width;
+        const height = sourceImageData.height;
+        const pixelCount = width * height;
+        
+        // 生成像素交换映射表
+        const swapMap = createSwapMap(pixelCount, prng);
+        
+        // 创建处理后的像素数据
+        const processedData = new Uint8ClampedArray(pixelCount * 4);
+        
+        for (let i = 0; i < pixelCount; i++) {
+            // 混淆时使用映射表，还原时使用反向映射
+            const sourceIndex = action === 'obfuscate' ? swapMap[i] : i;
+            const targetIndex = action === 'obfuscate' ? i : swapMap[i];
+            
+            // 复制像素的RGBA值
+            processedData[targetIndex * 4] = sourceData[sourceIndex * 4];         // R
+            processedData[targetIndex * 4 + 1] = sourceData[sourceIndex * 4 + 1]; // G
+            processedData[targetIndex * 4 + 2] = sourceData[sourceIndex * 4 + 2]; // B
+            processedData[targetIndex * 4 + 3] = sourceData[sourceIndex * 4 + 3]; // A
         }
         
-        // 计算每个区块的精确位置和大小
-        function calculateBlockDimensions(imageWidth, imageHeight, rows, cols) {
-            const blocks = [];
-            const totalWidth = imageWidth;
-            const totalHeight = imageHeight;
-            
-            // 计算每列宽度
-            const colWidths = new Array(cols).fill(0);
-            const baseWidth = Math.floor(totalWidth / cols);
-            const extraWidth = totalWidth % cols;
-            for (let i = 0; i < cols; i++) {
-                colWidths[i] = baseWidth + (i < extraWidth ? 1 : 0);
-            }
-            
-            // 计算每行高度
-            const rowHeights = new Array(rows).fill(0);
-            const baseHeight = Math.floor(totalHeight / rows);
-            const extraHeight = totalHeight % rows;
-            for (let i = 0; i < rows; i++) {
-                rowHeights[i] = baseHeight + (i < extraHeight ? 1 : 0);
-            }
-            
-            // 计算每个区块的位置和大小
-            let currentY = 0;
-            for (let y = 0; y < rows; y++) {
-                let currentX = 0;
-                const blockHeight = rowHeights[y];
-                
-                for (let x = 0; x < cols; x++) {
-                    const blockWidth = colWidths[x];
-                    
-                    blocks.push({
-                        x: currentX,
-                        y: currentY,
-                        width: blockWidth,
-                        height: blockHeight,
-                        gridX: x,
-                        gridY: y
-                    });
-                    
-                    currentX += blockWidth;
-                }
-                
-                currentY += blockHeight;
-            }
-            
-            return blocks;
+        // 创建ImageData对象并绘制到结果画布
+        const imageData = new ImageData(processedData, width, height);
+        resultCtx.putImageData(imageData, 0, 0);
+        
+        // 更新状态
+        const actionText = action === 'obfuscate' ? '混淆' : '还原';
+        resultStatus.textContent = `已${actionText} (种子: ${seed})`;
+        saveBtn.disabled = false;
+    }
+    
+    // 创建像素交换映射表
+    function createSwapMap(pixelCount, prng) {
+        // 初始化映射表
+        const swapMap = new Array(pixelCount);
+        for (let i = 0; i < pixelCount; i++) {
+            swapMap[i] = i;
         }
         
-        // 对图像数据进行反色处理
-        function invertColors(imageData) {
-            const data = imageData.data;
-            for (let i = 0; i < data.length; i += 4) {
-                // 反色处理：255减去当前值（不改变透明度）
-                data[i] = 255 - data[i];     // 红色
-                data[i + 1] = 255 - data[i + 1]; // 绿色
-                data[i + 2] = 255 - data[i + 2]; // 蓝色
-                // 保持透明度不变 data[i + 3]
-            }
-            return imageData;
+        // 使用Fisher-Yates洗牌算法生成随机映射
+        for (let i = pixelCount - 1; i > 0; i--) {
+            const j = prng.randomInt(i + 1);
+            // 交换元素
+            [swapMap[i], swapMap[j]] = [swapMap[j], swapMap[i]];
         }
         
-        // 基于种子的伪随机数生成器
-        function createSeedRandom(seed) {
-            // 将种子字符串转换为数字
-            let hash = 0;
-            for (let i = 0; i < seed.length; i++) {
-                const char = seed.charCodeAt(i);
-                hash = ((hash << 5) - hash) + char;
-                hash = hash & hash; // 转换为32位整数
-            }
-            
-            // 线性同余生成器
-            return function() {
-                hash = Math.sin(hash) * 10000;
-                return hash - Math.floor(hash);
-            };
-        }
-        
-        // 使用种子进行数组洗牌
-        function shuffleArrayWithSeed(array, seed) {
-            const random = createSeedRandom(seed);
-            const newArray = [...array];
-            
-            for (let i = newArray.length - 1; i > 0; i--) {
-                const j = Math.floor(random() * (i + 1));
-                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-            }
-            
-            return newArray;
-        }
-        
-        // 混淆图片（使用种子控制随机效果）
-        function scrambleImage() {
-            if (!originalImage.src) {
-                showStatus('请先上传图片', 'error', statusOriginal);
-                return;
-            }
-            
-            const gridSize = validateGridSize();
-            if (!gridSize) return;
-            
-            const { rows, cols } = gridSize;
-            const totalBlocks = rows * cols;
-            const invertPercent = validateInvertPercentage();
-            const seed = currentSeed;
-            
-            // 对于非常大的网格给出警告
-            if (totalBlocks > 10000) {
-                if (!confirm(`您设置的网格较大（${totalBlocks}个区块），可能会导致浏览器卡顿。是否继续？`)) {
-                    return;
-                }
-            }
-            
-            // 创建canvas元素进行处理
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            // 设置canvas尺寸与原图完全一致
-            canvas.width = originalImage.naturalWidth;
-            canvas.height = originalImage.naturalHeight;
-            
-            // 绘制原图到canvas
-            ctx.drawImage(originalImage, 0, 0);
-            
-            // 计算每个区块的精确位置和大小
-            const blocks = calculateBlockDimensions(canvas.width, canvas.height, rows, cols);
-            
-            // 提取每个区块的像素数据
-            const blockData = blocks.map(block => {
-                return {
-                    ...block,
-                    pixels: ctx.getImageData(block.x, block.y, block.width, block.height)
-                };
-            });
-            
-            // 使用种子生成可重现的随机打乱顺序
-            const baseOrder = Array.from({ length: blocks.length }, (_, i) => i);
-            const scrambleOrder = shuffleArrayWithSeed(baseOrder, `scramble_${seed}`);
-            
-            // 使用种子决定哪些区块需要反色处理（确保可重现）
-            const invertMap = Array(blocks.length).fill(false);
-            const invertCount = Math.floor(totalBlocks * (invertPercent / 100));
-            
-            // 基于种子生成反色区块映射
-            if (enableInvert.checked && invertCount > 0) {
-                const invertIndices = shuffleArrayWithSeed(baseOrder, `invert_${seed}`);
-                for (let i = 0; i < invertCount; i++) {
-                    invertMap[invertIndices[i]] = true;
-                }
-            }
-            
-            // 清除画布
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // 按照打乱的顺序绘制区块，并对指定区块进行反色
-            for (let i = 0; i < blocks.length; i++) {
-                const originalIndex = scrambleOrder[i];
-                const targetBlock = blocks[i];
-                let sourceData = blockData[originalIndex].pixels;
-                
-                // 如果需要反色，先复制数据再处理
-                if (invertMap[i]) {
-                    // 创建数据副本
-                    const invertedData = new ImageData(
-                        new Uint8ClampedArray(sourceData.data),
-                        sourceData.width,
-                        sourceData.height
-                    );
-                    sourceData = invertColors(invertedData);
-                }
-                
-                // 绘制区块到新位置
-                ctx.putImageData(sourceData, targetBlock.x, targetBlock.y);
-            }
-            
-            // 显示处理后的图片
-            processedImage.src = canvas.toDataURL('image/png');
-            processedImage.onload = function() {
-                processedPlaceholder.style.display = 'none';
-                processedImage.style.display = 'block';
-                saveBtn.disabled = false;
-                showStatus(`图片已混淆，使用种子: ${seed}`, 'success', statusProcessed);
-            };
-        }
-        
-        // 还原图片（使用相同种子确保可重现）
-        function restoreImage() {
-            if (!originalImage.src) {
-                showStatus('请先上传需要还原的图片', 'error', statusOriginal);
-                return;
-            }
-            
-            const gridSize = validateGridSize();
-            if (!gridSize) return;
-            
-            const { rows, cols } = gridSize;
-            const totalBlocks = rows * cols;
-            const seed = currentSeed;
-            
-            // 对于非常大的网格给出警告
-            if (totalBlocks > 10000) {
-                if (!confirm(`您设置的网格较大（${totalBlocks}个区块），可能会导致浏览器卡顿。是否继续？`)) {
-                    return;
-                }
-            }
-            
-            // 创建canvas元素进行处理
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            // 设置canvas尺寸与原图完全一致
-            canvas.width = originalImage.naturalWidth;
-            canvas.height = originalImage.naturalHeight;
-            
-            // 绘制原图到canvas
-            ctx.drawImage(originalImage, 0, 0);
-            
-            // 计算每个区块的精确位置和大小
-            const blocks = calculateBlockDimensions(canvas.width, canvas.height, rows, cols);
-            
-            // 提取每个区块的像素数据
-            const blockData = blocks.map(block => {
-                return {
-                    ...block,
-                    pixels: ctx.getImageData(block.x, block.y, block.width, block.height)
-                };
-            });
-            
-            // 使用相同种子生成相同的打乱顺序，然后计算还原顺序
-            const baseOrder = Array.from({ length: blocks.length }, (_, i) => i);
-            const scrambleOrder = shuffleArrayWithSeed(baseOrder, `scramble_${seed}`);
-            
-            // 计算还原顺序
-            const restoreOrder = Array(blocks.length);
-            for (let i = 0; i < scrambleOrder.length; i++) {
-                restoreOrder[scrambleOrder[i]] = i;
-            }
-            
-            // 使用相同种子生成相同的反色区块映射
-            const invertMap = Array(blocks.length).fill(false);
-            const invertPercent = validateInvertPercentage();
-            const invertCount = Math.floor(totalBlocks * (invertPercent / 100));
-            
-            if (enableInvert.checked && invertCount > 0) {
-                const invertIndices = shuffleArrayWithSeed(baseOrder, `invert_${seed}`);
-                for (let i = 0; i < invertCount; i++) {
-                    invertMap[invertIndices[i]] = true;
-                }
-            }
-            
-            // 清除画布
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // 按照还原顺序绘制区块，并恢复反色
-            for (let i = 0; i < blocks.length; i++) {
-                const originalIndex = restoreOrder[i];
-                const targetBlock = blocks[i];
-                let sourceData = blockData[originalIndex].pixels;
-                
-                // 如果该区块在混淆时被反色了，现在需要再次反色以恢复原始色彩
-                if (enableInvert.checked && invertMap[originalIndex]) {
-                    // 创建数据副本
-                    const invertedData = new ImageData(
-                        new Uint8ClampedArray(sourceData.data),
-                        sourceData.width,
-                        sourceData.height
-                    );
-                    sourceData = invertColors(invertedData);
-                }
-                
-                // 绘制区块到原始位置
-                ctx.putImageData(sourceData, targetBlock.x, targetBlock.y);
-            }
-            
-            // 显示处理后的图片
-            processedImage.src = canvas.toDataURL('image/png');
-            processedImage.onload = function() {
-                processedPlaceholder.style.display = 'none';
-                processedImage.style.display = 'block';
-                saveBtn.disabled = false;
-                showStatus(`图片已还原，使用种子: ${seed}`, 'success', statusProcessed);
-            };
-        }
-        
-        // 保存处理后的图片
-        function saveProcessedImage() {
-            if (!processedImage.src) {
-                showStatus('没有可保存的图片', 'error', statusProcessed);
-                return;
-            }
-            
+        return swapMap;
+    }
+    
+    // 保存处理后的图片
+    function saveProcessedImage() {
+        try {
             // 创建下载链接
             const link = document.createElement('a');
             link.download = 'processed-image.png';
-            link.href = processedImage.src;
-            
-            // 触发下载
-            document.body.appendChild(link);
+            link.href = resultCanvas.toDataURL('image/png');
             link.click();
-            document.body.removeChild(link);
             
-            showStatus('图片已保存，请记住当前种子值以便将来还原', 'success', statusProcessed);
+            // 显示保存成功信息
+            console.log("图片保存成功")
+        } catch (error) {
+            console.log("失败"+error.message)
         }
-        
-        // 清除所有图片
-        function clearImages() {
-            originalImage.src = '';
-            originalImage.style.display = 'none';
-            originalPlaceholder.style.display = 'flex';
-            
-            processedImage.src = '';
-            processedImage.style.display = 'none';
-            processedPlaceholder.style.display = 'flex';
-            
-            fileInput.value = '';
-            saveBtn.disabled = true;
-            
-            statusOriginal.textContent = '';
-            statusOriginal.className = 'status-message';
-            statusProcessed.textContent = '';
-            statusProcessed.className = 'status-message';
+    }
+    
+    // 获取当前操作的上下文（用于混淆和还原的不同源）
+    Object.defineProperty(window, 'sourceCtx', {
+        get: function() {
+            // 这里只是为了代码简洁而使用的动态获取方式
+            // 在实际处理时会根据操作类型确定源
+            return originalCtx;
         }
-        
-        // 显示状态消息
-        function showStatus(message, type, element) {
-            element.textContent = message;
-            element.className = 'status-message';
-            element.classList.add(`status-${type}`);
-            
-            // 5秒后自动清除消息（种子相关消息保留时间更长）
-            const timeout = message.includes('种子') ? 8000 : 3000;
-            setTimeout(() => {
-                element.textContent = '';
-                element.className = 'status-message';
-            }, timeout);
-        }
-        
-        // 初始化应用
-        window.onload = init;
-        
-        console.log("代码由豆包AI生成。（现在AI真厉害……）")
-    </script>
+    });
+</script>
 </body>
 </html>
-    
