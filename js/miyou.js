@@ -278,6 +278,7 @@ let 注={
 "张书乐":["游戏媒体人","/i/15694730"],
 "古神之名":"如同克苏鲁古神一样，不可提起祂的名字。",
 "鸣式双厨狂喜":["一类疑似«鸣潮»商单的二创作品，总是米游角色挨打之类的剧情，让米游玩家不爽、让«鸣潮»玩家高兴","/i/11656013#双厨狂喜"],
+"同位体":"由一个角色衍生出的与其相似又有所不同的新角色",
 // "":"",
 // "":["",""],
 
@@ -550,7 +551,7 @@ if(o!=""){document.getElementById("内容").innerHTML=dy}
 
 if(o=='c'){document.getElementById("加载中").innerHTML=((在线==0)?'<link rel="stylesheet" href="/css/all.css">':'')+`<style>
 :root{--灰:#a1a1a1}
-body{cursor:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAMAAAC6CgRnAAACSVBMVEUAAADkvT3///7uy0j////39+3duTv+/vr+/vvryEH+/v/xy0L4+O3xzUPfsDjxzEP9/fr9/fv////+/vzzz0T////xzUPv793wzEL////xzUPXrTf19ej////lszrerDf09OT////////jsjv////drDj09OfTnQ7isw3gsTrdrDf6+vLx8eD39+zxzUPxzEP////drTfxzEP////////mxT7////z8+T19en////t7dbivDvJoSXbujfxzkP4+O7pwEX3003////juTz////8/Pjy8uTYrzjz8+T+/vz////w58fx6L/atDv////SpTT5+fDftQ/Nngz////////29uvZsjrQpjby8uTcszjz8+r////6+vT////orTj09OXprTjy8uD29urqrzn4+PDx8eLv79vrtjrwxED39+z19efwwD7tsjrorDjssDrrsTnjoBD3//71+/f6+vPz+PLr69Lq6tD0v1DuuUvzy0LutkC8hhrIhgL7+/n1+PD3+O7y9Ojx697z7Nfz7dPr687q4cvp3sfUu4fLqGH3xV/kvVDvu0TutULutD3otzvqrjjrrzfCkx/VlBbYlgvDgwT6/f37+vX39O/z8+Ls7tfs7NXs5NTu5c3lzJHmzIb803fkx3XOr3HkxWnjwF7ywlr1wljHoVP2z0vyxUjwukjyuETxuULCl0LvxkHstjvirjnprTXMmS7CjyvYpyrjpCbXsSXanCXHmSLpqh/PoxzboxfYnBfFlBbSkRTBixTgrRHenA/WmA6/gAWCjjfcAAAAXXRSTlMAE3MY4IAmJA4E/vvx58rHtZ+OjYBoXVg9NSgbEQf++/n38fDs6ufb29fU09LR0dDLy8jHxcO/u7qurq6uqainpqWShoSAf3lzbm1paWRgW1pUTktFRUI9OC0dFwoA/9kJAAABz0lEQVQoz3XPZUMqQRQGYJZQrGt71dvd3d3dfY3ZYgFhaVBEsLu7u7u745c5LDu278d55p0zRyARSgX75SB9N9h9P3xIA/HL30f2LtalAOB563XYHnb4ciwBYE5fD/i16/G3FEQuJ8R+AV/DoqSbA/4fV8RBRDkpvv3AP1AY/PGTE+/JEW5N+mOnvSfkioyd2LDw02mRZynYVG+jrKVzIm7ifQJi7NZmpn31uYCLRC2nKEUtlZZanVjp6WzZy/JfueyPNyGnFKaMUvtAV05Oa3b2WFlf0Rd+/StqiCZqvHzR4XBUrFVMFWiO/uVXfEarCcqSkjdjzbX2FpaM6Ej9qQjeJCqaqLFY8gydzbnW/kIdiesuHOLtOwOLSaZ2Q3xHfIKGxHFSfwDjzd0bFpOMbYYCSMU4NNmGSS8xKlplbDFoEvQynLMbyKL9mGQ62di0UiLDtS67iOYJ/M2MigGN5cVaLTQttDNuyALNDAMyRyd08JTkesf+IXtTZQb1pfP5SqVySAmj1wx/QyZMBKnTcz0sG8OFZdmid8g+gLTZ5W6bl8/Vm76+13y8bLbBRx6olz55/kVQSGi4CMMwUXhoSNDTO+gzn5/8ELnuoXi4Yev66rPXJeePIwAAAABJRU5ErkJggg=='),auto}
+body{cursor:url('/i/o/ys/c${Math.floor(Math.random()*2)+1}.png'),auto}
 .注{font-weight:normal;color:var(--a-color);}
 .注,a,a b{cursor:pointer}
 #right_anchor,#right_anchor2{display:none !important}
