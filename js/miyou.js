@@ -452,7 +452,7 @@ if(typeof 注[临时0[1]]=="object"){dy+="<span class='提示' data-msg='"+注[�
 <b>«崩坏学园2»</b>〈只看|崩坏学园2〉、
 <b>«崩坏3»</b>〈只看|崩坏3〉<br>
 <b>«未定事件簿»</b>〈只看|未定事件簿〉<br>
-<b>«原神»</b>〈只看|原神〉、
+<b>«原神»</b>〈只看|原神〉（千星奇域〈只看|千星奇域〉）、
 <b>«星穹铁道»</b>〈只看|星穹铁道〉、
 <b>«绝区零»</b>〈只看|绝区零〉<br>
 <b>«因缘精灵»</b>〈只看|因缘精灵〉<br>
@@ -498,6 +498,7 @@ if(typeof 注[临时0[1]]=="object"){dy+="<span class='提示' data-msg='"+注[�
 <b>〈内斗论〉</b>〈只看|内斗论〉<br>
 <b>商战</b>〈只看|商战〉<small>：指控米哈游搞商战。</small><br>
 <b>〈社管〉</b>〈只看|社管〉<br>
+<b>法务部</b>〈只看|法务部〉<br>
 
 <a onclick="this.style.display='none';this.nextElementSibling.style.display='inline'">更多</a><fieldset style="display:none;"><legend>更多</legend>
 <b>〈鬼图〉</b>〈只看|鬼图〉<br>
