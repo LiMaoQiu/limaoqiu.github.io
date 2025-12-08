@@ -584,7 +584,7 @@ if(d[搜索]&&d[搜索][0]=="js"){
 			}else{
 				dy+="<a href=\"?";
 				if(临时[1]){dy+=临时[1]}else{dy+=d[搜索][i]}
-				if(url[1]){dy+=" "+url[1]}
+				if(url[1]){dy+=" "+url.slice(1).join(" ")}
 				dy+="\"";
 			}
 
