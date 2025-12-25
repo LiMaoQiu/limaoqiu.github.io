@@ -33,6 +33,11 @@ hr.co0{border-top:1px solid #00000000}
     #right_anchor2{position:relative;}#right_anchor2 table{width:60%;}
     .cj{margin:6px;padding:6px;}
 }
+
+.anniu.active {
+    background-color:#cccccc;
+    color:#333333;
+}
 </style>
 
 </head><body>
@@ -76,17 +81,19 @@ const loadButton=document.getElementById("loadink");
 
 function generateCategoryButtons(){
     let btnHtml="";
-    categoryList.forEach(category => {
-        const isActive=category===currentCategory?"active":"";
-        btnHtml+=`<a class="anniu ${isActive}" onclick="switchCategory('${category}')">${category}</a>`;
-    });
+    if (categoryList.length>1){
+        categoryList.forEach(category=>{
+            const isActive = category===currentCategory?"active":"";
+            btnHtml+=`<a class="anniu ${isActive}" onclick="switchCategory('${category}')">${category}</a>`;
+        });
+    }
     btnContainer.innerHTML=btnHtml;
 }
 
 function switchCategory(category){
     currentCategory=category;
     document.getElementById("anniu_b").textContent=category;
-    document.querySelectorAll('.anniu').forEach(btn => {
+    document.querySelectorAll('.anniu').forEach(btn=>{
         btn.classList.remove('active');
         if(btn.textContent===category){
             btn.classList.add('active');
@@ -128,6 +135,7 @@ function loadMore(){
             newNav+=`<tr><td><a href="#${title}">${title}</a></td></tr>`;
         }else if(parts[0]==="br"){
             newContent+=`<hr class='co0'>`;
+            if(parts[1]){newContent+=`<p>${parts[1]}</p>`}
         }else{
             newContent+=`<div class="cj">`;
 
