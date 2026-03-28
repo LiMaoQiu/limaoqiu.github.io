@@ -7,6 +7,7 @@ a[href]{cursor:pointer;}a[href]:after{font-size:0.6em;content:'⤴';color:#bbbbb
 a[onclick^="this.style.display='none';document.getElementById('隐藏_"]:after,a[onclick="this.style.display='none';this.nextElementSibling.style.display='inline'"]:after{content:" ⛛";font-size:0.5em}
 legend{font-weight:bold}ul{margin:10px}
 h4{font-size:24px}
+a[onclick^="dw("]{font-size:0.85em;border: 1px solid #cfcfcf;padding:3px;border-radius:10px}
 </style><div id=\"弹窗\" style=\"display:none;\"></div>`;
 
 let oo="";
@@ -44,6 +45,8 @@ for(let i=1;正.length>i;i++){
     }else if(临时[0]=="h0"){跳转+="<br>";文+=临时[1];
     }else if(临时2[0]=="zk"){
         if(!临时2[2]){临时2[2]="详情"}if(临时2[3]){}else{临时2[3]=临时2[2]}文+="<a onclick=\"dw(dwb='"+临时2[1]+"',dwd='"+临时2[3]+"')\">"+临时2[2]+"</a>"+临时[1];
+    }else if(临时2[0]=="图片"){
+        if(!临时2[2]){临时2[2]="图片"}if(临时2[3]){}else{临时2[3]=临时2[2]}文+="<a onclick=\"dw(dwb='图片＼"+临时2[1]+"',dwd='"+临时2[3]+"')\">"+临时2[2]+"</a>"+临时[1];
     }else if(临时2[0]=="字"){
         文+=表_代码[临时2[1]]+临时[1];
     }else{
