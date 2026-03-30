@@ -1,0 +1,289 @@
+---
+layout: page2
+title: 猫球仓买
+nav_text: 猫球仓买
+nav_url: <a href="/jiuxian">酒仙笔记</a>
+permalink: i/2264624
+---
+<link rel="stylesheet" href="/css/all2.css">
+<style>
+:root{
+    --va:#c4c4c4;
+    --vb:#f6f6f6;
+    --vc:#A9A9A9;
+    --vd:#121212;
+}
+body,.body,td{
+    background-color:var(--vd);
+    color:var(--va);
+}
+a{color:var(--vb);}
+table{border:2px solid var(--va);box-shadow:none;border-spacing:2px;border-collapse:separate;line-height:initial;}
+
+#弹窗{position:fixed;left:0px;top:0px;background:#00000070;width:100%;height:100%;z-index:1001}
+.弹窗_0{width:100%;height:100%;position:absolute}
+.弹窗_1{position:relative;background:var(--vd);top:20px;width:60%;height:65%;margin:5% auto;padding:14px 50px 40px;font-size:1.2em;line-height:33px;font-weight:bold;border:2px solid var(--va);
+word-wrap:break-word;overflow:auto;
+}
+
+#酒单 fieldset{transition:all 0.2s ease;transform-origin:center;cursor:pointer;margin:auto auto 1.2em;}
+#酒单 fieldset:hover{transform:translateY(-2px) scale(1.01);}
+
+a[onclick="this.style.display='none';this.nextElementSibling.style.display='inline'"]:after{content:" ⛛";font-size:0.5em;}
+a.zhushi:after{content:"";}
+small.zhushi{font-weight:normal;}
+
+summary{cursor:pointer;}
+summary:hover{color:#0085A1;}
+
+i[i]{font-size:0.8em;color:#5e5e5e;font-weight:normal;letter-spacing:2px;}
+.酒 legend{color:var(--vb);font-size:1.1em;font-weight:bold;}
+#对话 img{width:300px;background-color:#232323;}
+</style>
+<style id="分类"></style>
+
+<div id="弹窗" style="display:none;"><div class="弹窗_0"></div><div class="弹窗_1"><h3 id="对话标题"></h3><div id="对话"></div></div></div>
+
+<div id="开场白"></div>
+
+<hr>
+
+
+<h2>酒单</h2>
+
+<a onclick="this.style.display='none';this.nextElementSibling.style.display='inline'">分类</a><fieldset style="display:none;"><legend>分类（还没做好）</legend>
+    <details><summary>口味</summary>
+        　<a onclick="分类('甜味')">甜味饮品</a><br>
+        　<a onclick="分类('苦味')">苦味饮品</a><br>
+        　<a onclick="分类('酸味')">酸味饮品</a><br>
+        　<a onclick="分类('辛辣')">辛辣饮品</a><br>
+        　<a onclick="分类('发泡')">发泡饮品</a>
+    </details>
+    <details><summary>烈度</summary>
+    </details>
+    <a onclick="分类('0')">显示全部</a>
+</fieldset><br>
+
+<br>
+
+<div id="酒单"></div>
+
+<script>
+let 今日=((d=new Date())=>d.getFullYear()+'.'+(d.getMonth()+1)+'.'+d.getDate())();
+let 时=new Date().getHours();
+
+function 按钮(a,b){
+    return `{<a onclick="输入(通用['${a}'],'开场白',this)"> - ${b}</a>}`;
+}
+function 特殊(a,b){
+    return `{<a onclick="输入(通用['${a}'](),'开场白',this)"> - ${b}</a>}`;
+}
+let br="{<br class='del'>}";
+
+let 通用={
+    "开篇":
+    特殊('打招呼','你好')+br+
+    按钮('问题','我有个问题')+br+
+    按钮('隐藏酒单','我要酒单上没有的'),
+
+    "问题":按钮('问题1','怎么点单？')+br+按钮('问题2','你是谁？')+br+按钮('问题3','这是哪里？'),
+    "问题1":`下面有“酒单”，看看有没有感兴趣的，点击即可。{<br><br>}`+按钮('开篇','对话'),
+    "问题2":`我是李猫球，这家“猫球仓买”的老板。{<br><br>}`+按钮('开篇','对话'),
+    "问题3":`这里是“猫球仓买”。不过和别的“仓买”不太一样，我这里只卖饮品。{<br><br>}`+按钮('开篇','对话'),
+
+    "隐藏酒单_输入":`{<br><br><input type="text" id="隐藏酒单" autocomplete="off" class='del'><a onclick="隐藏酒单()" class='del'> 发送</a>}${br}`+按钮('开篇','算了'),
+
+    "算了":br+`{<a onclick='关闭()'> - 算了</a>}`,
+    "关闭":br+`{<a onclick='关闭()'> - 关闭</a>}`,
+}
+// 通用["你好"]=["你好啊。"+`{<br><br>}`+通用['开篇'],":D"+`{<br><br>}`+通用['开篇']];
+通用["隐藏酒单"]=`你想要什么？`+通用["隐藏酒单_输入"];
+
+let 打招呼次数=0;
+通用["打招呼"]=()=>{
+    let a=["你好啊。",":D"];
+    if(时>=5&&时<9){a.push("早上好。");}
+    if(时>=14&&时<18){a.push("下午好。");}
+    if(时>=18||时<3){a.push("晚上好。");}
+    if(打招呼次数==0){a=["你好啊。"];}
+    if(打招呼次数==10){a=["我很好，谢谢。"];}
+    if(打招呼次数>99){a=["……你还好么？"];}
+    打招呼次数+=1;
+    return a[Math.floor(Math.random()*a.length)]+"{<br><br>}"+通用["开篇"];
+};
+
+let 缓存=localStorage.getItem("猫球仓买")||0;
+localStorage.setItem("猫球仓买",今日);
+let 寒暄="";
+if(缓存==0){
+    寒暄="{<br>}你好啊，新来的朋友。:D";
+}else if(缓存==今日){
+    寒暄="";
+}else{
+    let 相差=Math.abs(new Date(...缓存.split('.').map((x,i)=>i==1?x-1:x))-new Date(...今日.split('.').map((x,i)=>i==1?x-1:x)))/86400000;
+    if(相差>30){
+        寒暄="{<br>}哇，好久不见，最近还好么？";
+    }else if(相差>7){
+        寒暄="{<br>}好久不见。";
+    }
+}
+
+let 开场白={
+    "0":[[`欢迎来到‘猫球仓买’。${寒暄}{<br><br>}`+按钮('开篇','对话')]],
+    // "3.30":[["开场白1","开场白2"],["红酒","绿酒"]],
+    // "1.1":[],
+}
+
+let 酒单=[
+    "四德酒",
+    "锈湖鸡尾酒",
+    "谋杀烈酒",
+    
+    ["h3","测试"],
+    "红酒","绿酒",
+];
+
+let 酒={
+"红酒":["关键词 关键词2","介绍",{0:[`确定？{<br><br><a onclick="选择(1,this)"> - 确定1</a><br class='del'><a onclick="关闭()">关闭</a>}`,`确定？{<br><br><a onclick="选择(1,this)"> - 确定2</a><br class='del'><a onclick="关闭()">关闭</a>}`],1:`上酒{<br><br><a onclick="关闭()">关闭</a>}`}],
+"绿酒":["关键词 关键词2","介绍",{0:`上酒{<br><br><a onclick='关闭()'>关闭</a>}`}],
+
+"锈湖鸡尾酒":["","来自"+名('锈湖')+"。",{
+    0:图('锈湖鸡尾酒.png')+`使用${名('锈湖',1)}神秘的炼金术制造而成。{<br>}因为这地方太过邪门，我总是对这酒敬而远之。${注释('出自«锈湖：根源»')}  {<br><br>}你确定要喝么？{<br><br><a onclick="选择(1,this)"> - 喝</a>}`+通用["算了"]+br+br+`{<a onclick="选择(2,this)"> - 我想要它的配方</a>}`,
+    1:`酸涩的果味，配合伏特加的酒味……没什么特别的。      {<br>}至少暂时如此。{<br>}`+通用["关闭"],
+    2:`为什么？……算了，给你吧。     {
+    <table>
+    <tr><td></td><td>火 + 土 = 岩浆</td><td></td><td>空气 + 水 = 云</td><td></td></tr>
+    <tr><td></td><td>岩浆 + 空气 = 石头</td><td>石头 + 火 = 金属</td><td>云 + 土 = 植物</td><td></td></tr>
+    <tr><td></td><td>石头 + 空气 = 沙子</td><td>金属 + 火 = 电</td><td>植物 + 空气 = 树</td><td>金属 + 石头 = 刀片</td></tr>
+    <tr><td></td><td>沙子 + 火 = 玻璃瓶</td><td>电 + 玻璃瓶 = 灯泡</td><td>树 + 刀片 = 木头</td><td>刀片 + 木头 = 刀</td></tr>
+    <tr><td>植物 + 沙子 = 谷类</td><td>玻璃瓶 + 水 = 一瓶水</td><td>植物 + 灯泡 = 水果</td><td></td><td>电 + 刀 = 榨汁机</td></tr>
+    <tr><td></td><td>谷类 + 一瓶水 = 伏特加</td><td>水果 + 榨汁机 = 果汁</td><td></td><td></td></tr>
+    <tr><td></td><td style="text-align:right">伏特加</td><td> + 果汁 = <b>锈湖鸡尾酒</b></td><td></td><td></td></tr>
+    </table>
+    }其中的“水果”是仙人掌果。{<br>}`+通用["关闭"]}],
+"谋杀烈酒":["","原名"+名('大黑店黑桃J烈酒')+"，因其过于猛烈，喝下后仿佛受到持续伤害，像是要被谋杀一般，而有了"+名('谋杀烈酒')+"这个别名。",{
+    0:图('谋杀烈酒.png')+`对身体健康可能有害，不要喝太多……最好一点也别喝。${注释('出自«我的世界»荒川镇')}{<br><br><a onclick="选择(1,this)"> - 喝</a>}`+通用["算了"]+br+br+`{<a onclick="选择(3,this)"> - 我想要它的配方</a>}`,
+    1:`你拔出瓶塞，仿佛封印已久的硫磺味冲了出来。{<br>}真的要喝么？{<br><br><a onclick="选择(2,this)"> - 喝</a>}`+通用["算了"],
+    2:`你喝了一口，尝到了一股腥臭味，但幸好只是一瞬间，很快你的舌头就失去了味觉，只感觉到发麻，喉咙像是被火灼烧。{<br>}你感觉到天旋地转，但你不确定是喝醉了还是中度了。{<br>}你甚至开始怀疑这东西是酒还是毒药。`+通用["关闭"],
+    3:`请帮我保密哦。{<br>}先把${名('烈焰粉',1)}作为燃料放进酿造台，放上水瓶，加入${名('地狱疣',1)}，酿造成${名('粗制的药水',1)}，放入${名('蜘蛛眼',1)}酿制成${名('剧毒药水',1)}……不对，是${名('谋杀烈酒',1)}。{<br>}还可以加入${名('荧石粉',1)}增强效果。{<br>}`+通用["关闭"]}],
+"四德酒":["","盲眼酒中仙"+名('云壬')+"由于双目失明其他感官变得更加敏锐，经过常年游历与试验终于研制出了能令他的四种感官分别感到满意的酒。",{
+    0:图('四德酒.png')+`传说这酒已经失传了，不过我在游历${名('潘达利亚大陆',1)}时，在${名('不息山',1)}最高的山顶找到了${名('云壬',1)}的雕像，在雕像旁的石板上找到了配方。${注释('出自«魔兽世界»')}{<br><br><a onclick="选择(1,this)"> - 喝</a>}`+通用["算了"],
+    1:`你的视觉受到阻碍，但其他四感变得异常敏感。{<br>}`+通用["关闭"]}],
+// "":["关键词","介绍",{0:图('.png')+`介绍。${注释('出自«»')}{<br><br><a onclick="选择(1,this)"> - 喝</a>}`+通用["算了"]}],
+}
+
+开场白=开场白[(new Date().getMonth()+1)+"."+new Date().getDate()]||开场白["0"];
+if(开场白[1]){
+    for(let i=开场白[1].length-1;i>=0;i--){
+    if(!酒单.includes(开场白[1][i])){酒单.unshift(开场白[1][i]);}
+}
+}
+开场白=开场白[0][Math.floor(Math.random()*开场白[0].length)];
+
+let dy="";
+for(let i=0;酒单.length>i;i++){
+    if(酒单[i][0]=="br"){
+        dy+=酒单[i][1];
+    }else if(酒单[i][0].length==2&&酒单[i][0][0]=="h"&&酒单[i][0][1]>0){
+        dy+="<"+酒单[i][0]+">"+酒单[i][1]+"</"+酒单[i][0]+">";
+    }else{
+        dy+=`<fieldset class="酒 ${酒[酒单[i]][0]}" onclick="选择('${酒单[i]}')"><legend>${酒单[i]}</legend>${酒[酒单[i]][1]}</fieldset>`;
+    }
+}
+document.getElementById("酒单").innerHTML=dy;
+
+async function 输入(content,id,e){
+    if(Array.isArray(content)){
+        content=content[Math.floor(Math.random()*content.length)];
+    }
+    if(e){
+        if(e.innerHTML==" - 对话"){
+            e.outerHTML="";
+        }
+        else{
+            e.outerHTML="<b>"+e.innerHTML+"</b><br><br>";
+            document.querySelectorAll('#'+id+' a[onclick*="输入"],#'+id+' .del,#'+id+' a[onclick*="关闭"],#'+id+' a[onclick*="选择"]').forEach(el=>el.remove());
+        }
+    }
+    
+    const output=document.getElementById(id);
+    // output.innerHTML='';
+    const parts=content.split(/(\{[^}]+\})/).filter(part=>part!=='');
+
+    for(const part of parts){
+    if(part.startsWith('{')&&part.endsWith('}')){
+    output.insertAdjacentHTML('beforeend',part.slice(1,-1));
+    }else{await typeCharacters(part,output);}}
+
+    }
+    async function typeCharacters(text,element){
+    const textNode=document.createTextNode('');
+    element.appendChild(textNode);
+
+    for(const char of text){
+    await new Promise(resolve=>setTimeout(resolve,70));
+    textNode.data+=char;
+    }
+}
+输入(开场白,"开场白");
+
+let 当前="x";
+function 选择(o,e){
+    if(当前=="x"){
+        当前=o;
+        document.getElementById("对话标题").innerHTML=当前;
+        o=0;
+        document.getElementById("弹窗").style="";
+    }
+    if(Array.isArray(酒[当前][2][o])){输入(酒[当前][2][o][Math.floor(Math.random()*酒[当前][2][o].length)],"对话",e);}
+    else{输入(酒[当前][2][o],"对话",e);}
+}
+function 关闭(){
+    当前="x";
+    document.getElementById("对话").innerHTML="";
+    document.getElementById('弹窗').style='display:none;';
+}
+document.querySelectorAll('details').forEach(d=>{
+    d.onclick=()=>setTimeout(()=>{
+        document.querySelectorAll('details[open]').forEach(o=>o!=d&&(o.open=false))
+    },0)
+})
+function 分类(o){
+    if(o=="0"){
+        document.getElementById("分类").innerHTML="";
+    }else{
+        document.getElementById("分类").innerHTML=".酒{display:none;}."+o+"{display:block;}";
+    }
+}
+
+function 隐藏酒单(){
+    let o=document.getElementById("隐藏酒单").value;
+    document.querySelectorAll('#开场白 a[onclick*="输入"],#开场白 .del').forEach(el=>el.remove());
+    document.getElementById("开场白").insertAdjacentHTML('beforeend',"<b> - "+o+"</b>");
+    if(酒单.indexOf(o)!=-1){
+        输入("{<br><br>}你说的这个，酒单里已经有了。{<br><br>}"+按钮('开篇','对话'),"开场白");
+    }else if(酒[o]){
+        dy=`<fieldset class="酒 ${酒[o][0]}" onclick="选择(${o})"><legend>${o}</legend>${酒[o][1]}</fieldset>`+dy;
+        document.getElementById("酒单").innerHTML=dy;
+        酒单.push(o);
+        输入("{<br><br>}好的，已经添加进酒单了。{<br><br>}"+按钮('开篇','对话'),"开场白");
+    }else{
+        输入("{<br><br>}抱歉，这里没有叫这个名字的酒。"+通用["隐藏酒单_输入"],"开场白");
+    }
+}
+
+function 名(o,k){
+    if(k){o="{<i i> [</i>}"+o+"{<i i>] </i>}";}
+    else{o="<i i> [</i>"+o+"<i i>] </i>";}
+    return o;
+}
+
+function 注释(o){
+    return `{<a class='zhushi' onclick="this.style.display='none';this.nextElementSibling.style.display='inline'">//</a><small class='zhushi' style='display:none;'>//${o}</small>}`;
+}
+
+function 图(o){
+    return `{<img src='/i/2264624/${o}'><br><br>}`;
+}
+</script>
+
