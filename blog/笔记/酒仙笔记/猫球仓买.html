@@ -14,19 +14,13 @@ footer_img: xsds
     --vc:#A9A9A9;
     --vd:#121212;
 }
-body,.body,td{
-    background-color:var(--vd);
-    color:var(--va);
-    cursor:default;
-}
+body,.body,td{background-color:var(--vd);color:var(--va);cursor:default;}
 .biaotib{color:#0085A1;}
 a,summary[onclick]{color:var(--vb);}
 table{border:2px solid var(--va);box-shadow:none;border-spacing:2px;border-collapse:separate;line-height:initial;}
 #弹窗{position:fixed;left:0px;top:0px;background:#00000070;width:100%;height:100%;z-index:1001}
 .弹窗_0{width:100%;height:100%;position:absolute}
-.弹窗_1{position:relative;background:var(--vd);top:20px;width:60%;height:65%;margin:5% auto;padding:14px 50px 40px;font-size:1.15em;line-height:33px;border:2px solid var(--va);
-word-wrap:break-word;overflow:auto;
-}
+.弹窗_1{position:relative;background:var(--vd);top:20px;width:60%;height:65%;margin:5% auto;padding:14px 50px 40px;font-size:1.15em;line-height:33px;border:2px solid var(--va);word-wrap:break-word;overflow:auto;}
 #nav,.nav_drop_down,.nav_drop_down2{background-color:#1F1B2C !important;}
 #nav a{color:#E1E1E1 !important;}
 #酒单 fieldset{transition:all 0.2s ease;transform-origin:center;cursor:pointer;margin:12px auto 1.3em 0;
@@ -50,20 +44,10 @@ h5{font-size:17px;}
 #酒单 li{border-bottom:2px solid var(--va);display:table;}
 a[href^="#"]:after{content:" ↷";color:var(--va);font-size:12px;font-weight:normal;}
 details .zhushi{font-size:0.78em;}
-
-input{
-  background-color:var(--vd);
-  color:var(--va);
-  border:1px solid var(--va);
-  outline:none;
-  font-size:1.01em;
-}
+input{background-color:var(--vd);color:var(--va);border:1px solid var(--va);outline:none;font-size:1.01em;}
 
 @media screen and (max-width:768px){
-    .弹窗_1{
-        width:90%;height:80%;
-        padding:10px 10px 30px;font-size:1.05em;
-    }
+    .弹窗_1{width:90%;height:80%;padding:10px 10px 30px;font-size:1.05em;}
 }
 </style>
 <style id="分类"></style>
@@ -113,13 +97,10 @@ let 今日=((d=new Date())=>d.getFullYear()+'.'+(d.getMonth()+1)+'.'+d.getDate()
 let 时=new Date().getHours();
 
 let 醉酒=0,打招呼次数=0,dy="",跳转="",stopTyping=false,速度,临时变量={};
-
-function 按钮(a,b){
-    return `{<a onclick="输入(通用['${a}'],'开场白',this)"> - ${b}</a>}`;
-}
-function 特殊(a,b){
-    return `{<a onclick="输入(通用['${a}'](),'开场白',this)"> - ${b}</a>}`;
-}
+function 按钮(a,b){return `{<a onclick="输入(通用['${a}'],'开场白',this)"> - ${b}</a>}`;}
+function 特殊(a,b){return `{<a onclick="输入(通用['${a}'](),'开场白',this)"> - ${b}</a>}`;}
+function 注释(o){return `{<small class='zhushi'>//${o}</small>}`}
+function 图(o){return `{<img src='/i/2264624/${o}'><br><br>}`}
 let br="{<br class='del'>}";
 
 let 道具={
@@ -713,9 +694,7 @@ async function 输入(content,id,e){
     速度=content.replace(/\{[\s\S]*?\}/g, '').length;
     if(速度>100){速度=10}else if(速度>50){速度=50}else{速度=70}
     if(e){
-        if(e.innerHTML==" - 对话"){
-            e.outerHTML="";
-        }
+        if(e.innerHTML==" - 对话"){e.outerHTML=""}
         else{
             e.outerHTML="<b>"+e.innerHTML+"</b><br><br>";
             document.querySelectorAll('#'+id+' a[onclick*="输入"],#'+id+' .del,#'+id+' a[onclick*="关闭"],#'+id+' a[onclick*="选择"],#'+id+' a[onclick*="通用"]').forEach(el=>el.remove());
@@ -761,11 +740,6 @@ function 关闭(){
     document.getElementById("对话").innerHTML="";
     document.getElementById('弹窗').style='display:none;';
 }
-// document.querySelectorAll('details').forEach(d=>{
-//     d.onclick=()=>setTimeout(()=>{
-//         document.querySelectorAll('details[open]').forEach(o=>o!=d&&(o.open=false))
-//     },0)
-// })
 
 function 分类(o){
     if(o=="0"||o=="随机"){
@@ -773,13 +747,16 @@ function 分类(o){
         document.getElementById("当前分类").style="display:none;";
         document.getElementById("当前分类").innerHTML="";
     }else{
+        notyf.confirm(o);
         document.getElementById("当前分类").style="";
         document.getElementById("当前分类").innerHTML=o;
     }
     if(o=="随机"){
+        notyf.confirm('随机');
         o=酒单.filter(x=>!Array.isArray(x))[Math.floor(Math.random()*酒单.filter(x=>!Array.isArray(x)).length)];
     }
     if(o=="0"){
+        notyf.confirm("显示全部");
         document.getElementById("分类").innerHTML="";
     }else{
         document.getElementById("分类").innerHTML=`.酒,#酒单 span,#酒单 hr,#酒单 a,#酒单 small,#酒单 ul,#酒单 ol,#酒单 h1,#酒单 h2,#酒单 h3,#酒单 h4,#酒单 h5,#跳转{display:none;}.${o}{display:block;}`;
@@ -803,23 +780,12 @@ function 隐藏酒单(){
 }
 
 function 名(o,k,l){
-    if(道具[o]){
-        o="<span class='提示' data-msg='"+道具[o]+"'>"+o.split("_")[0]+"</span>";
-    }else if(l){
-        o="<span class='提示' data-msg='"+l+"'>"+o+"</span>";
-    }
+    if(道具[o]){o="<span class='提示' data-msg='"+道具[o]+"'>"+o.split("_")[0]+"</span>";
+    }else if(l){o="<span class='提示' data-msg='"+l+"'>"+o+"</span>"}
     if(k){o="{<i i> [</i>"+o+"<i i>] </i>}";}
     else{o="<i i> [</i>"+o+"<i i>] </i>";}
     return o;
 }
-
-function 注释(o){
-    // return `{<a class='zhushi' onclick="this.style.display='none';this.nextElementSibling.style.display='inline'">//</a><small class='zhushi' style='display:none;'>//${o}</small>}`;
-    return `{<small class='zhushi'>//${o}</small>}`;
-}
-
-function 图(o){
-    return `{<img src='/i/2264624/${o}'><br><br>}`;
-}
+if(!window.notyf){window.notyf={confirm:function(msg){console.log(msg)},alert:function(msg){console.log(msg)}}}
 </script>
 
