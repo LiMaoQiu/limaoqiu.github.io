@@ -1,7 +1,7 @@
 ---
 layout: page2
 title: VA11 HALL-A：赛博朋克酒保行动
-nav_text: VA-11 HALL-A
+nav_text: <br>VA-11 HALL-A
 nav_url: <a href="/jiuxian">酒仙笔记</a>
 permalink: i/407130
 footer_img: xsds
@@ -32,10 +32,14 @@ h5{display:inline;font-size:1.05em;}
 div.body{box-shadow: 0 0 0 var(--vb);}
 
 .biaotib{
+    /* text-shadow: 1px 0px 3px #A21748,-1px 0px 3px #A21748,0px 1px 3px #A21748,0px -1px 3px #A21748; */
+    /* color:#A21748; */
+    line-height:40px;
     font-size:3em;
-    text-shadow: 1px 0px 3px #A21748,-1px 0px 3px #A21748,0px 1px 3px #A21748,0px -1px 3px #A21748;
-    color:#A21748;
     font-style: italic;
+    background-clip:text;-webkit-background-clip:text;color:transparent;
+    background-image:linear-gradient(to bottom,#FF3461,#EE325D,#E96A73,#F2325F);
+    text-shadow: 0 0 10px #ff346199;
 }
 
 .yla{color:#FF2E38;}
@@ -213,7 +217,7 @@ a[onclick="this.style.display='none';this.nextElementSibling.style.display='inli
     <li><a href="https://www.bilibili.com/opus/983248679880097793">道心融解</a>（官方调酒书的原图）</li>
     <li><a href="https://www.gcores.com/articles/194881">子旋</a>（官方调酒书的翻译版本）</li>
 </ul></fieldset><br>
-<span class='zhushi'>以下记录了«Karmotrine Dream»（现实中的官方调酒书）的内容，点击<a onclick="tjs(1)">显示</a> / <a onclick="tjs(0)">隐藏</a>。</span><br>
+<span class='zhushi'>以下记录了«Karmotrine Dream»（现实中的官方调酒书）的内容，点击<a id="tjs1" style="display:none;" onclick="tjs(1)">显示</a><a id="tjs2" onclick="tjs(0)">隐藏</a>。</span><br>
 
 <hr>
 
@@ -885,8 +889,12 @@ NDL：酒吧最基本的液体是Nutriogenic Dichometrical Lydogenol，简称NDL
     function tjs(o){
         if(o==1){
             document.getElementById("官方调酒书").innerHTML="";
+            document.getElementById("tjs1").style="display:none;";
+            document.getElementById("tjs2").style="";
         }else{
             document.getElementById("官方调酒书").innerHTML=".tjs{display:none;}";
+            document.getElementById("tjs1").style="";
+            document.getElementById("tjs2").style="display:none;";
         }
     }
 
