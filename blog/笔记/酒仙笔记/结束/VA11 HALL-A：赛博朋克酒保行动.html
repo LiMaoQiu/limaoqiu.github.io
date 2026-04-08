@@ -5,6 +5,11 @@ nav_text: <br>VA-11 HALL-A
 nav_url: <a href="/jiuxian">酒仙笔记</a>
 permalink: i/407130
 footer_img: xsds
+footer_fo:
+ - 关于我
+ - cd/va11.gif
+ - 140px
+ - href="/maoqiu"
 ---
 <link rel="stylesheet" href="/css/all2.css">
 <style>
@@ -18,13 +23,11 @@ footer_img: xsds
 body,.body{
     background-color:#121212;
     color:var(--va);
-    /* color:#dddddd; */
     font-family:'俐方体11号';font-size:1.05em;
 }
 
 a,summary{color:var(--vb);}
 h5{display:inline;font-size:1.05em;}
-/* .酒 legend{color:#5d7cea;} */
 .酒 legend{background-clip:text;-webkit-background-clip:text;color:transparent;}
 .酒 img{width:140px}
 .tjs legend{background-image:linear-gradient(to right,var(--vb),var(--vb));}
@@ -32,8 +35,6 @@ h5{display:inline;font-size:1.05em;}
 div.body{box-shadow: 0 0 0 var(--vb);}
 
 .biaotib{
-    /* text-shadow: 1px 0px 3px #A21748,-1px 0px 3px #A21748,0px 1px 3px #A21748,0px -1px 3px #A21748; */
-    /* color:#A21748; */
     line-height:40px;
     font-size:3em;
     font-style: italic;
@@ -117,15 +118,11 @@ a[onclick="this.style.display='none';this.nextElementSibling.style.display='inli
 .b4a,.b4b{box-shadow:0 0 0 3px #000000,0 0 0 6px #A5F1F3;}
 .b4b{background:linear-gradient(#A5F1F3,#72DCF2,#A5F1F3);}
 #floatingImg{
-    /* position:absolute;
-    width:60px;
-    pointer-events:none;
-    display:none;
-    z-index:9999; */
     position:fixed;
     width:60px;
     pointer-events:none;
     z-index:9999;
+    user-select:none;
 }
 #c2按钮,#c4按钮{
     color:#000000;
@@ -805,10 +802,9 @@ NDL：酒吧最基本的液体是Nutriogenic Dichometrical Lydogenol，简称NDL
 
 <fieldset class="酒 瓶装"><legend style="background-image:linear-gradient(to right,var(--vb),var(--vb));">
 <h5>Cacique Rum</h5> 酋长朗姆酒 - $500</legend>
-    （物品名“Rum”）<br>
     “祖父级的酒。”<br>
     <br>
-    <span class="Stella">Stella</span>送给<span class="Jill">Jill</span>的礼物。<span class='zhushi'>需要给Stella调出正确的酒。</span><br>
+    <span class="Stella">Stella</span>送给<span class="Jill">Jill</span>的礼物。<span class='zhushi'>需要在第3天给Stella调出正确的酒。</span><br>
 </fieldset>
 
 <fieldset class="酒 瓶装"><legend style="background-image:linear-gradient(to right,var(--vb),var(--vb));">
@@ -816,7 +812,7 @@ NDL：酒吧最基本的液体是Nutriogenic Dichometrical Lydogenol，简称NDL
     “像呕吐物一样绿的精灵。”<br>
     <br>
     <span class="Jill">Jill</span>从家里带来的，没有标签，并不值钱，但酒还是不错的。<br>
-    <span class='zhushi'>给Stella错误的酒，才会出现。</span><br>
+    <span class='zhushi'>在第3天给Stella错误的酒，才会出现。</span><br>
 </fieldset>
 
 <fieldset class="酒 其他"><legend style="background-image:linear-gradient(to right,var(--vb),var(--vb));">
@@ -1011,7 +1007,7 @@ function isMatch(item,aArr,double=false){
 }
 
 function 工艺(o){
-    if(进度==0){
+    if(进度==0||进度==1){
         if(情况[o]==0){
             情况[o]=1;
             document.getElementById(o+"1图").style="opacity:1;";
