@@ -988,7 +988,6 @@ let currentDragImage=null;
 let isInsideTarget=false;
 
 let canDrag=1;//1可以拖动 0不可以拖动
-
 let 情况={}
 let 进度=0;
 
@@ -1012,7 +1011,7 @@ function isMatch(item,aArr,double=false){
 }
 
 function 工艺(o){
-    if(canDrag==1){
+    if(进度==0){
         if(情况[o]==0){
             情况[o]=1;
             document.getElementById(o+"1图").style="opacity:1;";
@@ -1057,7 +1056,8 @@ function 重做(){
 function 调制(){
     if(情况["all"]==0){//没有材料
 
-    }else if(canDrag==1){//调制
+    }else if(进度==0){//调制
+        进度=1;
         canDrag=0;
         情况["调和"]=1;
         document.getElementById("c4按钮").innerHTML="停止";
@@ -1069,7 +1069,7 @@ function 调制(){
             情况["调和"]=2;
             document.getElementById("b3图").style="animation: swing 0.2s linear infinite alternate;";
         },5000);
-    }else if(进度==0){//停止
+    }else if(进度==1){//停止
         clearTimeout(timer);
         document.getElementById("b3图").style="";
         document.getElementById("c4按钮").innerHTML="上酒";
@@ -1084,11 +1084,12 @@ function 调制(){
                 进度="乱码饮料";
             }
         }
-        if(进度==0){进度=result[1]}
+        if(进度==1){进度=result[1]}
         document.getElementById("b3图").src="/i/2264624/"+result[0]+".png";
         document.getElementById("c3内容").style="";
         document.getElementById("c3内容").innerHTML=result[1].replace(new RegExp('_',"g")," ");
     }else{//上酒
+        分类('0');
         window.location.hash=进度;
         重做();
     }
