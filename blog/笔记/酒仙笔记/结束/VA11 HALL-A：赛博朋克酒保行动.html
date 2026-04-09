@@ -210,7 +210,7 @@ a[onclick="this.style.display='none';this.nextElementSibling.style.display='inli
 <a onclick="this.style.display='none';this.nextElementSibling.style.display='inline'">感谢名单</a><fieldset style="display:none;"><legend>感谢名单 <small>（排名不分先后）</small></legend><ul>
     <li><a href="https://va11halla.fandom.com/zh/wiki/VA-11_HALL-A_Wiki">fandom</a>（参考资料）</li>
     <li><a href="https://mzh.moegirl.org.cn/VA-11_Hall-A:赛博朋克酒保行动">萌娘百科</a>（参考资料）</li>
-    <li><a href="https://www.bilibili.com/video/BV1F441197cw/">盐煎肘子</a>（全流程、全结局视频）</li>
+    <li><a href="https://www.bilibili.com/video/BV1F441197cw/">盐煎肘子</a>（全流程、全结局录屏）</li>
     <li><a href="https://www.bilibili.com/opus/983248679880097793">道心融解</a>（官方调酒书的原图）</li>
     <li><a href="https://www.gcores.com/articles/194881">子旋</a>（官方调酒书的翻译版本）</li>
 </ul></fieldset><br>
@@ -251,7 +251,7 @@ a[onclick="this.style.display='none';this.nextElementSibling.style.display='inli
 大杯：将材料翻倍即可。<br>
 NDL：酒吧最基本的液体是Nutriogenic Dichometrical Lydogenol，简称NDL，原本是以充当水的代替品为目的而制造的实验性液体，并未得到大规模生产。<br>
 
-<br>
+<a name="返回调酒台"></a><br>
 
 <fieldset style="display:inline;"><legend><b>B.T.C 调酒指南</b> <small>欢迎回来，Jill</small></legend>
     <details><summary>按名称</summary>
@@ -585,7 +585,7 @@ NDL：酒吧最基本的液体是Nutriogenic Dichometrical Lydogenol，简称NDL
     “在这种酒的研发过程中，没有温度计遭到伤害。”<br>
     酸味，时尚，火辣。<br>
     <br>
-    <span class='zhushi'>“Mercury”翻译是“水星”或者“水银”。</span>
+    <span class='zhushi'>“Mercury”翻译是“水星”或者“水银”。</span><br>
     <fieldset class="tjs"><legend>调酒书</legend>
         肉桂威士忌 1oz + 蓝橙利口酒 0.5oz + 柠檬汁 0.75oz<ol>
             <li>将所有配料加入装满冰块的摇壶中。</li>
@@ -866,6 +866,8 @@ NDL：酒吧最基本的液体是Nutriogenic Dichometrical Lydogenol，简称NDL
         </fieldset>
 </fieldset><br>
 
+<a id="返回调酒台" onclick="返回调酒台()" style="position:fixed;top:200px;right:20px"><img src="/i/2264624/a/va11_btc.png" alt="返回调酒台" style="width:80px"></a>
+
 <script>
     function 分类(o){
         if(o=="0"){
@@ -892,6 +894,11 @@ NDL：酒吧最基本的液体是Nutriogenic Dichometrical Lydogenol，简称NDL
             document.getElementById("tjs1").style="";
             document.getElementById("tjs2").style="display:none;";
         }
+    }
+
+    function 返回调酒台(){
+        document.getElementById("BTC分类").innerHTML="";
+        document.querySelector('[name="返回调酒台"]').scrollIntoView({behavior:"smooth"});
     }
 
 async function 开场(){
