@@ -4,9 +4,6 @@ const buttons = document.querySelectorAll('.time-btn[data-second]');
 const stopBtn = document.getElementById('stopBtn');
 let timerId = null;
 
-timerEl.style="position:fixed;top:30px;right:70px;font-size:1.1em";
-stopBtn.style="position:fixed;top:30px;right:10px;font-size:1.1em";
-
 function formatTime(sec) {
     const m = Math.floor(sec / 60).toString().padStart(2, '0');
     const s = (sec % 60).toString().padStart(2, '0');
